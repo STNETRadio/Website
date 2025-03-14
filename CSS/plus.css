@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Source+Sans+3:wght@200..900&display=swap');
+
+body {
+    font-family: "Sorce Sans 3", sans-serif;
+    background: #fff;
+    color: #333;
+    font-weight: 300;
+    line-height: 1.4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner {
+    background-color: #e4e4e4;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation-name: banner;
+    animation-duration: 3s;
+  }
+
+  @keyframes banner {
+    from {background-color: #333;}
+    to {background-color: #e4e4e4;}
+  }
+  .banner p {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    animation-name: text;
+    animation-duration: 2s;
+  }
+  
+  @keyframes text {
+    from {color:#eee;}
+    to {color: #333;}
+
+  }
+  .banner-btn {
+    display: inline-block;
+    padding: 0.2rem .4rem;
+    text-decoration: none;
+    margin: 0.5rem 6px;
+    background: #333;
+    color: #fff;
+    border: px solid #ddd;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .banner-btn:hover {
+    background: #eaeaea;
+  }
+
+  .banner-li {
+    color: #4476ff;
+    text-decoration: none;
+    animation-name: banner-li;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes banner-li {
+    from {color: #4476ff;}
+    to {color: #003ada;}
+  }
+
+  .plus{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 200px;
+    text-align: right;
+    margin-top: -590px;
+    margin-right: -37px;
+    color: red;
+    text-shadow: -15px 10px 20px rgba(135, 2, 2, 0.167);
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    text-align: center;
+    justify-content: center;
+    flex: 1;
+    border: none;
+    background-color: red;
+     min-height: 1000px;
+  }
+
+  .intro h1 {
+    color: #fff;
+    font-size: 42px;
+    text-align: left;
+    margin-left: 20px;
+  }
+
+  .intro h2 {
+    color: red;
+    font-size: 150px;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: -60px;
+    text-transform: uppercase;
+    text-shadow: -15px 10px 20px rgba(0, 0, 0, 0.189);
+  }
+
+  .intro h4 {
+    color: white;
+    font-size: 150px;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: -250px;
+    text-transform: uppercase;
+  }
+
+  .intro-btn {
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #ffffff00;
+    color: white;
+    padding: 8px 8px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 10rem;
+    margin-top: -30px;
+    margin-left: 20px;
+    transition: 0.5s;
+  }
+
+  .intro-btn:hover {
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .whatsup {
+    background-color: red;
+    width: auto;
+    min-height: 500px;
+  }
+
+  .whatsup h1 {
+    color: white;
+    font-size: 100px;
+    text-align: left;
+    margin-left: 50px;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  .whatsup p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: justify;
+  }
+
+  .whatsup-btn {
+    font-size: 20px;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, red , black 90%);
+    color: white;
+    padding: 8px 8px;
+    border: 0px solid #fff;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 12rem;
+    margin-top: 20px;
+    margin-left: 50px;
+    transition: 0.5s;
+  }
+
+  .whatsup-btn:hover {
+    background-color: #fff;
+    background-image: none;
+    color: #333;
+    font-weight: 500;
+    transition: 1s;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .plus {
+
+      color: #ffffff00;
+      text-shadow: none;
+
+    }
+
+    .intro {
+
+      align-items: center;
+      text-align: center;
+      align-content: center;
+      justify-content: center;
+
+    }
+
+    .intro h2{
+
+      margin-left: -0px;
+
+    }
+
+  }

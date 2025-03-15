@@ -68,14 +68,19 @@
       animation-name: banner-li;
       animation-duration: 2s;
       animation-fill-mode: forwards;
+      transition: 0.5s;
     }
 
+    .banner-li:hover {
+      font-weight: 700;
+    }
     @keyframes banner-li {
       from {color: #4476ff;}
       to {color: #003ada;}
     }
     
     .hero {
+      min-height: 800px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -89,13 +94,21 @@
     
     .hero h1 {
       font-weight: 400;
-      font-size: 2.2rem;
+      font-size: 50px;
       margin-bottom: rem;
       color: white;
       text-transform: uppercase;
       transition: 1s;
     }
     
+    .hero h1::before {
+      font-weight: 400;
+      font-size: 50px;
+      margin-bottom: rem;
+      color: white;
+      text-transform: uppercase;
+    }
+
     .hero h1:hover {
       font-weight: 800;
       transition: 1s;
@@ -130,6 +143,17 @@
       word-wrap: break-word;
     }
     
+    @media screen and (max-width: 510px) {
+
+      .hero {
+        background-image: radial-gradient(red 30%, white);
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+    }
     @media (prefers-color-scheme: dark) {
       .hero {
       background-image: radial-gradient( red 10%, black 100%);

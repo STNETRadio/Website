@@ -8,7 +8,7 @@
 
 body {
   font-family: "Sorce Sans 3", sans-serif;
-  background: #fff;
+  background: black;
   color: #333;
   font-weight: 300;
   line-height: 1.4;
@@ -48,6 +48,7 @@ body {
 }
 
 .banner-p {
+  margin: 0px;
   display: flex;
   text-transform: uppercase;
   font-size: 0.875rem;
@@ -61,6 +62,7 @@ body {
   animation-name: banner-p;
   animation-fill-mode: forwards;
   animation-duration: 1s;
+  transition: 1s;
 }
 
 @keyframes banner-p {
@@ -141,14 +143,22 @@ body {
   }
 }
 
+@media screen and (min-height: 1180px) {
+
+  .hero {
+    min-height: 1180px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .hero {
     background-image: radial-gradient(red 10%, black 100%);
+    border-top: 0px solid;
   }
   .banner {
-    background-image: linear-gradient(to bottom right, rgb(46, 0, 0), black);
+    background-image: linear-gradient( rgb(46, 0, 0), black);
     border: 0;
-    width: auto;
+    width: 50rem;
     margin: 20px;
     border-radius: 12px;
     padding: 1.25rem 1rem;
@@ -175,4 +185,35 @@ body {
     color: #4476ff;
     animation: none;
   }
+
+  @media screen and (max-width: 768px) {
+    .hero {
+      background-image: linear-gradient(to top right, red, black);
+      padding: 5rem 2rem 4rem;
+    }
+
+    .hero h1 {
+      font-size: 35px;
+    }
+
+    .banner {
+    background-image: linear-gradient(to bottom right, rgb(46, 0, 0), black);
+    border: 0;
+    width: 100%;
+    margin: 0px;
+    border-radius: 0px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    border-bottom: none;
+    animation: none;
+    box-shadow: 0px 0px 30px red;
+    transition: 1s;
+  }
+
+  .banner:hover {
+
+    box-shadow: 0px 0px 20px white;
+
+  }
+}
 }

@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
-body {
+.featured-section {
     font-family: "Sorce Sans 3", sans-serif;
-    background: #fff;
-    color: #333;
-    font-weight: 300;
-    line-height: 1.4;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+}
+
+.featured-section h2 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    height: 200px;
+    margin: 10px;
+    margin-bottom: 50px;
+    background-image: linear-gradient(to bottom right, red 50%, white);
+    border: 0px solid;
+    border-radius: 12px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0px 10px 50px rgba(255, 0, 0, 0.263);
+    transition: 1s;
+}
 
 .container {
     max-width: 1200px;
@@ -81,7 +92,7 @@ body {
 }
 
 .podcast-card {
-    background-color: var(--card-bg);
+    
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -92,6 +103,10 @@ body {
 
 .podcast-card:hover {
     transform: translateY(-10px);
+}
+
+.podcast-image {
+    padding: 0%;
 }
 
 .podcast-image img {
@@ -108,28 +123,6 @@ body {
 .podcast-title {
     font-size: 1.2rem;
     font-weight: bold;
-}
-
-.featured-section {
-    font-family: "Sorce Sans 3", sans-serif;
-}
-
-.featured-section h2 {
-    font-size: 50px;
-    font-weight: 900;
-    color: #fff;
-    text-transform: uppercase;
-    height: 200px;
-    margin: 10px;
-    margin-bottom: 30px;
-    background-image: linear-gradient(to bottom right, red 50%, white);
-    border: 0px solid;
-    border-radius: 12px;
-    align-items: center;
-    text-align: center;
-    align-content: center;
-    box-shadow: 0px 10px 50px rgba(255, 0, 0, 0.263);
-    transition: 1s;
 }
 
 .thai-font {
@@ -183,12 +176,12 @@ body {
 
     .featured-section h2 {
 
-        box-shadow: -10px 10px 50px rgb(255, 0, 0);
+        box-shadow: 0px 20px 50px rgb(255, 0, 0);
         background-image: linear-gradient(to bottom right, red 50%, black);
     }
 
     .podcast-card {
-        background-color: #350000;
+        box-shadow: 0px 10px 50px red ;
     }
 
     .podcast-title {

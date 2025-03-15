@@ -170,3 +170,41 @@ body {
         transition: 1s;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background: #080808;
+    }
+
+    .featured-section {
+        background-color: #000000;
+    }
+
+    .featured-section h2 {
+
+        box-shadow: -10px 10px 50px rgb(255, 0, 0);
+        background-image: linear-gradient(to bottom right, red 50%, black);
+    }
+
+    .podcast-card {
+        background-color: #350000;
+    }
+
+    .podcast-title {
+        color: white;
+    }
+
+    .podcast-content {
+        color: white;
+    }
+
+    .podcast-stats {
+        color: #bababa;
+    }
+
+    .podcast-creator {
+        color: #bababa;
+    }
+
+}

@@ -49,13 +49,13 @@ footer p {
 footer .st-link {
   color: #a6a5a5;
   text-decoration: none;
-  transition: all 0.3s ease;
   padding-bottom: 1px;
 }
 
 footer .st-link:hover {
   color: #666;
   font-weight: 600;
+  transition: 0.5s;
 }
 
 /* Responsive adjustments */
@@ -78,10 +78,11 @@ footer .st-link:hover {
     align-items: center;
     padding: 1.5rem 1rem;
     background-color: #080808;
-    color: #a6a5a5;
+    color: #ffffff;
     text-align: center;
     border-top: 0px;
     font-size: 0.9rem;
+    cursor: default;
   }
   
   footer .copyright {
@@ -117,9 +118,8 @@ footer .st-link:hover {
   }
   
   footer .st-link {
-    color: #a6a5a5;
+    color: #ffffff;
     text-decoration: none;
-    transition: all 0.3s ease;
     padding-bottom: 1px;
   }
   

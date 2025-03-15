@@ -18,28 +18,29 @@ body {
 }
 
 .hero {
-  position: relative;
   min-height: 800px;
-  padding: 5rem 2rem 4rem;
-  text-align: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  display: flex;
   background-image: radial-gradient(red 10%, white 100%);
 }
 
 
 .banner {
-  position: absolute;
   top: 0;
   width: 100%;
   padding: 1.25rem 1rem;
   text-align: center;
+  position: absolute;
   background: #eee; 
   border-bottom: none;
   box-shadow: none;
   animation: banner 3s;
+  cursor: default;
 }
 
 @keyframes banner {
@@ -47,7 +48,11 @@ body {
   to { background: #eee; }
 }
 
-.banner-p {
+.banner-p::before {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0px;
   display: flex;
   text-transform: uppercase;
@@ -55,14 +60,24 @@ body {
   font-weight: 400;
   word-wrap: break-word;
   color: #333;
+}
+
+.banner-p {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  margin: 0px;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: #333;
   animation-name: banner-p;
   animation-fill-mode: forwards;
   animation-duration: 1s;
-  transition: 1s;
+  cursor: default;
 }
 
 @keyframes banner-p {
@@ -95,6 +110,7 @@ body {
 
 .banner-li:hover {
   font-weight: 700;
+  transition: 0.5s;
 }
 
 @keyframes banner-li {
@@ -107,8 +123,8 @@ body {
   font-size: 50px;
   color: white;
   text-transform: uppercase;
-  transition: 1s;
   margin-top: 3rem;
+  cursor: default;
 }
 
 .hero h1:hover {
@@ -118,13 +134,20 @@ body {
 
 .hero-hb {
   font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 0;
 }
 
-.hero p,
+.hero p {
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+
 .hero-b {
   color: white;
+  font-weight: 800;
   text-transform: uppercase;
   font-size: 1rem;
   text-align: center;
@@ -155,6 +178,11 @@ body {
     background-image: radial-gradient(red 10%, black 100%);
     border-top: 0px solid;
   }
+
+  .hero p {
+    color: white;
+  }
+
   .banner {
     background-image: linear-gradient( rgb(46, 0, 0), black);
     border: 0;
@@ -175,15 +203,18 @@ body {
 
   }
 
-  .banner p {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    color: #eee;
+  .banner-p {
     animation: none;
   }
+
+  .banner-p:hover {
+    transition: 1s;
+  }
+
   .banner-li {
-    color: #4476ff;
+    color: red;
     animation: none;
+    transition: none;
   }
 
   @media screen and (max-width: 768px) {
@@ -196,6 +227,13 @@ body {
       font-size: 35px;
     }
 
+    .banner-p {
+      color: white;
+      font-size: 15px;
+      animation-name: none;
+      cursor: default;
+    }
+
     .banner {
     background-image: linear-gradient(to bottom right, rgb(46, 0, 0), black);
     border: 0;
@@ -206,7 +244,7 @@ body {
     text-align: center;
     border-bottom: none;
     animation: none;
-    box-shadow: 0px 0px 30px red;
+    box-shadow: 0px -5px 40px red;
     transition: 1s;
   }
 
@@ -215,5 +253,6 @@ body {
     box-shadow: 0px 0px 20px white;
 
   }
+  
 }
 }

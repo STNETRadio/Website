@@ -102,7 +102,6 @@ body {
     font-size: 42px;
     text-align: left;
     margin-left: 20px;
-    transition: 1s;
   }
 
   .intro h2 {
@@ -113,7 +112,6 @@ body {
     margin-top: -60px;
     text-transform: uppercase;
     text-shadow: -15px 10px 20px rgba(0, 0, 0, 0.189);
-    transition: 1s;
   }
 
   .intro h4 {
@@ -123,9 +121,26 @@ body {
     margin-left: 20px;
     margin-top: -250px;
     text-transform: uppercase;
-    transition: 1s;
   }
 
+
+  .intro-btn::before {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #ffffff00;
+    color: white;
+    padding: 8px 8px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 10rem;
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+  
   .intro-btn {
     font-size: 20px;
     font-weight: 500;
@@ -141,8 +156,6 @@ body {
     width: 10rem;
     margin-top: -30px;
     margin-left: 20px;
-    transition: 0.5s;
-    transition: 1s;
   }
 
   .intro-btn:hover {
@@ -165,7 +178,6 @@ body {
     text-transform: uppercase;
     margin-top: 30px;
     text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.313);
-    transition: 1s;
   }
 
   .whatsup p {
@@ -200,7 +212,6 @@ body {
     background-image: none;
     color: #333;
     font-weight: 500;
-    transition: 1s;
   }
 
   .comingsoon {
@@ -222,7 +233,6 @@ body {
     font-weight: 800;
     text-transform: uppercase;
     color: white;
-    transition: 1s;
   }
 
   .comingsoon-btn {
@@ -240,19 +250,16 @@ body {
     width: 12rem;
     margin-top: -20px;
     margin-bottom: 20px;
-    transition: 1s;
   }
 
   .comingsoon-btn:hover {
     background: white;
     color: black;
-    transition: 1s;
   }
 
   .comingsoon p {
     color: white;
     text-transform: uppercase;
-    transition: 1s;
   }
 
   @media screen and (max-width: 768px) {
@@ -261,7 +268,6 @@ body {
 
       color: #ffffff00;
       text-shadow: none;
-      transition: 1s;
 
     }
 
@@ -271,7 +277,6 @@ body {
       text-align: center;
       align-content: center;
       justify-content: center;
-      transition: 1s;
 
     }
 
@@ -284,7 +289,6 @@ body {
 
     .whatsup {
       min-height: 650px;
-      transition: 1s;
     }
     .whatsup h1 {
       font-size: 75px;
@@ -297,11 +301,9 @@ body {
       margin-bottom: 20px;
       text-transform: uppercase;
       color: white;
-      transition: 1s;
     }
     .comingsoon p {
       font-size: 14px;
-      transition: 1s;
     }
 
     .comingsoon-btn {
@@ -319,7 +321,6 @@ body {
       width: 12rem;
       margin-top: -20px;
       margin-bottom: 25px;
-      transition: 1s;
     }
 
   }
@@ -330,7 +331,6 @@ body {
 
       color: #ffffff00;
       text-shadow: none;
-      transition: 1s;
 
     }
 
@@ -340,7 +340,6 @@ body {
       text-align: center;
       align-content: center;
       justify-content: center;
-      transition: 1s;
 
     }
 
@@ -349,25 +348,21 @@ body {
       margin-left: -0px;
       margin-top: -30px;
       font-size: 100px;
-      transition: 1s;
 
     }
 
     .intro h4 {
       font-size: 100px;
       margin-top: -170px;
-      transition: 1s;
     }
 
     .intro-btn {
       margin-top: 10px;
-      transition: 1s;
     }
 
     .whatsup h1 {
 
       font-size: 55px;
-      transition: 1s;
     }
     
     .comingsoon h1 {
@@ -376,11 +371,9 @@ body {
       margin-bottom: 20px;
       text-transform: uppercase;
       color: white;
-      transition: 1s;
     }
     .comingsoon p {
       font-size: 12px;
-      transition: 1s;
     }
 
     .comingsoon-btn {
@@ -398,6 +391,5 @@ body {
       width: 9rem;
       margin-top: -20px;
       margin-bottom: 25px;
-      transition: 1s;
     }
   }

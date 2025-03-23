@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Source+Sans+3:wght@200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  background: black;
+  color: white;
+  font-weight: 300;
+  line-height: 1.4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  min-height: 800px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  display: flex;
+  background-image: radial-gradient(red 10%, black 100%);
+  border-top: 0px solid;
+}
+
+.hero h1 {
+  font-weight: 400;
+  font-size: 50px;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  cursor: default;
+  transition: 1s;
+}
+
+.hero h1:hover {
+  font-weight: 800;
+}
+
+.hero p {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.hero-b {
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1.2rem auto;
+  max-width: 550px;
+  word-wrap: break-word;
+}
+
+.banner {
+  top: 0;
+  width: 50rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  position: absolute;
+  background-image: linear-gradient(rgb(46, 0, 0), black);
+  border: 0;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px red;
+  animation: none;
+  cursor: default;
+  transition: 1s;
+}
+
+.banner:hover {
+  box-shadow: 0px 0px 20px white;
+}
+
+.banner-p {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0px;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: white;
+  cursor: default;
+}
+
+.banner-p:hover {
+  transition: 1s;
+}
+
+.banner-btn {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  margin: 0.5rem 6px;
+  background: #333;
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.banner-btn:hover {
+  background: #eaeaea;
+}
+
+.banner-li {
+  color: red;
+  text-decoration: none;
+  transition: none;
+}
+
+.banner-li:hover {
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 510px) {
+  .hero {
+    background-image: radial-gradient(red 30%, black);
+    padding: 5rem 2rem 4rem;
+  }
+  .hero h1 {
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-height: 1180px) {
+  .hero {
+    min-height: 1180px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    background-image: linear-gradient(to top right, red, black);
+    padding: 5rem 2rem 4rem;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .banner {
+    background-image: linear-gradient(to bottom right, rgb(46, 0, 0), black);
+    width: 100%;
+    margin: 0px;
+    border-radius: 0px;
+    box-shadow: 0px -5px 40px red;
+  }
+
+  .banner:hover {
+    box-shadow: 0px 0px 20px white;
+  }
+
+  .banner-p {
+    color: white;
+    font-size: 15px;
+  }
+}

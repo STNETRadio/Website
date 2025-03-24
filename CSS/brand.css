@@ -7,19 +7,10 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 300;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Header styles */
 header {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 300;
   position: sticky;
   width: max;
   padding: 1rem 2rem;

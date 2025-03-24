@@ -7,11 +7,11 @@
 }
 
 body {
-  font-family: "Sorce Sans 3", sans-serif;
-  background: black;
-  color: #333;
+  font-family: "Source Sans 3", sans-serif;
   font-weight: 300;
-  line-height: 1.4;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -115,19 +115,17 @@ body {
     font-size: 1.25rem;
     margin-top: 2rem;
 }
-
-footer {
-    background-color: var(--background-dark);
-    color: white;
-    text-align: center;
-    padding: 2rem 5%;
-    margin-top: auto;
+@media (prefers-color-scheme: dark) {
+  body {
+    font-family: 'Chillax-Variable';
+    background: red;
+    color: var(--light-text);
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
-footer a {
-    color: var(--primary-red);
-    text-decoration: none;
-    margin: 0 0.5rem;
 }
 
 @media (max-width: 768px) {

@@ -255,6 +255,35 @@
   }
 
   @media (prefers-color-scheme: dark) {
+
+    header {
+        background-image: linear-gradient(to bottom right,rgb(62, 1, 1),black 99%);
+        border-bottom: none;
+      }
+  
+      .brand {
+        color: white;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        border: 0px solid;
+        border-radius: 12px;
+      }
+  
+      .brand:hover {
+        color: white;
+        text-shadow: -2px 1px 20px red;
+        transition: 0.7s;
+      }
+  
+      nav a {
+        color: white;
+      }
+  
+      nav a:hover {
+        text-shadow: 1px -1px 20px red;
+      }
+      
     body {
       font-family: 'Chillax-Variable';
       background: black;

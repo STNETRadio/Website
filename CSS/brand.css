@@ -100,10 +100,6 @@ nav a:hover::after {
 
   @media (prefers-color-scheme: dark) {
 
-    body {
-      background-color: black;
-    }
-
     header {
       background-image: linear-gradient(to bottom right,rgb(62, 1, 1),black 99%);
       border-bottom: none;

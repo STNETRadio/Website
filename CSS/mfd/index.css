@@ -84,6 +84,7 @@ body {
 }
 
 .blog p, .blog li {
+    text-align: justify;
     font-weight: 400;
     font-size: 1.1rem;
     color: var(--light-text);
@@ -118,31 +119,46 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     font-family: 'Chillax-Variable';
-    background: red;
+    background: black;
     color: var(--light-text);
     font-weight: 300;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
+  }
+  .hero {
+    background-color: black;
+  }
 }
 
 @media (max-width: 768px) {
+
     .hero h1 {
         font-size: 2.5rem;
     }
 
+    .hero {
+        background: red
+    }
+
     .blog {
-        margin: 2rem 3%;
+        margin-top: 3rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        border-radius: 0;
         padding: 2rem;
     }
 
     .blog h1 {
-        font-size: 2.25rem;
+        font-size: 3rem;
     }
 
     .blog h2 {
-        font-size: 1.75rem;
+        font-size: 1.7rem;
+    }
+
+    .blog p, .blog li {
+        font-size: 1rem;
     }
 }

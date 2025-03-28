@@ -81,7 +81,6 @@ footer .st-link:hover {
 @media (prefers-color-scheme: dark) {
 
   footer {
-    font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
     font-variant: normal;
     align-items: center;

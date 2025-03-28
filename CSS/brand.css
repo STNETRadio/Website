@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
+@font-face {
+  font-family: 'Chillax-Variable';
+  src: url('/fonts/Chillax-Variable.woff2') format('woff2'),
+       url('/fonts/Chillax-Variable.woff') format('woff'),
+       url('/fonts/Chillax-Variable.ttf') format('truetype');
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -9,7 +16,7 @@
 
 /* Header styles */
 header {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Chillax-Variable", sans-serif;
   font-weight: 300;
   position: sticky;
   width: max;

@@ -267,7 +267,7 @@
               id="email"
               name="email"
               required
-              placeholder="youremail@stnetradio.com"
+              placeholder="@stnetradio.com"
             />
             <div class="error-message" id="emailError">
               Please enter a valid email address.
@@ -280,7 +280,7 @@
               id="password"
               name="password"
               required
-              placeholder="••••••••"
+              placeholder="STNETID"
             />
             <div class="error-message" id="passwordError">
               Password must be at least 8 characters.
@@ -482,88 +482,157 @@
   </div>
 
   <script>
-    // Auth0 configuration with your provided credentials
-   // Auth0 configuration
+   // Auth0 configuration with your provided credentials
 const auth0Config = {
-  domain: "dev-g5h8i03aksyl3mj2.us.auth0.com",
+  domain: "auth.stnetradio.com",
   client_id: "xIPl1k0sAZouDiu3qojyscUiEfISLaFL",
   redirect_uri: "https://stnetradio.com/stnetid/"
 };
 
 let auth0Client = null;
 
-// Initialize Auth0 client and update UI
+// Initialize Auth0 client and update the UI accordingly
 async function initAuth0() {
   auth0Client = await createAuth0Client(auth0Config);
 
-  if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-    try {
-      console.log("Processing Auth0 callback...");
-      await auth0Client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, window.location.pathname);
-    } catch (error) {
-      console.error("Error handling Auth0 redirect:", error);
-    }
+  // Handle redirect from Auth0 after login
+  if (
+    window.location.search.includes("code=") &&
+    window.location.search.includes("state=")
+  ) {
+    await auth0Client.handleRedirectCallback();
+    window.history.replaceState({}, document.title, window.location.pathname);
   }
 
   const isAuthenticated = await auth0Client.isAuthenticated();
-  console.log("Is authenticated:", isAuthenticated);
-
   if (isAuthenticated) {
     const user = await auth0Client.getUser();
-    console.log("User:", user);
     showUserProfile(user);
   } else {
     showLoginForm();
   }
 }
 
+// DOM elements
+const loginForm = document.getElementById("loginForm");
+const profileContainer = document.getElementById("profileContainer");
+const authForm = document.getElementById("authForm");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+const loginButton = document.getElementById("loginButton");
+const registerButton = document.getElementById("registerButton");
+const googleLogin = document.getElementById("googleLogin");
+const facebookLogin = document.getElementById("facebookLogin");
+const logoutButton = document.getElementById("logoutButton");
+
+// Profile elements
+const profileImage = document.getElementById("profileImage");
+const profileName = document.getElementById("profileName");
+const profileEmail = document.getElementById("profileEmail");
+
+// Event: On document load, initialize Auth0
 document.addEventListener("DOMContentLoaded", initAuth0);
 
-// Login with redirect
-async function login() {
+// Handle login form submission using Auth0's Universal Login
+authForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Reset errors
+  emailError.style.display = "none";
+  passwordError.style.display = "none";
+
+  const email = emailInput.value;
+  const password = passwordInput.value;
+
+  // Basic client-side validation
+  let isValid = true;
+  if (!isValidEmail(email)) {
+    emailError.style.display = "block";
+    isValid = false;
+  }
+  if (password.length < 8) {
+    passwordError.style.display = "block";
+    isValid = false;
+  }
+  if (!isValid) return;
+
   try {
+    loginButton.disabled = true;
+    loginButton.textContent = "Redirecting...";
+    // Trigger the redirect to Auth0 Universal Login.
     await auth0Client.loginWithRedirect({
-      authorizationParams: {
-        redirect_uri: "https://stnetradio.com/stnetid/",
-        scope: "openid profile email"
-      }
+      redirect_uri: auth0Config.redirect_uri,
+      login_hint: email
     });
   } catch (error) {
     console.error("Login failed:", error);
+  } finally {
+    loginButton.disabled = false;
+    loginButton.textContent = "Sign In";
   }
-}
+});
 
-document.getElementById("loginButton").addEventListener("click", login);
+// Social logins trigger the redirect with the specified connection
+googleLogin.addEventListener("click", async () => {
+  try {
+    await auth0Client.loginWithRedirect({
+      redirect_uri: auth0Config.redirect_uri,
+      connection: "google-oauth2"
+    });
+  } catch (error) {
+    console.error("Google login failed:", error);
+  }
+});
 
-// Logout function
-async function logout() {
+facebookLogin.addEventListener("click", async () => {
+  try {
+    await auth0Client.loginWithRedirect({
+      redirect_uri: auth0Config.redirect_uri,
+      connection: "facebook"
+    });
+  } catch (error) {
+    console.error("Facebook login failed:", error);
+  }
+});
+
+// Handle logout
+logoutButton.addEventListener("click", async () => {
   try {
     await auth0Client.logout({
-      logoutParams: { returnTo: "https://stnetradio.com/stnetid/" }
+      returnTo: auth0Config.redirect_uri
     });
     showLoginForm();
   } catch (error) {
     console.error("Logout failed:", error);
   }
-}
+});
 
-document.getElementById("logoutButton").addEventListener("click", logout);
-
-// Show Login Form
+// Show login form
 function showLoginForm() {
-  document.getElementById("loginForm").classList.add("active");
-  document.getElementById("profileContainer").classList.remove("active");
+  loginForm.classList.add("active");
+  profileContainer.classList.remove("active");
+  emailError.style.display = "none";
+  passwordError.style.display = "none";
+  authForm.reset();
 }
 
-// Show User Profile
+// Show user profile
 function showUserProfile(user) {
-  document.getElementById("loginForm").classList.remove("active");
-  document.getElementById("profileContainer").classList.add("active");
-  document.getElementById("profileName").textContent = user.name || "User";
-  document.getElementById("profileEmail").textContent = user.email || "";
-  document.getElementById("profileImage").src = user.picture || "/api/placeholder/80/80";
+  loginForm.classList.remove("active");
+  profileContainer.classList.add("active");
+  profileImage.src = user.picture || "/api/placeholder/80/80";
+  profileName.textContent = user.name || "User";
+  profileEmail.textContent = user.email || "";
 }
+
+// Helper functions
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
   </script>
 </body>
 </html>

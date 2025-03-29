@@ -483,274 +483,87 @@
 
   <script>
     // Auth0 configuration with your provided credentials
-    const auth0Config = {
-      domain: "dev-g5h8i03aksyl3mj2.us.auth0.com",
-      client_id: "xIPl1k0sAZouDiu3qojyscUiEfISLaFL",
-      redirect_uri: "https://stnetradio.com/stnetid/"
-    };
+   // Auth0 configuration
+const auth0Config = {
+  domain: "dev-g5h8i03aksyl3mj2.us.auth0.com",
+  client_id: "xIPl1k0sAZouDiu3qojyscUiEfISLaFL",
+  redirect_uri: "https://stnetradio.com/stnetid/"
+};
 
-    let auth0Client = null;
+let auth0Client = null;
 
-    // Initialize Auth0 client and update the UI accordingly
-    async function initAuth0() {
-      auth0Client = await createAuth0Client(auth0Config);
+// Initialize Auth0 client and update UI
+async function initAuth0() {
+  auth0Client = await createAuth0Client(auth0Config);
 
-      // Handle redirect from Auth0 after login
-      if (
-        window.location.search.includes("code=") &&
-        window.location.search.includes("state=")
-      ) {
-        await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);
-      }
-
-      const isAuthenticated = await auth0Client.isAuthenticated();
-      if (isAuthenticated) {
-        const user = await auth0Client.getUser();
-        showUserProfile(user);
-      } else {
-        showLoginForm();
-      }
+  if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+    try {
+      console.log("Processing Auth0 callback...");
+      await auth0Client.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } catch (error) {
+      console.error("Error handling Auth0 redirect:", error);
     }
+  }
 
-    // DOM elements
-    const loginForm = document.getElementById("loginForm");
-    const profileContainer = document.getElementById("profileContainer");
-    const authForm = document.getElementById("authForm");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    const emailError = document.getElementById("emailError");
-    const passwordError = document.getElementById("passwordError");
-    const loginButton = document.getElementById("loginButton");
-    const registerButton = document.getElementById("registerButton");
-    const googleLogin = document.getElementById("googleLogin");
-    const facebookLogin = document.getElementById("facebookLogin");
-    const logoutButton = document.getElementById("logoutButton");
+  const isAuthenticated = await auth0Client.isAuthenticated();
+  console.log("Is authenticated:", isAuthenticated);
 
-    // Profile elements
-    const profileImage = document.getElementById("profileImage");
-    const profileName = document.getElementById("profileName");
-    const profileEmail = document.getElementById("profileEmail");
-    const profileForm = document.getElementById("profileForm");
-    const displayNameInput = document.getElementById("displayName");
-    const bioInput = document.getElementById("bio");
-    const locationInput = document.getElementById("location");
-    const avatarOptions = document.querySelectorAll(".avatar-option");
-    const profileSuccess = document.getElementById("profileSuccess");
+  if (isAuthenticated) {
+    const user = await auth0Client.getUser();
+    console.log("User:", user);
+    showUserProfile(user);
+  } else {
+    showLoginForm();
+  }
+}
 
-    // Security elements
-    const securityForm = document.getElementById("securityForm");
-    const currentPasswordInput = document.getElementById("currentPassword");
-    const newPasswordInput = document.getElementById("newPassword");
-    const confirmPasswordInput = document.getElementById("confirmPassword");
-    const twoFactorSelect = document.getElementById("twoFactor");
-    const passwordMatchError = document.getElementById("passwordMatchError");
-    const securitySuccess = document.getElementById("securitySuccess");
+document.addEventListener("DOMContentLoaded", initAuth0);
 
-    // Preferences elements
-    const preferencesForm = document.getElementById("preferencesForm");
-    const languageSelect = document.getElementById("language");
-    const themeSelect = document.getElementById("theme");
-    const notificationsSelect = document.getElementById("notifications");
-    const preferencesSuccess = document.getElementById("preferencesSuccess");
-
-    // Tab elements
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    // Event: On document load, initialize Auth0
-    document.addEventListener("DOMContentLoaded", initAuth0);
-
-    // Handle login form submission using Auth0's Universal Login
-    authForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Reset errors
-      emailError.style.display = "none";
-      passwordError.style.display = "none";
-
-      const email = emailInput.value;
-      const password = passwordInput.value;
-
-      // Basic client-side validation
-      let isValid = true;
-      if (!isValidEmail(email)) {
-        emailError.style.display = "block";
-        isValid = false;
-      }
-      if (password.length < 8) {
-        passwordError.style.display = "block";
-        isValid = false;
-      }
-      if (!isValid) return;
-
-      try {
-        loginButton.disabled = true;
-        loginButton.textContent = "Redirecting...";
-        // Trigger the redirect to Auth0 Universal Login.
-        await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/stnetid/",
-          login_hint: email
-        });
-      } catch (error) {
-        console.error("Login failed:", error);
-      } finally {
-        loginButton.disabled = false;
-        loginButton.textContent = "Sign In";
+// Login with redirect
+async function login() {
+  try {
+    await auth0Client.loginWithRedirect({
+      authorizationParams: {
+        redirect_uri: "https://stnetradio.com/stnetid/",
+        scope: "openid profile email"
       }
     });
+  } catch (error) {
+    console.error("Login failed:", error);
+  }
+}
 
-    // Social logins trigger the redirect with the specified connection
-    googleLogin.addEventListener("click", async () => {
-      try {
-        await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/stnetid/",
-          connection: "google-oauth2"
-        });
-      } catch (error) {
-        console.error("Google login failed:", error);
-      }
+document.getElementById("loginButton").addEventListener("click", login);
+
+// Logout function
+async function logout() {
+  try {
+    await auth0Client.logout({
+      logoutParams: { returnTo: "https://stnetradio.com/stnetid/" }
     });
+    showLoginForm();
+  } catch (error) {
+    console.error("Logout failed:", error);
+  }
+}
 
-    facebookLogin.addEventListener("click", async () => {
-      try {
-        await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/stnetid/",
-          connection: "facebook"
-        });
-      } catch (error) {
-        console.error("Facebook login failed:", error);
-      }
-    });
+document.getElementById("logoutButton").addEventListener("click", logout);
 
-    // Handle logout
-    logoutButton.addEventListener("click", async () => {
-      try {
-        await auth0Client.logout({
-          returnTo: "https://stnetradio.com/stnetid/"
-        });
-        showLoginForm();
-      } catch (error) {
-        console.error("Logout failed:", error);
-      }
-    });
+// Show Login Form
+function showLoginForm() {
+  document.getElementById("loginForm").classList.add("active");
+  document.getElementById("profileContainer").classList.remove("active");
+}
 
-    // Demo profile update (in production, call your backend or Auth0 Management API)
-    profileForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const updates = {
-        name: displayNameInput.value,
-        user_metadata: {
-          bio: bioInput.value,
-          location: locationInput.value
-        }
-      };
-
-      // Get selected avatar if one is chosen
-      const selectedAvatar = document.querySelector(".avatar-option.selected");
-      if (selectedAvatar) {
-        updates.picture = selectedAvatar.src;
-      }
-
-      // For demonstration, update the UI directly.
-      updateProfileDisplay({ ...await auth0Client.getUser(), ...updates });
-      profileSuccess.style.display = "block";
-      setTimeout(() => {
-        profileSuccess.style.display = "none";
-      }, 3000);
-    });
-
-    // Security form submission (demo: only updating two-factor setting)
-    securityForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      passwordMatchError.style.display = "none";
-
-      const newPassword = newPasswordInput.value;
-      const confirmPassword = confirmPasswordInput.value;
-      const twoFactor = twoFactorSelect.value;
-
-      if (newPassword && newPassword !== confirmPassword) {
-        passwordMatchError.style.display = "block";
-        return;
-      }
-
-      // In production, call a secure endpoint to change the password.
-      securitySuccess.style.display = "block";
-      setTimeout(() => {
-        securitySuccess.style.display = "none";
-      }, 3000);
-
-      // Clear password fields
-      currentPasswordInput.value = "";
-      newPasswordInput.value = "";
-      confirmPasswordInput.value = "";
-    });
-
-    // Handle preferences form submission
-    preferencesForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      preferencesSuccess.style.display = "block";
-      setTimeout(() => {
-        preferencesSuccess.style.display = "none";
-      }, 3000);
-    });
-
-    // Tab switching logic
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((btn) => btn.classList.remove("active"));
-        tabContents.forEach((content) => content.classList.remove("active"));
-
-        button.classList.add("active");
-        const tabId = button.dataset.tab + "Tab";
-        document.getElementById(tabId).classList.add("active");
-      });
-    });
-
-    // Avatar selection logic
-    avatarOptions.forEach((avatar) => {
-      avatar.addEventListener("click", () => {
-        avatarOptions.forEach((opt) => opt.classList.remove("selected"));
-        avatar.classList.add("selected");
-      });
-    });
-
-    // Helper functions
-    function showLoginForm() {
-      loginForm.classList.add("active");
-      profileContainer.classList.remove("active");
-      authForm.reset();
-      emailError.style.display = "none";
-      passwordError.style.display = "none";
-    }
-
-    function showUserProfile(user) {
-      loginForm.classList.remove("active");
-      profileContainer.classList.add("active");
-      updateProfileDisplay(user);
-      populateProfileForm(user);
-    }
-
-    function updateProfileDisplay(user) {
-      profileImage.src = user.picture || "/api/placeholder/80/80";
-      profileName.textContent = user.name || "User";
-      profileEmail.textContent = user.email || "";
-    }
-
-    function populateProfileForm(user) {
-      displayNameInput.value = user.name || "";
-      bioInput.value = user.user_metadata?.bio || "";
-      locationInput.value = user.user_metadata?.location || "";
-      twoFactorSelect.value = user.user_metadata?.twoFactor || "disabled";
-      languageSelect.value = user.user_metadata?.language || "en";
-      themeSelect.value = user.user_metadata?.theme || "light";
-      notificationsSelect.value = user.user_metadata?.notifications || "important";
-    }
-
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
+// Show User Profile
+function showUserProfile(user) {
+  document.getElementById("loginForm").classList.remove("active");
+  document.getElementById("profileContainer").classList.add("active");
+  document.getElementById("profileName").textContent = user.name || "User";
+  document.getElementById("profileEmail").textContent = user.email || "";
+  document.getElementById("profileImage").src = user.picture || "/api/placeholder/80/80";
+}
   </script>
 </body>
 </html>

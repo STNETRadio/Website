@@ -486,7 +486,7 @@
     const auth0Config = {
       domain: "dev-g5h8i03aksyl3mj2.us.auth0.com",
       client_id: "xIPl1k0sAZouDiu3qojyscUiEfISLaFL",
-      redirect_uri: "https://stnetradio.com/"
+      redirect_uri: "https://stnetradio.com/stnetid/"
     };
 
     let auth0Client = null;
@@ -589,7 +589,7 @@
         loginButton.textContent = "Redirecting...";
         // Trigger the redirect to Auth0 Universal Login.
         await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/",
+          redirect_uri: "https://stnetradio.com/stnetid/",
           login_hint: email
         });
       } catch (error) {
@@ -604,7 +604,7 @@
     googleLogin.addEventListener("click", async () => {
       try {
         await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/",
+          redirect_uri: "https://stnetradio.com/stnetid/",
           connection: "google-oauth2"
         });
       } catch (error) {
@@ -615,7 +615,7 @@
     facebookLogin.addEventListener("click", async () => {
       try {
         await auth0Client.loginWithRedirect({
-          redirect_uri: "https://stnetradio.com/",
+          redirect_uri: "https://stnetradio.com/stnetid/",
           connection: "facebook"
         });
       } catch (error) {
@@ -627,7 +627,7 @@
     logoutButton.addEventListener("click", async () => {
       try {
         await auth0Client.logout({
-          returnTo: "https://stnetradio.com/"
+          returnTo: "https://stnetradio.com/stnetid/"
         });
         showLoginForm();
       } catch (error) {

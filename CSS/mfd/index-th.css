@@ -177,6 +177,16 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.292);
   }
   
+  .logo {
+    color: #080808;
+  }
+
+  .logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
   .date {
       color: rgba(0, 0, 0, 0.6);
       font-weight: 400;

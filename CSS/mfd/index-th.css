@@ -103,6 +103,7 @@
   }
 
   .hero {
+    font-family: "Chillax-Variable", sans-serif;
       background: red;
       color: white;
       padding: 6rem 5% 4rem;

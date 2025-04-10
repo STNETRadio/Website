@@ -10,7 +10,7 @@
 
 
 footer {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "IBM Plex Sans Thai", sans-serif;
   font-optical-sizing: auto;
   font-variant: normal;
   font-weight: 400;
@@ -24,6 +24,7 @@ footer {
 }
 
 footer .copyright {
+  font-family: 'Chillax-Variable', sans-serif;
   font-weight: 700;
   color: #333;
 }

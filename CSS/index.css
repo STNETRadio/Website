@@ -176,6 +176,11 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
+  
+  body {
+  background-color: black;
+}
+  
   .hero {
     background-image: radial-gradient(red 10%, black 100%);
     border-top: 0px solid;

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... | STNET Radio</title>
+    <link rel="icon" href="https://stnetradio.com/img/fav.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Source+Sans+3:wght@200..900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @font-face {
+      font-family: 'Chillax-Variable';
+      src: url('/fonts/Chillax-Variable.woff2') format('woff2'),
+           url('/fonts/Chillax-Variable.woff') format('woff'),
+           url('/fonts/Chillax-Variable.ttf') format('truetype');
+    }
+        
+        body {
+            font-family: 'Chillax-Variable', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .redirect-url {
+            color: red;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        .progress-container {
+            background-color: red;
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background-color: red;
+            height: 100%;
+            width: 0%;
+            transition: width 5s linear;
+        }
+        .timer {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirecting</h1>
+        <p>You will be redirected to:</p>
+        <div class="redirect-url" id="redirectUrl">https://linktr.ee/sorasukt</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="timer" id="timer">Redirecting in 5 seconds...</div>
+        <a href="#" class="button" id="redirectNow">Redirect Now</a>
+    </div>
+
+    <script>
+        const targetUrl = "https://linktr.ee/sorasukt";
+        const redirectDelay = 5;
+
+        document.getElementById("redirectUrl").textContent = targetUrl;
+        
+        const progressBar = document.getElementById("progressBar");
+        progressBar.style.width = "100%";
+        
+        const timerElement = document.getElementById("timer");
+        let secondsLeft = redirectDelay;
+        
+        // Timer countdown
+        const countdownInterval = setInterval(() => {
+            secondsLeft--;
+            if (secondsLeft <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = targetUrl;
+            } else {
+                timerElement.textContent = `Redirecting in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
+            }
+        }, 1000);
+        
+        document.getElementById("redirectNow").addEventListener("click", (e) => {
+            e.preventDefault();
+            clearInterval(countdownInterval);
+            window.location.href = targetUrl;
+        });
+        
+        document.getElementById("redirectNow").href = targetUrl;
+    </script>
+</body>
+</html>

@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="podcast-stats">
                         <span>★ ${podcast.rating}</span> 
-                        <span>|
+                        <span>|</span>
                         <span>${podcast.listeners} listeners</span>
                     </div>
                 </div>

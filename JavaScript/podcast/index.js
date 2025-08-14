@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPodcasts() {
         podcastList.innerHTML = podcasts.map(podcast => `
             <a href="${podcast.link}" class="podcast-card">
-            <div class="podcast-card">
                 <div class="podcast-image">
                     <img src="${podcast.image}" alt="${podcast.title}">
                 </div>
@@ -27,14 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         by ${podcast.creator}
                     </div>
                     <div class="podcast-stats">
-                        <span>★ ${podcast.rating}</span> 
+                        <span>★ ${podcast.rating}</span>
                         <span>|
                         <span>${podcast.listeners} listeners</span>
                     </div>
                 </div>
-            </div>
+            </a>
         `).join('');
     }
 
     renderPodcasts();
 });
+

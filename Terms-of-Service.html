@@ -1,171 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="STNET RADIO Terms of Service">
-    <title>Terms of Service | STNET RADIO</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="STNET RADIO Terms of Service" />
+  <title>Terms of Service | STNET RADIO</title>
 
-        @font-face {
-            font-family: 'Chillax-Variable';
-            src: url('/fonts/Chillax-Variable.woff2') format('woff2'),
-            url('/fonts/Chillax-Variable.woff') format('woff'),
-            url('/fonts/Chillax-Variable.ttf') format('truetype');
-        }
+  <link rel="icon" href="https://stnetradio.com/img/fav.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#D10000" />
 
-        body {
-            font-family: 'Chillax-Variable';
-            text-transform: uppercase;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/brand.css">
 
-        h1 {
-            color: red;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #1a1a1a;
-            margin-top: 25px;
-        }
-        .last-updated {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .link {
-            color: red;
-        }
-        footer {
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-            font-size: 0.9em;
-            color: #666;
-            text-align: center;
-        }
-    </style>
+  <style>
+    :root{ --brand:#D10000; --ink:#1a1a1a; --muted:#525252; --bg:#0b0b0b; --card:#ffffff; --rail:#e6e6e6; --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.12); --sitebar-h:60px; }
+    @media (prefers-color-scheme: dark){ :root{ --ink:#F3F4F6; --muted:#9CA3AF; --bg:#0a0a0a; --card:#111214; --rail:#1f2022; --shadow:0 12px 40px rgba(0,0,0,.35);} }
+    @media (max-width: 640px){ :root{ --sitebar-h: 68px; } }
+
+    @font-face{ font-family:'Chillax-Variable'; src:url('/fonts/Chillax-Variable.woff2') format('woff2'), url('/fonts/Chillax-Variable.woff') format('woff'), url('/fonts/Chillax-Variable.ttf') format('truetype'); font-display:swap; }
+
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; color:var(--ink);
+      font-family:'Chillax-Variable','IBM Plex Sans Thai',system-ui,-apple-system,Segoe UI,Roboto,'Source Sans 3',Arial,sans-serif;
+      background:radial-gradient(1200px 600px at 75% -10%, rgba(209,0,0,.20), transparent 50%),
+                 radial-gradient(1000px 500px at -10% 110%, rgba(209,0,0,.16), transparent 60%),
+                 var(--bg);
+      line-height:1.65;
+      padding-top: var(--sitebar-h);
+    }
+
+    /* Ensure header stays fixed even if brand.css changes */
+    header.sitebar{ position:fixed; top:0; left:0; right:0; z-index:1000; height: var(--sitebar-h); display:flex; align-items:center; }
+
+    .wrap{ max-width:960px; margin:0 auto; padding:24px; }
+
+    .card{ background:var(--card); border:1px solid rgba(0,0,0,.06); box-shadow:var(--shadow); border-radius:var(--radius); }
+    .hero{ padding:28px 28px 14px; border-bottom:1px solid rgba(0,0,0,.06) }
+    .title{ margin:0; font-size:clamp(26px,3.3vw,36px); line-height:1.15 }
+    .updated{ margin-top:6px; color:var(--muted); font-size:14px }
+
+    .toc{ padding:18px 28px; border-bottom:1px solid rgba(0,0,0,.06); }
+    .toc h2{ margin:0 0 10px; font-size:16px }
+    .toc ol{ margin:0; padding-left:20px }
+    .toc a{ color:var(--ink); text-decoration:none }
+    .toc a:hover{ color:var(--brand) }
+
+    main.tos{ padding:10px 28px 28px }
+    main.tos section{ margin:22px 0 }
+    main.tos h2{ font-size:18px; margin:0 0 10px }
+    p{ margin:0 0 10px }
+    ul{ margin:0; padding-left:20px }
+    li{ margin:6px 0 }
+
+    a.link{ color:var(--brand); text-decoration:none }
+    a.link:hover{ text-decoration:underline }
+
+    footer.page{ margin:18px 0 0; padding:16px 28px; color:var(--muted); font-size:14px; border-top:1px solid rgba(0,0,0,.06); text-align:center }
+
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus{ position:fixed; left:12px; top:12px; width:auto; height:auto; padding:8px 10px; background:var(--card); border:1px solid rgba(0,0,0,.12); border-radius:8px }
+
+    /* Prevent anchors from appearing beneath the fixed header */
+    [id]{ scroll-margin-top: calc(var(--sitebar-h) + 12px); }
+    main.tos h2{ scroll-margin-top: calc(var(--sitebar-h) + 12px); }
+  </style>
 </head>
 <body>
-    <h1>Terms of Service</h1>
-    <div class="last-updated">Effective Date: July 22, 2024</div>
-    
-    <section>
-        <p>Welcome to STNET RADIO! These Terms of Service ("Terms") govern your use of our website, services, and content, including our RE:WRITE eBook distribution service. By accessing or using our services, you agree to these Terms. If you do not agree, please refrain from using our services.</p>
-    </section>
-    
-    <section>
-        <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or using our services, you agree to be bound by these Terms. If you do not agree with any part of the Terms, you may not use our services.</p>
-    </section>
-    
-    <section>
-        <h2>2. Use of Services</h2>
-        <p>You agree to use our services for lawful purposes only. You must not misuse our services, violate any laws, or infringe on the rights of others.</p>
-    </section>
-    
-    <section>
-        <h2>3. User Accounts</h2>
-        <p>To access certain features, you may need to create a user account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
-    </section>
-    
-    <section>
-        <h2>4. Intellectual Property</h2>
-        <p>All content and materials available on our website are protected by intellectual property laws. You may not use, modify, reproduce, or distribute any content without our explicit written consent.</p>
-    </section>
-    
-    <section>
-        <h2>5. Privacy</h2>
-        <p>Our Privacy Policy governs the collection and use of your personal information. By using our services, you consent to the terms outlined in our <a class="link" href="/Privacy-Policy">Privacy Policy</a>.</p>
-    </section>
-    
-    <section>
-        <h2>6. Payment and Billing</h2>
-        <p>If you make a payment for our services, you agree to provide accurate and complete payment information. You are responsible for any fees associated with your use of our paid services.</p>
-    </section>
-    
-    <section>
-        <h2>7. RE:WRITE eBook Distribution Service</h2>
-        <p>Our RE:WRITE service involves distributing eBooks to various platforms. By using this service, you agree to the following terms:</p>
-        
-        <ul>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="sitebar" role="navigation" aria-label="Primary">
+    <a href="https://stnetradio.com" class="brand">STNET Radio</a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/plus/">Plus+</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <article class="card" id="content">
+      <header class="hero">
+        <h1 class="title">Terms of Service</h1>
+        <p class="updated">Effective date: July 22, 2024</p>
+      </header>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#acceptance">Acceptance of Terms</a></li>
+          <li><a href="#use">Use of Services</a></li>
+          <li><a href="#accounts">User Accounts</a></li>
+          <li><a href="#ip">Intellectual Property</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#billing">Payment and Billing</a></li>
+          <li><a href="#rewrite">RE:WRITE eBook Distribution</a></li>
+          <li><a href="#refunds">RE:WRITE Refund Policy</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#mods">Modifications to Services</a></li>
+          <li><a href="#warranties">Disclaimer of Warranties</a></li>
+          <li><a href="#liability">Limitation of Liability</a></li>
+          <li><a href="#regional">Regional Terms</a></li>
+          <li><a href="#changes">Changes to Terms</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ol>
+      </nav>
+
+      <main class="tos">
+        <section id="intro">
+          <p>Welcome to STNET RADIO! These Terms of Service ("Terms") govern your use of our website, services, and content, including our RE:WRITE eBook distribution service. By accessing or using our services, you agree to these Terms. If you do not agree, please refrain from using our services.</p>
+        </section>
+
+        <section id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>By accessing or using our services, you agree to be bound by these Terms. If you do not agree with any part of the Terms, you may not use our services.</p>
+        </section>
+
+        <section id="use">
+          <h2>2. Use of Services</h2>
+          <p>You agree to use our services for lawful purposes only. You must not misuse our services, violate any laws, or infringe on the rights of others.</p>
+        </section>
+
+        <section id="accounts">
+          <h2>3. User Accounts</h2>
+          <p>To access certain features, you may need to create a user account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        </section>
+
+        <section id="ip">
+          <h2>4. Intellectual Property</h2>
+          <p>All content and materials available on our website are protected by intellectual property laws. You may not use, modify, reproduce, or distribute any content without our explicit written consent.</p>
+        </section>
+
+        <section id="privacy">
+          <h2>5. Privacy</h2>
+          <p>Our Privacy Policy governs the collection and use of your personal information. By using our services, you consent to the terms outlined in our <a class="link" href="/Privacy-Policy.html">Privacy Policy</a>.</p>
+        </section>
+
+        <section id="billing">
+          <h2>6. Payment and Billing</h2>
+          <p>If you make a payment for our services, you agree to provide accurate and complete payment information. You are responsible for any fees associated with your use of our paid services.</p>
+        </section>
+
+        <section id="rewrite">
+          <h2>7. RE:WRITE eBook Distribution Service</h2>
+          <p>Our RE:WRITE service involves distributing eBooks to various platforms. By using this service, you agree to the following terms:</p>
+          <ul>
             <li><strong>Content Submission:</strong> You are responsible for ensuring that the eBook content you provide complies with all applicable laws and does not infringe on the intellectual property rights of others.</li>
-            
             <li><strong>Revenue and Payment:</strong> Revenue from eBook sales will be split with 90% going to the author and 10% to us. Any additional fees related to the service will not be collected from customers but will be charged to the author as specified.</li>
-            
             <li><strong>Customer Payments:</strong> Payments for eBook distribution services will be in accordance with the policies of the respective platforms.</li>
-            
             <li><strong>Rights and Licenses:</strong> By submitting eBooks to our RE:WRITE service, you grant us a non-exclusive, royalty-free license to distribute your eBook on the platforms we support.</li>
-            
             <li><strong>Content Removal:</strong> We reserve the right to remove or suspend any eBook from distribution if we believe it violates these Terms or applicable laws.</li>
-            
-            <li><strong>Support and Disputes:</strong> For any issues or disputes related to the RE:WRITE service, please contact our support team at <a class="link" href="mailto:SUPPORT@STNETRADIO.CO">SUPPORT@STNETRADIO.CO</a>.</li>
-        </ul>
-    </section>
-    
-    <section>
-        <h2>8. RE:WRITE Refund Policy</h2>
-        <p>We apologize if you are dissatisfied or wish to request a refund for a purchase made through our RE:WRITE platform. Please follow these guidelines to request a refund:</p>
-        
-        <ul>
+            <li><strong>Support and Disputes:</strong> For any issues or disputes related to the RE:WRITE service, please contact our support team at <a class="link" href="mailto:SUPPORT@STNETRADIO.COM">SUPPORT@STNETRADIO.COM</a>.</li>
+          </ul>
+        </section>
+
+        <section id="refunds">
+          <h2>8. RE:WRITE Refund Policy</h2>
+          <p>We apologize if you are dissatisfied or wish to request a refund for a purchase made through our RE:WRITE platform. Please follow these guidelines to request a refund:</p>
+          <ul>
             <li><strong>Purchases Directly from RE:WRITE:</strong> If you have made a payment through RE:WRITE and received a PDF file for reading the book, please note that our policy does not permit refunds as you have full access to the content and we cannot enforce the deletion of the eBook file after download.</li>
-            
             <li><strong>Purchases through Other Channels:</strong> If you made a purchase through other channels, please contact the customer service of the respective provider for further information.</li>
-        </ul>
-    </section>
-    
-    <section>
-        <h2>9. Termination</h2>
-        <p>We reserve the right to terminate or suspend your account and access to our services at our discretion, without notice, for any reason, including a breach of these Terms.</p>
-    </section>
-    
-    <section>
-        <h2>10. Modifications to Services</h2>
-        <p>We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of our services.</p>
-    </section>
-    
-    <section>
-        <h2>11. Disclaimer of Warranties</h2>
-        <p>Our services are provided "as is" without warranties of any kind, whether express or implied. We do not warrant that our services will be error-free or uninterrupted.</p>
-    </section>
-    
-    <section>
-        <h2>12. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our services.</p>
-    </section>
-    
-    <section>
-        <h2>13. Regional Terms</h2>
-        <p>If you access our services from a region with specific laws or regulations, you are responsible for complying with local laws and regulations.</p>
-    </section>
-    
-    <section>
-        <h2>14. Changes to Terms</h2>
-        <p>We reserve the right to update or amend these Terms at any time. We will notify you of such changes by posting the updated Terms on our website. Your continued use of our services after the effective date of any changes will constitute your acceptance of the revised Terms.</p>
-    </section>
-    
-    <section>
-        <h2>15. Contact Us</h2>
-        <p>If you have any questions or concerns about these Terms, please contact us at <a class="link" href="mailto:LEGAL@STNETRADIO.CO">LEGAL@STNETRADIO.CO</a>.</p>
-    </section>
-    
-    <footer>
-        <p>July 22, 2024</p>
-        <p><b>STNET RADIO</b></p>
-    </footer>
+          </ul>
+        </section>
+
+        <section id="termination">
+          <h2>9. Termination</h2>
+          <p>We reserve the right to terminate or suspend your account and access to our services at our discretion, without notice, for any reason, including a breach of these Terms.</p>
+        </section>
+
+        <section id="mods">
+          <h2>10. Modifications to Services</h2>
+          <p>We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of our services.</p>
+        </section>
+
+        <section id="warranties">
+          <h2>11. Disclaimer of Warranties</h2>
+          <p>Our services are provided "as is" without warranties of any kind, whether express or implied. We do not warrant that our services will be error-free or uninterrupted.</p>
+        </section>
+
+        <section id="liability">
+          <h2>12. Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our services.</p>
+        </section>
+
+        <section id="regional">
+          <h2>13. Regional Terms</h2>
+          <p>If you access our services from a region with specific laws or regulations, you are responsible for complying with local laws and regulations.</p>
+        </section>
+
+        <section id="changes">
+          <h2>14. Changes to Terms</h2>
+          <p>We reserve the right to update or amend these Terms at any time. We will notify you of such changes by posting the updated Terms on our website. Your continued use of our services after the effective date of any changes will constitute your acceptance of the revised Terms.</p>
+        </section>
+
+        <section id="contact">
+          <h2>15. Contact Us</h2>
+          <p>If you have any questions or concerns about these Terms, please contact us at <a class="link" href="mailto:LEGAL@STNETRADIO.COM">LEGAL@STNETRADIO.COM</a>.</p>
+        </section>
+      </main>
+
+      <footer class="page">
+        <p>© STNET RADIO • July 22, 2024</p>
+        <p><a class="link" href="#content">Back to top</a></p>
+      </footer>
+    </article>
+  </div>
 </body>
 </html>

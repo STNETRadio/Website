@@ -26,7 +26,7 @@
       }
     }
     @media (prefers-color-scheme: dark){
-      :root{ --ink:#F3F4F6; --muted:#9CA3AF; --bg:#0a0a0a; --card:#111214; --rail:#1f2022; --shadow:0 12px 40px rgba(0,0,0,.35);} 
+      :root{ --ink:#F3F4F6; --muted:#9CA3AF; --bg:#000000; --card:#111214; --rail:#1f2022; --shadow:0 12px 40px rgba(0,0,0,.35);} 
     }
 
     @font-face {
@@ -42,11 +42,9 @@
     body{
       margin:0; color:var(--ink);
       font-family:'Chillax-Variable','IBM Plex Sans Thai',system-ui,-apple-system,Segoe UI,Roboto,'Source Sans 3',Arial,sans-serif;
-      background:radial-gradient(1200px 600px at 75% -10%, rgba(209,0,0,.20), transparent 50%),
-                 radial-gradient(1000px 500px at -10% 110%, rgba(209,0,0,.16), transparent 60%),
-                 var(--bg);
       line-height:1.65;
       padding-top: var(--sitebar-h); /* fixed menu bar height */
+      background: var(--bg);
     }
 
     header.sitebar {

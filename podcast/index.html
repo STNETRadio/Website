@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcast | STNET Radio</title>
-    <link rel="icon" href="https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/logo/fav.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/CSS/podcast/index.css">
-    <link rel="stylesheet" href="/CSS/footer.css">
-    <link rel="stylesheet" href="/CSS/brand.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Podcast | STNET Radio</title>
+  <link rel="icon" href="https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/logo/fav.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/CSS/podcast/index.css" />
+  <link rel="stylesheet" href="/CSS/footer.css" />
+  <link rel="stylesheet" href="/CSS/brand.css" />
 </head>
 <body>
-    <header>
-        <a href="https://stnetradio.com" class="brand">STNET Radio</a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/plus/">Plus+</a></li>
-            <li><a href="#">Podcast</a></li>
-            <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
-          </ul>
-        </nav>
-      </header>
 
-        <section class="featured-section">
-            <h2>Featured Podcasts</h2>
-            <div class="podcasts-grid" id="podcastList">
-            </div>
-        </section>
+  <header class="sitebar" role="navigation" aria-label="Primary">
+    <a href="https://stnetradio.com" class="brand">STNET Radio</a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/plus/">Plus+</a></li>
+        <li><a href="/podcast/" aria-current="page">Podcast</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <footer>
-            <p>The link will direct you to Apple Podcasts.</p>
-            <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All Rights Reserved.</p>
-            <p class="st-link"><a href="https://docs.stnetradio.com/privacy-policy" class="st-link" > Privacy Policy</a> | <a href="https://docs.stnetradio.com/terms-of-service" class="st-link">Terms of Service</a></p>
-        </footer>
-        <script src="/JavaScript/podcast/index.js"></script>
-    </body>
-    </html>
+  <main id="content">
+    <section class="featured-section" aria-labelledby="featured-title">
+      <h2 id="featured-title">Featured Podcasts</h2>
+      <div class="podcasts-grid" id="podcastList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All Rights Reserved.</p>
+    <p class="st-link">
+      <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
+      <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script src="/JavaScript/podcast/index.js"></script>
+</body>
+</html>

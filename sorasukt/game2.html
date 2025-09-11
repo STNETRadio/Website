@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routine Timeline Relay — Kids Web App (M.1)</title>
+  <meta name="description" content="เกมเรียงกิจวัตร + ตัวเชื่อม + Adverbs of frequency สำหรับ ม.1 พร้อมหน้า Login ชื่อนักเรียน (เหมาะกับเด็ก)">
+  <style>
+    /* ==================== THEME ==================== */
+    :root{
+      --bg:#fffdfa;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --brand:#ff477e;     /* strawberry pink */
+      --brand-2:#3ec5ff;   /* sky blue */
+      --brand-3:#ffd166;   /* sunny yellow */
+      --brand-4:#95d5b2;   /* mint green */
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b0f14;
+        --ink:#e5e7eb;
+        --muted:#9aa4b2;
+        --card:#0f141b;
+        --border:#1f2833;
+        --shadow:0 8px 24px rgba(0,0,0,.35);
+        --brand:#ff6b9a;
+        --brand-2:#59d3ff;
+        --brand-3:#ffd97a;
+        --brand-4:#9be6c2;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+      color:var(--ink);
+      font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "IBM Plex Sans Thai", "Noto Color Emoji", sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{ color:var(--brand) }
+    .hide{ display:none !important }
+    .app{ min-height:100%; display:flex; flex-direction:column }
+
+    /* ==================== HEADER ==================== */
+    .header{
+      position:sticky; top:0; z-index:20;
+      background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 60%, var(--brand-3) 100%);
+      color:#fff;
+      padding:12px 16px;
+      box-shadow:var(--shadow);
+    }
+    .screen{ max-width:1100px; margin:18px auto; padding:0 16px; width:100% }
+    .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+    .title{
+      font-weight:900; letter-spacing:.3px; text-shadow:0 1px 0 rgba(0,0,0,.15);
+    }
+    .tag{ background:rgba(255,255,255,.22); padding:2px 8px; border-radius:999px; font-size:12px }
+    .spacer{ flex:1 }
+    .timer{
+      background:rgba(255,255,255,.2); padding:4px 10px; border-radius:10px;
+      font-variant-numeric:tabular-nums; font-weight:900; box-shadow: inset 0 0 0 2px rgba(255,255,255,.25);
+    }
+    .btn{
+      appearance:none; border:none; border-radius:12px; padding:10px 14px; font-weight:800;
+      background:#fff; color:#0f172a; cursor:pointer; box-shadow:var(--shadow);
+      transition: transform .05s ease;
+    }
+    .btn:active{ transform: translateY(1px) }
+    .btn.ghost{ background:rgba(255,255,255,.16); color:#fff; box-shadow:none; border:1px solid rgba(255,255,255,.35) }
+    .btn.brand{ background:#0f172a; color:#fff }
+    .btn.small{ padding:6px 10px; border-radius:999px; font-weight:700 }
+
+    /* ==================== LOGIN ==================== */
+    .login-card{
+      background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px;
+      box-shadow:var(--shadow);
+      display:grid; grid-template-columns:1.1fr .9fr; gap:16px;
+    }
+    @media (max-width:880px){ .login-card{ grid-template-columns:1fr } }
+    .login-hero{
+      background: radial-gradient(120px 80px at 20% 20%, var(--brand-3) 0%, transparent 60%),
+                  radial-gradient(120px 80px at 80% 80%, var(--brand-2) 0%, transparent 60%),
+                  linear-gradient(180deg, #fff, #f7fafc);
+      border:1px dashed var(--border); border-radius:14px; min-height:220px;
+      display:grid; place-items:center; text-align:center; padding:16px;
+    }
+    .login-hero .big{ font-size:46px }
+    .login-hero h2{ margin:8px 0 0; font-size:22px }
+    .login-form .field{ margin-bottom:12px }
+    .label{ font-size:13px; color:var(--muted); margin-bottom:6px }
+    .input, .select{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; color:var(--ink); font-weight:700;
+    }
+    .avatars{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px }
+    .avatar{
+      width:56px; height:56px; display:grid; place-items:center; border-radius:14px; cursor:pointer;
+      border:2px solid var(--border); background:#fff; font-size:28px; transition:transform .05s ease;
+      box-shadow:var(--shadow);
+    }
+    .avatar:active{ transform:translateY(1px) }
+    .avatar.sel{ outline:3px solid var(--brand) }
+    .help{ color:var(--muted); font-size:13px }
+    .cta{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
+    .note{ font-size:12px; color:var(--muted) }
+
+    /* ==================== GAME BOARD ==================== */
+    .board{ display:grid; grid-template-columns: 1.2fr .8fr; gap:16px }
+    @media (max-width:980px){ .board{ grid-template-columns:1fr } }
+    .panel{
+      background:var(--card); border:1px solid var(--border); border-radius:18px; padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .panel h3{ margin:0 0 10px; font-size:18px }
+    .deck{ display:grid; gap:12px; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)) }
+    .card{
+      background:linear-gradient(180deg, #fff, #fff7f9);
+      border:2px solid #ffe1eb; border-radius:16px; padding:10px; display:flex; gap:10px; align-items:center;
+      min-height:72px; cursor:grab; user-select:none; box-shadow:var(--shadow);
+    }
+    .card .emoji{ font-size:28px }
+    .card .label{ font-weight:900; letter-spacing:.2px }
+    .card .sub{ font-size:12px; color:var(--muted) }
+    .card:focus{ outline:3px solid var(--brand) }
+    .card.selected{ outline:3px solid var(--brand-2) }
+
+    .timeline{ display:grid; gap:12px }
+    .slot{
+      border:2px dashed var(--border); border-radius:16px; min-height:78px; padding:8px;
+      display:flex; align-items:center; gap:12px; background:linear-gradient(180deg, #fff, #f8fbff);
+    }
+    .slot .pos{ width:30px; height:30px; border-radius:10px; background:var(--brand-2); color:#003047;
+      display:grid; place-items:center; font-weight:900; font-size:14px; box-shadow:var(--shadow) }
+    .slot .hint{ color:var(--muted); font-size:13px }
+    .slot.filled{ border-style:solid; background:linear-gradient(180deg, #fff7f0, #fff) }
+    .slot.drop{ border-color:var(--brand) }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px }
+    .chip{
+      padding:8px 12px; border-radius:999px; border:2px solid var(--border); background:#fff; cursor:pointer;
+      font-weight:800; box-shadow:var(--shadow); user-select:none;
+    }
+    .chip.on{ background:var(--brand-4); border-color:transparent; color:#083d2b }
+
+    .scorebar{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px; border-radius:12px;
+      background:linear-gradient(90deg, rgba(255,222,89,.25), rgba(62,197,255,.18));
+      font-weight:900;
+    }
+    .scorebar .n{ font-size:22px }
+    .inline{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+
+    .samples{ background:linear-gradient(180deg, #fff,

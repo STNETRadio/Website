@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
   <title>Routine Timeline Relay — Kids Web App (M.1)</title>
-  <meta name="description" content="เกมเรียงกิจวัตร + ตัวเชื่อม + Adverbs of frequency สำหรับ ม.1 พร้อมหน้า Login ชื่อนักเรียน (เหมาะกับเด็ก)">
+  <meta name="description" content="เกมเรียงกิจวัตร + ตัวเชื่อม + Adverbs of Frequency สำหรับ ม.1 พร้อมหน้า Login ชื่อนักเรียน (เหมาะกับเด็ก)">
   <style>
     /* ==================== THEME ==================== */
     :root{
@@ -18,6 +19,7 @@
       --card:#ffffff;
       --border:#e2e8f0;
       --shadow:0 8px 24px rgba(0,0,0,.08);
+      --focus: 0 0 0 3px rgba(255,71,126,.2);
     }
     @media (prefers-color-scheme: dark){
       :root{
@@ -31,6 +33,7 @@
         --brand-2:#59d3ff;
         --brand-3:#ffd97a;
         --brand-4:#9be6c2;
+        --focus: 0 0 0 3px rgba(255,107,154,.35);
       }
     }
     *{box-sizing:border-box}
@@ -38,12 +41,17 @@
     body{
       margin:0; background:linear-gradient(180deg, var(--bg) 0%, #fff 100%);
       color:var(--ink);
-      font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "IBM Plex Sans Thai", "Noto Color Emoji", sans-serif;
+      font:16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "IBM Plex Sans Thai", "Noto Color Emoji", sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      touch-action: manipulation;
     }
     a{ color:var(--brand) }
     .hide{ display:none !important }
     .app{ min-height:100%; display:flex; flex-direction:column }
+    .screen{ max-width:1100px; margin:18px auto; padding:0 16px; width:100% }
+    .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+    .spacer{ flex:1 }
+    .visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
 
     /* ==================== HEADER ==================== */
     .header{
@@ -53,13 +61,8 @@
       padding:12px 16px;
       box-shadow:var(--shadow);
     }
-    .screen{ max-width:1100px; margin:18px auto; padding:0 16px; width:100% }
-    .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
-    .title{
-      font-weight:900; letter-spacing:.3px; text-shadow:0 1px 0 rgba(0,0,0,.15);
-    }
+    .title{ font-weight:900; letter-spacing:.2px; text-shadow:0 1px 0 rgba(0,0,0,.15); font-size:18px }
     .tag{ background:rgba(255,255,255,.22); padding:2px 8px; border-radius:999px; font-size:12px }
-    .spacer{ flex:1 }
     .timer{
       background:rgba(255,255,255,.2); padding:4px 10px; border-radius:10px;
       font-variant-numeric:tabular-nums; font-weight:900; box-shadow: inset 0 0 0 2px rgba(255,255,255,.25);
@@ -67,12 +70,14 @@
     .btn{
       appearance:none; border:none; border-radius:12px; padding:10px 14px; font-weight:800;
       background:#fff; color:#0f172a; cursor:pointer; box-shadow:var(--shadow);
-      transition: transform .05s ease;
+      transition: transform .05s ease, box-shadow .15s ease;
     }
     .btn:active{ transform: translateY(1px) }
+    .btn:focus-visible{ outline:none; box-shadow:var(--shadow), var(--focus) }
     .btn.ghost{ background:rgba(255,255,255,.16); color:#fff; box-shadow:none; border:1px solid rgba(255,255,255,.35) }
     .btn.brand{ background:#0f172a; color:#fff }
     .btn.small{ padding:6px 10px; border-radius:999px; font-weight:700 }
+    .btn.inline{ padding:6px 10px; font-size:13px; border-radius:8px }
 
     /* ==================== LOGIN ==================== */
     .login-card{
@@ -93,65 +98,537 @@
     .login-form .field{ margin-bottom:12px }
     .label{ font-size:13px; color:var(--muted); margin-bottom:6px }
     .input, .select{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
-      background:#fff; color:var(--ink); font-weight:700;
+      width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px;
+      background:var(--card); color:var(--ink); font-size:15px;
     }
-    .avatars{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px }
-    .avatar{
-      width:56px; height:56px; display:grid; place-items:center; border-radius:14px; cursor:pointer;
-      border:2px solid var(--border); background:#fff; font-size:28px; transition:transform .05s ease;
-      box-shadow:var(--shadow);
-    }
-    .avatar:active{ transform:translateY(1px) }
-    .avatar.sel{ outline:3px solid var(--brand) }
-    .help{ color:var(--muted); font-size:13px }
-    .cta{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
-    .note{ font-size:12px; color:var(--muted) }
+    .input:focus, .select:focus{ outline:none; border-color:var(--brand); box-shadow:var(--focus) }
 
-    /* ==================== GAME BOARD ==================== */
-    .board{ display:grid; grid-template-columns: 1.2fr .8fr; gap:16px }
-    @media (max-width:980px){ .board{ grid-template-columns:1fr } }
-    .panel{
-      background:var(--card); border:1px solid var(--border); border-radius:18px; padding:16px;
-      box-shadow:var(--shadow);
+    /* ==================== GAME ==================== */
+    .game-area{
+      background:var(--card); border:1px solid var(--border); border-radius:18px; padding:20px;
+      box-shadow:var(--shadow); margin-bottom:20px;
     }
-    .panel h3{ margin:0 0 10px; font-size:18px }
-    .deck{ display:grid; gap:12px; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)) }
-    .card{
-      background:linear-gradient(180deg, #fff, #fff7f9);
-      border:2px solid #ffe1eb; border-radius:16px; padding:10px; display:flex; gap:10px; align-items:center;
-      min-height:72px; cursor:grab; user-select:none; box-shadow:var(--shadow);
+    .hint{ color:var(--muted); font-size:14px }
+    .timeline{
+      display:flex; gap:8px; margin:16px 0; padding:12px; background:#f8fafc; border-radius:12px;
+      min-height:80px; border:2px dashed var(--border); align-items:flex-start; flex-wrap:wrap;
     }
-    .card .emoji{ font-size:28px }
-    .card .label{ font-weight:900; letter-spacing:.2px }
-    .card .sub{ font-size:12px; color:var(--muted) }
-    .card:focus{ outline:3px solid var(--brand) }
-    .card.selected{ outline:3px solid var(--brand-2) }
+    .timeline.filled{ border-color:var(--brand-4); background:rgba(149,213,178,.08) }
+    .timeline-item{
+      display:flex; align-items:center; gap:8px; border:1px solid var(--border); background:var(--card);
+      border-radius:12px; padding:10px 12px; box-shadow:var(--shadow);
+    }
+    .item-controls{ display:flex; gap:6px }
+    .activity-cards{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:16px 0;
+    }
+    @media (max-width:480px){ .activity-cards{ grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); } }
+    .activity-card{
+      background:var(--card); border:2px solid var(--border); border-radius:12px; padding:16px;
+      cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; text-align:center;
+      user-select:none;
+    }
+    .activity-card:hover{ transform:translateY(-2px); box-shadow:var(--shadow) }
+    .activity-card.placed{ opacity:.35; pointer-events:none }
+    .activity-emoji{ font-size:36px; margin-bottom:8px }
+    .activity-text{ font-weight:700; color:var(--ink); font-size:16px; margin-bottom:6px }
+    .activity-time{ font-size:13px; color:var(--muted); font-weight:600 }
+    .tap-tip{ font-size:12px; color:var(--muted); margin-top:6px }
 
-    .timeline{ display:grid; gap:12px }
-    .slot{
-      border:2px dashed var(--border); border-radius:16px; min-height:78px; padding:8px;
-      display:flex; align-items:center; gap:12px; background:linear-gradient(180deg, #fff, #f8fbff);
+    .connectors, .frequency-options{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;
     }
-    .slot .pos{ width:30px; height:30px; border-radius:10px; background:var(--brand-2); color:#003047;
-      display:grid; place-items:center; font-weight:900; font-size:14px; box-shadow:var(--shadow) }
-    .slot .hint{ color:var(--muted); font-size:13px }
-    .slot.filled{ border-style:solid; background:linear-gradient(180deg, #fff7f0, #fff) }
-    .slot.drop{ border-color:var(--brand) }
-
-    .chips{ display:flex; flex-wrap:wrap; gap:8px }
-    .chip{
-      padding:8px 12px; border-radius:999px; border:2px solid var(--border); background:#fff; cursor:pointer;
-      font-weight:800; box-shadow:var(--shadow); user-select:none;
+    .connector{
+      background:var(--brand-2); color:#0b1220; padding:10px 14px; border-radius:20px;
+      cursor:pointer; font-weight:800; font-size:15px; border:none; transition:transform .1s ease;
     }
-    .chip.on{ background:var(--brand-4); border-color:transparent; color:#083d2b }
+    .connector:hover{ transform:translateY(-1px) }
+    .connector.selected{ background:var(--brand); color:#fff; box-shadow:var(--focus) }
 
-    .scorebar{
-      display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px; border-radius:12px;
-      background:linear-gradient(90deg, rgba(255,222,89,.25), rgba(62,197,255,.18));
-      font-weight:900;
+    .frequency-selector{
+      margin:12px 0; padding:12px; background:#f1f5f9; border-radius:12px;
     }
-    .scorebar .n{ font-size:22px }
-    .inline{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+    .frequency-btn{
+      background:var(--brand-3); color:#0f172a; padding:10px 14px; border-radius:20px;
+      border:none; cursor:pointer; font-weight:800; font-size:15px; transition:transform .1s ease;
+    }
+    .frequency-btn:hover{ transform:translateY(-1px) }
+    .frequency-btn.selected{ background:var(--brand); color:#fff; box-shadow:var(--focus) }
 
-    .samples{ background:linear-gradient(180deg, #fff,
+    .result-area{
+      margin-top:14px; padding:16px; background:var(--brand-4); border-radius:12px;
+      color:#0f172a; font-weight:600; font-size:17px; min-height:64px; display:flex; align-items:center;
+      line-height:1.6;
+    }
+    .result-area.empty{ background:#f8fafc; color:var(--muted); font-style:italic }
+
+    .score-display{
+      background:linear-gradient(135deg, var(--brand-3), var(--brand-2));
+      color:#0f172a; padding:10px 14px; border-radius:12px; text-align:center;
+      font-weight:900; font-size:16px; margin:12px 0;
+    }
+
+    .controls{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap }
+    .controls .btn{ font-size:15px; padding:12px 16px }
+
+    /* Toast */
+    .toast-wrap{ position: fixed; inset-inline-end: 12px; bottom: 12px; display: grid; gap:8px; z-index: 50 }
+    .toast{ background:#111827; color:#fff; padding:10px 12px; border-radius:10px; box-shadow:var(--shadow); max-width:80vw }
+    .toast.good{ background:#065f46 } .toast.bad{ background:#7f1d1d } .toast.info{ background:#1f2937 }
+
+    @media (prefers-reduced-motion: reduce){
+      .activity-card:hover, .connector:hover, .frequency-btn:hover{ transform:none }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="row">
+        <div class="title">🎯 Routine Timeline Relay</div>
+        <div class="tag" id="welcomeTag" aria-live="polite">ม.1</div>
+        <div class="spacer"></div>
+        <div class="timer" id="timer" aria-live="polite">⏱️ 00:00</div>
+        <button class="btn ghost small" id="resetBtn">🔄 เริ่มใหม่</button>
+      </div>
+    </header>
+
+    <!-- Login Screen -->
+    <div class="screen" id="loginScreen">
+      <div class="login-card" role="form" aria-labelledby="loginHeading">
+        <div class="login-hero">
+          <div>
+            <div class="big" aria-hidden="true">🌟</div>
+            <h2 id="loginHeading">เกมเรียงกิจวัตรประจำวัน</h2>
+            <p class="hint">เรียนรู้การใช้ตัวเชื่อมและ Adverbs of Frequency</p>
+          </div>
+        </div>
+        <div class="login-form">
+          <div class="field">
+            <label class="label" for="studentName">ชื่อนักเรียน</label>
+            <input type="text" class="input" id="studentName" placeholder="กรอกชื่อของคุณ" autocomplete="name">
+          </div>
+          <div class="field">
+            <label class="label" for="difficulty">ระดับความยาก</label>
+            <select class="select" id="difficulty">
+              <option value="easy">ง่าย (4 กิจกรรม)</option>
+              <option value="medium">ปานกลาง (6 กิจกรรม)</option>
+              <option value="hard">ยาก (8 กิจกรรม)</option>
+            </select>
+          </div>
+          <button class="btn brand" id="startBtn" style="width:100%; margin-top:12px">🚀 เริ่มเกม</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="screen hide" id="gameScreen">
+      <div class="game-area">
+        <h3 style="font-size:20px; margin:0 0 8px; color:var(--ink);">🎯 แตะการ์ดเพื่อเพิ่มลงไทม์ไลน์ (ลากได้บนคอม)</h3>
+        <p class="hint">เคล็ดลับ: บนมือถือ “แตะการ์ด” เพื่อเพิ่ม / ใช้ปุ่ม ▲▼ เพื่อย้ายลำดับ / กากบาทเพื่อลบ</p>
+
+        <div class="timeline" id="timeline" role="list" aria-label="ลำดับกิจกรรม">
+          <div class="hint">ลาก/แตะเพื่อเพิ่มกิจกรรมมาวางที่นี่…</div>
+        </div>
+
+        <div class="activity-cards" id="activityCards" aria-label="กิจกรรมทั้งหมด">
+          <!-- cards will be injected here -->
+        </div>
+
+        <div class="connectors" aria-label="ตัวเชื่อม">
+          <h4 style="width:100%; margin:0 0 6px 0; font-size:16px; color:var(--ink);">เลือกตัวเชื่อม:</h4>
+          <button class="connector" data-connector="then">then</button>
+          <button class="connector" data-connector="after that">after that</button>
+          <button class="connector" data-connector="next">next</button>
+          <button class="connector" data-connector="finally">finally</button>
+        </div>
+
+        <div class="frequency-selector">
+          <h4 style="margin:0 0 6px 0; font-size:16px; color:var(--ink);">เลือก Adverb of Frequency:</h4>
+          <div class="frequency-options" aria-label="ความถี่">
+            <button class="frequency-btn" data-freq="always">always</button>
+            <button class="frequency-btn" data-freq="usually">usually</button>
+            <button class="frequency-btn" data-freq="often">often</button>
+            <button class="frequency-btn" data-freq="sometimes">sometimes</button>
+            <button class="frequency-btn" data-freq="rarely">rarely</button>
+            <button class="frequency-btn" data-freq="never">never</button>
+          </div>
+        </div>
+
+        <div class="result-area empty" id="resultArea" aria-live="polite">
+          เรียงกิจกรรมและเลือกตัวเชื่อม + Adverb of Frequency แล้วกด “สร้างประโยค”
+        </div>
+
+        <div class="score-display" id="scoreDisplay">คะแนน: 0 | เวลา: 00:00</div>
+
+        <div class="controls">
+          <button class="btn brand" id="genBtn">📝 สร้างประโยค</button>
+          <button class="btn" id="checkBtn">✅ ตรวจคำตอบ</button>
+          <button class="btn" id="copyBtn">📋 คัดลอกประโยค</button>
+          <button class="btn ghost" id="clearBtn">🗑️ ล้างทั้งหมด</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+  </div>
+
+  <script>
+    // ==================== DATA & STATE ====================
+    const activities = {
+      easy: [
+        { id: 1, emoji: '🌅', text: 'wake up', time: '6:00 AM', order: 1 },
+        { id: 2, emoji: '🦷', text: 'brush teeth', time: '6:30 AM', order: 2 },
+        { id: 3, emoji: '🍳', text: 'have breakfast', time: '7:00 AM', order: 3 },
+        { id: 4, emoji: '🚌', text: 'go to school', time: '7:30 AM', order: 4 }
+      ],
+      medium: [
+        { id: 1, emoji: '🌅', text: 'wake up', time: '6:00 AM', order: 1 },
+        { id: 2, emoji: '🚿', text: 'take a shower', time: '6:15 AM', order: 2 },
+        { id: 3, emoji: '🦷', text: 'brush teeth', time: '6:30 AM', order: 3 },
+        { id: 4, emoji: '👕', text: 'get dressed', time: '6:45 AM', order: 4 },
+        { id: 5, emoji: '🍳', text: 'have breakfast', time: '7:00 AM', order: 5 },
+        { id: 6, emoji: '🚌', text: 'go to school', time: '7:30 AM', order: 6 }
+      ],
+      hard: [
+        { id: 1, emoji: '🌅', text: 'wake up', time: '6:00 AM', order: 1 },
+        { id: 2, emoji: '🛏️', text: 'make the bed', time: '6:10 AM', order: 2 },
+        { id: 3, emoji: '🚿', text: 'take a shower', time: '6:15 AM', order: 3 },
+        { id: 4, emoji: '🦷', text: 'brush teeth', time: '6:30 AM', order: 4 },
+        { id: 5, emoji: '👕', text: 'get dressed', time: '6:45 AM', order: 5 },
+        { id: 6, emoji: '🍳', text: 'have breakfast', time: '7:00 AM', order: 6 },
+        { id: 7, emoji: '🎒', text: 'pack school bag', time: '7:20 AM', order: 7 },
+        { id: 8, emoji: '🚌', text: 'go to school', time: '7:30 AM', order: 8 }
+      ]
+    };
+
+    let timerInterval = null;
+    const els = {
+      loginScreen: document.getElementById('loginScreen'),
+      gameScreen: document.getElementById('gameScreen'),
+      studentName: document.getElementById('studentName'),
+      difficulty: document.getElementById('difficulty'),
+      startBtn: document.getElementById('startBtn'),
+      resetBtn: document.getElementById('resetBtn'),
+      timer: document.getElementById('timer'),
+      scoreDisplay: document.getElementById('scoreDisplay'),
+      activityCards: document.getElementById('activityCards'),
+      timeline: document.getElementById('timeline'),
+      resultArea: document.getElementById('resultArea'),
+      genBtn: document.getElementById('genBtn'),
+      checkBtn: document.getElementById('checkBtn'),
+      copyBtn: document.getElementById('copyBtn'),
+      clearBtn: document.getElementById('clearBtn'),
+      toastWrap: document.getElementById('toastWrap'),
+      welcomeTag: document.getElementById('welcomeTag'),
+    };
+
+    const gameState = {
+      studentName: '',
+      difficulty: 'easy',
+      score: 0,
+      startTime: null,
+      selectedConnector: '',
+      selectedFrequency: '',
+      placedActivities: [],
+      currentActivities: []
+    };
+
+    // ==================== UTILS ====================
+    const toast = (msg, type='info') => {
+      const t = document.createElement('div');
+      t.className = `toast ${type}`;
+      t.textContent = msg;
+      els.toastWrap.appendChild(t);
+      setTimeout(()=> t.remove(), 2600);
+    };
+
+    const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+    const updateTimer = () => {
+      if (!gameState.startTime) return;
+      const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+      const minutes = Math.floor(elapsed / 60);
+      const seconds = elapsed % 60;
+      const mm = minutes.toString().padStart(2, '0');
+      const ss = seconds.toString().padStart(2, '0');
+      els.timer.textContent = `⏱️ ${mm}:${ss}`;
+      els.scoreDisplay.textContent = `คะแนน: ${gameState.score} | เวลา: ${mm}:${ss}`;
+    };
+
+    const setIntervalSafe = () => {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateTimer, 1000);
+    };
+
+    const savePrefs = () => {
+      try{
+        localStorage.setItem('rtl_name', gameState.studentName);
+        localStorage.setItem('rtl_diff', gameState.difficulty);
+      }catch(e){}
+    };
+
+    const restorePrefs = () => {
+      try{
+        const n = localStorage.getItem('rtl_name') || '';
+        const d = localStorage.getItem('rtl_diff') || 'easy';
+        if(n) els.studentName.value = n;
+        els.difficulty.value = d;
+      }catch(e){}
+    };
+
+    // ==================== RENDERERS ====================
+    const renderCards = () => {
+      const cards = shuffle(gameState.currentActivities);
+      els.activityCards.innerHTML = '';
+      cards.forEach(act => {
+        const card = document.createElement('button');
+        card.className = 'activity-card';
+        card.type = 'button';
+        card.dataset.id = act.id;
+        card.setAttribute('aria-label', `${act.text} ${act.time}`);
+        card.innerHTML = `
+          <div class="activity-emoji" aria-hidden="true">${act.emoji}</div>
+          <div class="activity-text">${act.text}</div>
+          <div class="activity-time">${act.time}</div>
+          <div class="tap-tip">แตะเพื่อเพิ่ม</div>
+        `;
+        // Click-to-add (mobile friendly)
+        card.addEventListener('click', () => addToTimeline(act.id));
+
+        // Desktop: basic HTML5 drag
+        card.draggable = true;
+        card.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', String(act.id));
+          card.classList.add('dragging');
+        });
+        card.addEventListener('dragend', () => card.classList.remove('dragging'));
+
+        els.activityCards.appendChild(card);
+      });
+    };
+
+    const renderTimeline = () => {
+      const list = gameState.placedActivities;
+      if (list.length === 0){
+        els.timeline.classList.remove('filled');
+        els.timeline.innerHTML = `<div class="hint">ลาก/แตะเพื่อเพิ่มกิจกรรมมาวางที่นี่…</div>`;
+        return;
+      }
+      els.timeline.classList.add('filled');
+      els.timeline.innerHTML = '';
+      list.forEach((act, idx) => {
+        const item = document.createElement('div');
+        item.className = 'timeline-item';
+        item.setAttribute('role','listitem');
+        item.innerHTML = `
+          <span style="font-size:22px" aria-hidden="true">${act.emoji}</span>
+          <span style="font-weight:800">${act.text}</span>
+          <span class="hint">(${act.time})</span>
+          <div class="item-controls">
+            <button class="btn inline" aria-label="ย้ายขึ้น" data-move="up">▲</button>
+            <button class="btn inline" aria-label="ย้ายลง" data-move="down">▼</button>
+            <button class="btn inline" aria-label="นำออก" data-remove="1">✕</button>
+          </div>
+        `;
+        // controls
+        item.querySelector('[data-move="up"]').addEventListener('click', () => moveItem(idx, -1));
+        item.querySelector('[data-move="down"]').addEventListener('click', () => moveItem(idx, +1));
+        item.querySelector('[data-remove="1"]').addEventListener('click', () => removeFromTimeline(act.id));
+        els.timeline.appendChild(item);
+      });
+    };
+
+    const markPlacedCards = () => {
+      document.querySelectorAll('.activity-card').forEach(card => {
+        const id = Number(card.dataset.id);
+        const placed = gameState.placedActivities.find(a => a.id === id);
+        card.classList.toggle('placed', !!placed);
+      });
+    };
+
+    // ==================== TIMELINE OPS ====================
+    const addToTimeline = (id) => {
+      const act = gameState.currentActivities.find(a => a.id === id);
+      if (!act) return;
+      if (gameState.placedActivities.find(a => a.id === id)) return;
+      gameState.placedActivities.push(act);
+      renderTimeline(); markPlacedCards();
+    };
+
+    const removeFromTimeline = (id) => {
+      gameState.placedActivities = gameState.placedActivities.filter(a => a.id !== id);
+      renderTimeline(); markPlacedCards();
+    };
+
+    const moveItem = (index, delta) => {
+      const newIndex = index + delta;
+      if (newIndex < 0 || newIndex >= gameState.placedActivities.length) return;
+      const arr = gameState.placedActivities;
+      [arr[index], arr[newIndex]] = [arr[newIndex], arr[index]];
+      renderTimeline();
+    };
+
+    // Desktop drop zone
+    els.timeline.addEventListener('dragover', (e) => e.preventDefault());
+    els.timeline.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const activityId = Number(e.dataTransfer.getData('text/plain'));
+      addToTimeline(activityId);
+    });
+
+    // ==================== SELECTION (CONNECTOR/FREQ) ====================
+    document.addEventListener('click', (e) => {
+      const conn = e.target.closest('.connector');
+      if (conn){
+        document.querySelectorAll('.connector').forEach(b => b.classList.remove('selected'));
+        conn.classList.add('selected');
+        gameState.selectedConnector = conn.dataset.connector;
+      }
+      const freq = e.target.closest('.frequency-btn');
+      if (freq){
+        document.querySelectorAll('.frequency-btn').forEach(b => b.classList.remove('selected'));
+        freq.classList.add('selected');
+        gameState.selectedFrequency = freq.dataset.freq;
+      }
+    });
+
+    // ==================== SENTENCE ====================
+    const generateSentence = () => {
+      const n = gameState.placedActivities.length;
+      if (n === 0) { toast('กรุณาเพิ่ม/เรียงกิจกรรมก่อน', 'bad'); return; }
+      if (!gameState.selectedFrequency) { toast('กรุณาเลือก Adverb of Frequency', 'bad'); return; }
+
+      let parts = [];
+      const conn = gameState.selectedConnector || 'then';
+      gameState.placedActivities.forEach((act, i) => {
+        if (i === 0){
+          parts.push(act.text);
+        } else if (i === n - 1){
+          parts.push(`and finally ${act.text}`);
+        } else {
+          parts.push(`${conn} ${act.text}`);
+        }
+      });
+
+      // Place adverb before main verb (simple present)
+      let sentence = `I ${gameState.selectedFrequency} ${parts.join(', ')}.`;
+      els.resultArea.textContent = sentence;
+      els.resultArea.classList.remove('empty');
+    };
+
+    const copySentence = async () => {
+      const text = els.resultArea.classList.contains('empty') ? '' : els.resultArea.textContent.trim();
+      if (!text) { toast('ยังไม่มีประโยคให้คัดลอก', 'info'); return; }
+      try{
+        await navigator.clipboard.writeText(text);
+        toast('คัดลอกประโยคแล้ว ✅','good');
+      }catch(e){
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+        toast('คัดลอกประโยคแล้ว ✅','good');
+      }
+    };
+
+    // ==================== CHECK & SCORE ====================
+    const isComplete = () => gameState.placedActivities.length === gameState.currentActivities.length;
+
+    const checkAnswer = () => {
+      if (!isComplete()){
+        const missing = gameState.currentActivities.length - gameState.placedActivities.length;
+        toast(`ยังขาดอีก ${missing} กิจกรรม`, 'info');
+        return;
+      }
+      const correctOrder = gameState.placedActivities.every((a, i) => a.order === i + 1);
+      if (correctOrder){
+        gameState.score += 10;
+        toast('🎉 ถูกต้อง! +10 คะแนน','good');
+        // next round
+        setTimeout(() => nextRound(), 800);
+      } else {
+        toast('❌ ลำดับยังไม่ถูก ลองย้ายด้วย ▲▼ แล้วตรวจอีกครั้ง','bad');
+      }
+      updateTimer(); // refresh score display
+    };
+
+    const nextRound = () => {
+      gameState.placedActivities = [];
+      gameState.selectedConnector = '';
+      gameState.selectedFrequency = '';
+      document.querySelectorAll('.connector').forEach(b => b.classList.remove('selected'));
+      document.querySelectorAll('.frequency-btn').forEach(b => b.classList.remove('selected'));
+      els.resultArea.textContent = 'เรียงกิจกรรมและเลือกตัวเชื่อม + Adverb of Frequency แล้วกด “สร้างประโยค”';
+      els.resultArea.classList.add('empty');
+      gameState.currentActivities = [...activities[gameState.difficulty]];
+      renderCards(); renderTimeline(); markPlacedCards();
+    };
+
+    const clearTimeline = () => {
+      gameState.placedActivities = [];
+      renderTimeline(); markPlacedCards();
+      els.resultArea.textContent = 'เรียงกิจกรรมและเลือกตัวเชื่อม + Adverb of Frequency แล้วกด “สร้างประโยค”';
+      els.resultArea.classList.add('empty');
+    };
+
+    // ==================== GAME FLOW ====================
+    const startGame = () => {
+      const name = els.studentName.value.trim();
+      const difficulty = els.difficulty.value;
+      if (!name){ toast('กรุณากรอกชื่อของคุณ','bad'); els.studentName.focus(); return; }
+
+      gameState.studentName = name;
+      gameState.difficulty = difficulty;
+      gameState.score = 0;
+      gameState.startTime = Date.now();
+      gameState.currentActivities = [...activities[difficulty]];
+      savePrefs();
+
+      els.loginScreen.classList.add('hide');
+      els.gameScreen.classList.remove('hide');
+      els.welcomeTag.textContent = `สวัสดี ${name} · ระดับ: ${difficulty}`;
+
+      nextRound();
+      setIntervalSafe();
+      updateTimer();
+    };
+
+    const resetGame = () => {
+      if (!confirm('ต้องการเริ่มเกมใหม่หรือไม่?')) return;
+      if (timerInterval) clearInterval(timerInterval);
+      gameState.studentName = '';
+      gameState.difficulty = 'easy';
+      gameState.score = 0;
+      gameState.startTime = null;
+      gameState.selectedConnector = '';
+      gameState.selectedFrequency = '';
+      gameState.placedActivities = [];
+      gameState.currentActivities = [];
+      els.gameScreen.classList.add('hide');
+      els.loginScreen.classList.remove('hide');
+      els.studentName.value = '';
+      els.difficulty.value = 'easy';
+      els.timer.textContent = '⏱️ 00:00';
+      els.scoreDisplay.textContent = 'คะแนน: 0 | เวลา: 00:00';
+      els.welcomeTag.textContent = 'ม.1';
+    };
+
+    // ==================== EVENTS ====================
+    els.startBtn.addEventListener('click', startGame);
+    els.resetBtn.addEventListener('click', resetGame);
+    els.genBtn.addEventListener('click', generateSentence);
+    els.copyBtn.addEventListener('click', copySentence);
+    els.checkBtn.addEventListener('click', checkAnswer);
+    els.clearBtn.addEventListener('click', clearTimeline);
+    window.addEventListener('keydown', (e) => {
+      // Enter on login
+      if (!els.loginScreen.classList.contains('hide') && e.key === 'Enter') startGame();
+    });
+
+    restorePrefs();
+  </script>
+</body>
+</html>

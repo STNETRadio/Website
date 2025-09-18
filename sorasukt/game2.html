@@ -6,6 +6,12 @@
   <meta name="color-scheme" content="light dark" />
   <title>Routine Timeline Relay — Kids Web App (M.1)</title>
   <meta name="description" content="เกมเรียงกิจวัตร + ตัวเชื่อม + Adverbs of Frequency สำหรับ ม.1 พร้อมหน้า Login ชื่อนักเรียน (เหมาะกับเด็ก)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <style>
     /* ==================== THEME ==================== */
     :root{
@@ -21,6 +27,7 @@
       --shadow:0 8px 24px rgba(0,0,0,.08);
       --focus: 0 0 0 3px rgba(255,71,126,.2);
     }
+
     @media (prefers-color-scheme: dark){
       :root{
         --bg:#0b0f14;
@@ -39,9 +46,9 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+      margin:0; background: white;
       color:var(--ink);
-      font:16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "IBM Plex Sans Thai", "Noto Color Emoji", sans-serif;
+      font:16px/1.7 "IBM Plex Sans Thai", "Noto Color Emoji", sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       touch-action: manipulation;
     }
@@ -56,7 +63,7 @@
     /* ==================== HEADER ==================== */
     .header{
       position:sticky; top:0; z-index:20;
-      background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 60%, var(--brand-3) 100%);
+      background: black;
       color:#fff;
       padding:12px 16px;
       box-shadow:var(--shadow);
@@ -87,9 +94,7 @@
     }
     @media (max-width:880px){ .login-card{ grid-template-columns:1fr } }
     .login-hero{
-      background: radial-gradient(120px 80px at 20% 20%, var(--brand-3) 0%, transparent 60%),
-                  radial-gradient(120px 80px at 80% 80%, var(--brand-2) 0%, transparent 60%),
-                  linear-gradient(180deg, #fff, #f7fafc);
+      background: black
       border:1px dashed var(--border); border-radius:14px; min-height:220px;
       display:grid; place-items:center; text-align:center; padding:16px;
     }

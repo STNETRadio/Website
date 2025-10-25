@@ -8,15 +8,13 @@
   <meta name="format-detection" content="telephone=no, email=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="icon" href="./img/fav.ico" />
+  <link rel="icon" href="https://stnetradio.com/img/fav.ico" type="image/x-icon" />
 
-  <!-- Source Sans Pro (content) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 
   <style>
-    /* Chillax (logo/menu) from your server */
     @font-face{
       font-family:"Chillax-Variable";
       src:url("/fonts/Chillax-Variable.woff2") format("woff2"),
@@ -27,175 +25,193 @@
     }
 
     :root{
-      --bg:#000; --text:#fff; --muted:#9aa;
-      --container:900px; --maxw:580px;
-      --gap:26px; --page-pad:48px;
+      --bg:#000; --text:#fff; --muted:#cfd3d7;
+      --container:900px;
+      --maxw:580px; --gap:26px; --page-pad:48px;
+      --radius:24px; --shadow:0 0 80px rgba(0,0,0,.5);
+      --ease:cubic-bezier(.22,.61,.36,1);
     }
 
-    /* Light reset */
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%}
-    html{-webkit-text-size-adjust:100%}
-    img{display:block;max-width:100%;height:auto}
-    ul{list-style:none}
+    img{max-width:100%;display:block;height:auto}
 
-    /* Base */
     body{
-      background:var(--bg); color:var(--text);
-      color-scheme:dark;
+      background:var(--bg);color:var(--text);color-scheme:dark;
       font-family:"Source Sans Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      line-height:1.65; letter-spacing:.2px;
-      min-height:100svh; min-height:100dvh;
-      display:flex; flex-direction:column; align-items:center; text-align:center;
+      line-height:1.65;
+      min-height:100svh;
+      display:flex;flex-direction:column;align-items:center;text-align:center;
       padding:calc(var(--page-pad) + env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom));
     }
+    body.no-scroll{overflow:hidden}
 
-    /* Header */
     header{
-      width:100%; max-width:var(--container);
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%;max-width:var(--container);
+      display:flex;justify-content:space-between;align-items:center;
       padding:12px 20px 24px;
-      opacity:.2; transition:opacity .3s ease;
-    }
-    @media (hover:hover){
-      header:hover{opacity:.45}
     }
 
     .brand-logo{
       font-family:"Chillax-Variable",sans-serif;
-      font-weight:600;
-      font-size:clamp(18px,2.6vw,22px);
-      letter-spacing:.75px;
-      text-decoration:none; color:var(--text); white-space:nowrap;
+      font-weight:600;font-size:22px;color:#fff;text-decoration:none;text-transform:none;
     }
 
-    nav ul{display:flex; flex-wrap:wrap; gap:clamp(10px,2.5vw,16px)}
+    nav ul{display:flex;list-style:none;gap:16px}
     nav a{
       font-family:"Chillax-Variable",sans-serif;
-      text-decoration:none; color:var(--muted);
-      font-size:clamp(12px,1.9vw,14px);
-      letter-spacing:.65px; text-transform:uppercase;
-      transition:color .3s ease;
+      color:var(--muted);text-decoration:none;font-size:14px;text-transform:uppercase;
+      transition:color .25s var(--ease);
     }
-    @media (hover:hover){
-      nav a:hover{color:#fff}
-    }
-    nav a[aria-current="page"]{color:#fff}
+    @media (hover:hover){nav a:hover{color:#fff}}
 
-    /* Main figure */
-    figure{
-      width:100%; max-width:var(--container);
-      margin:0 auto 150px; /* reserve space before footer */
+    .nav-toggle{
+      display:none;width:44px;height:44px;background:none;border:none;position:relative;
     }
+    .nav-toggle:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .line{
+      width:22px;height:2px;background:#fff;border-radius:2px;
+      position:absolute;left:50%;transform:translateX(-50%);transition:.35s var(--ease);
+    }
+    .line:nth-child(1){top:14px}
+    .line:nth-child(2){top:21px}
+    .line:nth-child(3){top:28px}
+    .nav-toggle.active .line:nth-child(1){transform:translateX(-50%) rotate(45deg);top:21px}
+    .nav-toggle.active .line:nth-child(2){opacity:0}
+    .nav-toggle.active .line:nth-child(3){transform:translateX(-50%) rotate(-45deg);top:21px}
+
+    #nav-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.5);
+      opacity:0;visibility:hidden;transition:.3s var(--ease);
+    }
+    #nav-backdrop.show{opacity:1;visibility:visible}
+
+    @media (max-width:768px){
+      .nav-toggle{display:inline-grid;place-items:center}
+      nav{
+        position:absolute;left:12px;right:12px;top:calc(env(safe-area-inset-top) + 60px);
+        background:rgba(0,0,0,.92);backdrop-filter:blur(6px);
+        border-radius:14px;opacity:0;visibility:hidden;transform:translateY(-12px);
+        transition:.35s var(--ease);z-index:5;
+      }
+      nav.open{opacity:1;visibility:visible;transform:translateY(0)}
+      nav ul{flex-direction:column;padding:6px}
+      nav a{padding:12px 10px;border-radius:10px;text-align:left}
+      nav a:active,nav a:focus-visible{background:rgba(255,255,255,.08)}
+    }
+
+    figure{margin:0 auto 150px;max-width:var(--container)}
 
     .portrait-wrap{
-      position:relative;
-      width:100%; max-width:var(--maxw);
-      margin:0 auto; overflow:hidden;
-      border-radius:24px;
-      box-shadow:0 0 80px rgba(0,0,0,.5);
-      isolation:isolate; /* clarify stacking context */
+      max-width:var(--maxw);margin:0 auto;border-radius:var(--radius);overflow:hidden;
+      box-shadow:var(--shadow);position:relative;isolation:isolate;
     }
 
-    /* Image with mask fade (Safari/iOS) */
     .portrait{
-      width:100%;
-      filter:grayscale(100%);
-      opacity:0; transform:translateY(6px);
-      animation:fadeIn .9s ease forwards;
-      position:relative; z-index:0;
-
-      -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-              mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-      -webkit-mask-size:100% 145%; mask-size:100% 145%;
-      -webkit-mask-repeat:no-repeat;  mask-repeat:no-repeat;
+      width:100%;filter:grayscale(100%);opacity:0;transform:translateY(6px);
+      animation:fadeIn .9s var(--ease) forwards;position:relative;z-index:0;
+      -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 65%,rgba(0,0,0,0) 100%);
+              mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 65%,rgba(0,0,0,0) 100%);
+      -webkit-mask-size:100% 145%;mask-size:100% 145%;
+      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
     }
 
-    /* Overlay fade (cross-browser) */
     .portrait-wrap::after{
-      content:"";
-      position:absolute; left:0; right:0; bottom:0;
-      height:42%;
-      background:linear-gradient(to bottom,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,.35) 55%,
-        rgba(0,0,0,1) 100%);
-      pointer-events:none; z-index:1;
+      content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
+      background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,1) 100%);
+      pointer-events:none;z-index:1;
     }
 
     figcaption{
-      margin-top:var(--gap);
-      font-family:"Source Sans Pro",sans-serif;
-      font-weight:600; font-size:clamp(18px,2.6vw,22px);
-      opacity:0; animation:fadeInUp .8s ease forwards 1.05s;
+      opacity:0;margin-top:var(--gap);display:flex;flex-direction:column;gap:6px;
+      animation:fadeInUp .8s var(--ease) forwards .9s;
     }
+    .royal-title{font-size:22px;font-weight:600}
+    .royal-sub{font-size:18px;opacity:.75}
+    .royal-year{font-size:16px;opacity:.45}
 
-    /* Footer */
-    footer{
-      width:100%; max-width:var(--container);
-      font-size:clamp(12px,1.8vw,14px);
-      color:#778; opacity:.2; transition:opacity .3s ease;
-    }
-    @media (hover:hover){
-      footer:hover{opacity:.45}
-    }
-    footer a{color:var(--muted); text-decoration:none}
-    @media (hover:hover){
-      footer a:hover{color:#fff}
-    }
+    footer{opacity:.6;margin-bottom:24px;font-size:14px}
+    footer a{color:#9aa;text-decoration:none}
+    @media (hover:hover){footer a:hover{color:#fff}}
 
-    /* Motion respect */
     @media (prefers-reduced-motion:reduce){
-      *{animation:none !important; transition:none !important}
-      .portrait, figcaption{opacity:1; transform:none}
+      *{animation:none!important;transition:none!important}
+      .portrait,figcaption{opacity:1;transform:none}
     }
 
-    /* Print */
     @media print{
-      body{background:#fff; color:#000; padding:0}
-      header, footer{display:none}
-      .portrait{-webkit-mask-image:none; mask-image:none}
+      body{background:#fff;color:#000;padding:0}
+      header,footer{display:none}
+      .portrait{-webkit-mask-image:none;mask-image:none}
       .portrait-wrap::after{display:none}
     }
 
-    @keyframes fadeIn{to{opacity:1; transform:translateY(0)}}
-    @keyframes fadeInUp{to{opacity:1; transform:translateY(-3px)}}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeInUp{to{opacity:1;transform:translateY(-3px)}}
   </style>
 </head>
 
 <body>
-  <header role="banner">
-    <a href="/en" class="brand-logo">STNET Radio</a>
-    <nav aria-label="Main menu">
-      <ul>
-        <li><a href="/en" aria-current="page">Home</a></li>
-        <li><a href="/plus">Plus+</a></li>
-        <li><a href="/podcast/">Podcasts</a></li>
-        <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <a href="/en" class="brand-logo">STNET Radio</a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
+    <span class="line"></span><span class="line"></span><span class="line"></span>
+  </button>
+  <nav id="site-nav" aria-label="Main menu">
+    <ul>
+      <li><a href="/en" aria-current="page">Home</a></li>
+      <li><a href="/plus">Plus+</a></li>
+      <li><a href="/podcast/">Podcasts</a></li>
+      <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <figure>
-    <div class="portrait-wrap">
-      <img
-        src="https://stnetradio.com/img/queen-sirikit.png"
-        alt="Her Majesty Queen Sirikit The Queen Mother"
-        class="portrait"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high">
-        <!-- Optional (recommended):
-        srcset="... 640w, ... 960w, ... 1280w"
-        sizes="(max-width: 640px) 90vw, (max-width: 960px) 70vw, 580px"
-        -->
-    </div>
-    <figcaption>In Remembrance of Her Majesty Queen Sirikit The Queen Mother</figcaption>
-  </figure>
+<div id="nav-backdrop" hidden></div>
 
-  <footer role="contentinfo">
-    <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All rights reserved.</p>
-    <p><a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms-of-service">Terms of Service</a></p>
-  </footer>
+<figure>
+  <div class="portrait-wrap">
+    <img
+      src="https://stnetradio.com/img/queen-sirikit.png"
+      alt="Her Majesty Queen Sirikit The Queen Mother"
+      class="portrait"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high">
+  </div>
+  <figcaption>
+    <span class="royal-title">Her Majesty Queen Sirikit The Queen Mother</span>
+    <span class="royal-sub">In Reverent Remembrance and with profound gratitude for Her boundless grace and benevolence</span>
+    <span class="royal-year">1932 – 2024</span>
+  </figcaption>
+</figure>
+
+<footer>
+  &copy; 2025 STNET Radio. All rights reserved.
+</footer>
+
+<script>
+  const btn = document.getElementById('navToggle');
+  const nav = document.getElementById('site-nav');
+  const backdrop = document.getElementById('nav-backdrop');
+
+  function toggleNav(force){
+    const show = typeof force === 'boolean' ? force : !nav.classList.contains('open');
+    nav.classList.toggle('open', show);
+    btn.classList.toggle('active', show);
+    btn.setAttribute('aria-expanded', String(show));
+    btn.setAttribute('aria-label', show ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('no-scroll', show);
+    backdrop.hidden = !show;
+    backdrop.classList.toggle('show', show);
+  }
+
+  btn.addEventListener('click', () => toggleNav());
+  backdrop.addEventListener('click', () => toggleNav(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
+
+  const mq = window.matchMedia('(min-width: 769px)');
+  if (mq.addEventListener) mq.addEventListener('change', () => toggleNav(false));
+  else if (mq.addListener) mq.addListener(() => toggleNav(false));
+</script>
 </body>
 </html>

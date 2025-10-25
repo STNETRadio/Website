@@ -1,42 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | STNET Radio</title>
-  <link rel="icon" href="/img/fav.ico" type="image/ico">
-  <link rel="stylesheet" href="/CSS/index.css">
-  <link rel="stylesheet" href="/CSS/brand.css">
-  <link rel="stylesheet" href="/CSS/footer.css"
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>STNET Radio</title>
+  <meta name="theme-color" content="#000000" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="icon" href="./img/fav.ico" />
+
+  <!-- Source Sans Pro (content) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Chillax (logo/menu) from your server */
+    @font-face{
+      font-family:"Chillax-Variable";
+      src:url("/fonts/Chillax-Variable.woff2") format("woff2"),
+          url("/fonts/Chillax-Variable.woff") format("woff"),
+          url("/fonts/Chillax-Variable.ttf") format("truetype");
+      font-weight:100 900;
+      font-display:swap;
+    }
+
+    :root{
+      --bg:#000; --text:#fff; --muted:#9aa;
+      --container:900px; --maxw:580px;
+      --gap:26px; --page-pad:48px;
+    }
+
+    /* Light reset */
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    html{-webkit-text-size-adjust:100%}
+    img{display:block;max-width:100%;height:auto}
+    ul{list-style:none}
+
+    /* Base */
+    body{
+      background:var(--bg); color:var(--text);
+      color-scheme:dark;
+      font-family:"Source Sans Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.65; letter-spacing:.2px;
+      min-height:100svh; min-height:100dvh;
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      padding:calc(var(--page-pad) + env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom));
+    }
+
+    /* Header */
+    header{
+      width:100%; max-width:var(--container);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 20px 24px;
+      opacity:.2; transition:opacity .3s ease;
+    }
+    @media (hover:hover){
+      header:hover{opacity:.45}
+    }
+
+    .brand-logo{
+      font-family:"Chillax-Variable",sans-serif;
+      font-weight:600;
+      font-size:clamp(18px,2.6vw,22px);
+      letter-spacing:.75px;
+      text-decoration:none; color:var(--text); white-space:nowrap;
+    }
+
+    nav ul{display:flex; flex-wrap:wrap; gap:clamp(10px,2.5vw,16px)}
+    nav a{
+      font-family:"Chillax-Variable",sans-serif;
+      text-decoration:none; color:var(--muted);
+      font-size:clamp(12px,1.9vw,14px);
+      letter-spacing:.65px; text-transform:uppercase;
+      transition:color .3s ease;
+    }
+    @media (hover:hover){
+      nav a:hover{color:#fff}
+    }
+    nav a[aria-current="page"]{color:#fff}
+
+    /* Main figure */
+    figure{
+      width:100%; max-width:var(--container);
+      margin:0 auto 150px; /* reserve space before footer */
+    }
+
+    .portrait-wrap{
+      position:relative;
+      width:100%; max-width:var(--maxw);
+      margin:0 auto; overflow:hidden;
+      border-radius:24px;
+      box-shadow:0 0 80px rgba(0,0,0,.5);
+      isolation:isolate; /* clarify stacking context */
+    }
+
+    /* Image with mask fade (Safari/iOS) */
+    .portrait{
+      width:100%;
+      filter:grayscale(100%);
+      opacity:0; transform:translateY(6px);
+      animation:fadeIn .9s ease forwards;
+      position:relative; z-index:0;
+
+      -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+              mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+      -webkit-mask-size:100% 145%; mask-size:100% 145%;
+      -webkit-mask-repeat:no-repeat;  mask-repeat:no-repeat;
+    }
+
+    /* Overlay fade (cross-browser) */
+    .portrait-wrap::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:0;
+      height:42%;
+      background:linear-gradient(to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,.35) 55%,
+        rgba(0,0,0,1) 100%);
+      pointer-events:none; z-index:1;
+    }
+
+    figcaption{
+      margin-top:var(--gap);
+      font-family:"Source Sans Pro",sans-serif;
+      font-weight:600; font-size:clamp(18px,2.6vw,22px);
+      opacity:0; animation:fadeInUp .8s ease forwards 1.05s;
+    }
+
+    /* Footer */
+    footer{
+      width:100%; max-width:var(--container);
+      font-size:clamp(12px,1.8vw,14px);
+      color:#778; opacity:.2; transition:opacity .3s ease;
+    }
+    @media (hover:hover){
+      footer:hover{opacity:.45}
+    }
+    footer a{color:var(--muted); text-decoration:none}
+    @media (hover:hover){
+      footer a:hover{color:#fff}
+    }
+
+    /* Motion respect */
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none !important; transition:none !important}
+      .portrait, figcaption{opacity:1; transform:none}
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff; color:#000; padding:0}
+      header, footer{display:none}
+      .portrait{-webkit-mask-image:none; mask-image:none}
+      .portrait-wrap::after{display:none}
+    }
+
+    @keyframes fadeIn{to{opacity:1; transform:translateY(0)}}
+    @keyframes fadeInUp{to{opacity:1; transform:translateY(-3px)}}
+  </style>
 </head>
 
 <body>
-
-  <header>
-    <a href="https://stnetradio.com" class="brand">STNET Radio</a>
-    <nav>
+  <header role="banner">
+    <a href="/en" class="brand-logo">STNET Radio</a>
+    <nav aria-label="Main menu">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="/plus/">Plus+</a></li>
-        <li><a href="/podcast/">Podcast</a></li>
-        <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+        <li><a href="/en" aria-current="page">Home</a></li>
+        <li><a href="/plus">Plus+</a></li>
+        <li><a href="/podcast/">Podcasts</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
       </ul>
     </nav>
   </header>
-  
-  <section class="hero">
-    <div class="banner">
-      <p class="banner-p">Our primary website has been unexpectedly shut down. <a href="https://updates.stnetradio.com/radio/nov24/112724-web" class="banner-li" target="_blank">Learn More</a></p> 
+
+  <figure>
+    <div class="portrait-wrap">
+      <img
+        src="https://stnetradio.com/img/queen-sirikit.png"
+        alt="Her Majesty Queen Sirikit The Queen Mother"
+        class="portrait"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high">
+        <!-- Optional (recommended):
+        srcset="... 640w, ... 960w, ... 1280w"
+        sizes="(max-width: 640px) 90vw, (max-width: 960px) 70vw, 580px"
+        -->
     </div>
-    <div>
-      <h1>We are updating this <span class="hero-hb">website</span>.</h1>
-      <p>SORRY FOR THE <span class="hero-b">INCONVENIENCE</span>.</p>
-    </div>
-  </section>
-  
-  <footer>
-    <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All Rights Reserved.</p>
-      <p class="st-link"><a href="/Privacy-Policy" class="st-link" > Privacy Policy</a> | <a href="/Terms-of-Service" class="st-link">Terms of Service</a></p>
-    </footer>
-  </body>
-  </html>
+    <figcaption>In Remembrance of Her Majesty Queen Sirikit The Queen Mother</figcaption>
+  </figure>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All rights reserved.</p>
+    <p><a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms-of-service">Terms of Service</a></p>
+  </footer>
+</body>
+</html>

@@ -1,202 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
-.featured-section {
-    font-family: "Sorce Sans 3", sans-serif;
+/* --- 1. Global Reset & Theme Variables --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Prevent Blue Links Globally */
+a { text-decoration: none; color: inherit; }
+
+:root {
+  --red: #ff0000;
+  --bg: #ffffff;
+  --text: #1a1a1a;        /* Beautiful Dark Grey for reading */
+  --subtext: #555555;     /* Lighter Grey for descriptions */
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+  --card-hover-shadow: rgba(255, 0, 0, 0.08);
+  --filter-bg: rgba(255, 255, 255, 0.85);
 }
 
-.featured-section h2 {
-    font-size: 50px;
-    font-weight: 900;
-    color: #fff;
-    text-transform: uppercase;
-    height: 200px;
-    margin: 10px;
-    margin-bottom: 50px;
-    background-image: linear-gradient(to bottom right, red 50%, white);
-    border: 0px solid;
-    border-radius: 12px;
-    align-items: center;
-    text-align: center;
-    align-content: center;
-    box-shadow: 0px 10px 50px rgba(255, 0, 0, 0.263);
+/* Auto Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #050505;
+    --text: #ffffff;
+    --subtext: #a0a0a0;
+    --card-bg: #111111;
+    --card-border: #222222;
+    --card-hover-shadow: rgba(255, 0, 0, 0.2);
+    --filter-bg: rgba(5, 5, 5, 0.85);
+  }
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+body {
+  font-family: "Source Sans 3", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.search-bar {
-    display: flex;
-    margin: 1.5rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+/* --- 2. Navigation Fixes --- */
+/* Specific styling for the active link in header */
+.active-link {
+  color: var(--red) !important;
+  font-weight: 700;
 }
 
-.search-bar input {
-    flex: 1;
-    padding: 1rem 1.5rem;
-    border: none;
-    font-size: 1rem;
+/* --- 3. Hero Section --- */
+.hero {
+  font-family: "Chillax-Variable", sans-serif;
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
 }
 
-.search-bar button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0 1.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
+.hero-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-bottom: 1rem;
+  border: 1px solid var(--red);
+  padding: 4px 12px;
+  border-radius: 50px;
 }
 
-.search-bar button:hover {
-    background-color: var(--secondary-color);
+.hero h1 {
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.85;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  letter-spacing: -3px;
 }
 
-.categories {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin: 2rem 0;
+.hero-desc {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  color: var(--subtext);
 }
 
-.category {
-    background-color: white;
-    border-radius: 50px;
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* --- 4. Filter Bar --- */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0; /* Sticks below header */
+  z-index: 90;
+  background: var(--filter-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+  overflow-x: auto; /* Allows scroll on mobile */
 }
 
-.category.active {
-    background-color: var(--primary-color);
-    color: white;
+.filter-btn {
+  background: transparent;
+  border: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--subtext);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
-.category:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.filter-btn:hover { color: var(--red); }
+.filter-btn.active { background: var(--red); color: #fff; }
+
+/* --- 5. Main Grid --- */
+.main-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 .podcasts-grid {
-    margin: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 30rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 3rem;
 }
 
+/* --- 6. Podcast Cards (The "Beautiful" Part) --- */
 .podcast-card {
-    
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+  height: 100%;
 }
 
 .podcast-card:hover {
-    transform: translateY(-10px);
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow: 0 20px 40px var(--card-hover-shadow);
 }
 
 .podcast-image {
-    padding: 0%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
 }
 
 .podcast-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.podcast-card:hover .podcast-image img {
+  transform: scale(1.05);
 }
 
 .podcast-content {
-    padding: 1.5rem;
-    color: #080808;
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .podcast-title {
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-family: "Chillax-Variable", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  transition: color 0.2s;
 }
 
-.thai-font {
-    font-family: "IBM Plex Sans Thai", sans-serif;
-    color: #ff0000;
+.podcast-card:hover .podcast-title {
+  color: var(--red);
 }
 
-.english-font {
-    font-family: "Sorce Sans 3", sans-serif;
-    color: red;
+/* Font Utilities */
+.thai-font, .thai-font-p { font-family: "IBM Plex Sans Thai", sans-serif; }
+.english-font, .english-font-p { font-family: "Source Sans 3", sans-serif; }
+
+.podcast-content p {
+  font-size: 1rem;
+  color: var(--subtext);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  
+  /* Clamp text to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.thai-font-p {
-    font-family: "IBM Plex Sans Thai", sans-serif;
-    color: #080808;
+/* --- 7. Footer --- */
+footer {
+  margin-top: auto;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--card-border);
+  text-align: center;
 }
 
-.english-font-p {
-    font-family: "Sorce Sans 3", sans-serif;
-    color: #080808;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-
-@media  screen and (max-width: 510px) {
-    
-    .featured-section h2 {
-        background-image: linear-gradient(to bottom right, red 30%, white);
-        transition: 1s;
-    }
+.copyright { color: var(--subtext); font-size: 0.9rem; }
+.footer-links a {
+  color: var(--text);
+  font-weight: 600;
+  margin-left: 1.5rem;
+  font-size: 0.9rem;
+  transition: color 0.2s;
 }
+.footer-links a:hover { color: var(--red); }
 
-@media  screen and (max-width: 390px) {
+/* --- 8. Animations --- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.1s; }
 
-    .featured-section h2 {
-        font-size: 25px;
-        height: 100px;
-        margin: 20px;
-        transition: 1s;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-
-    body {
-        background: #080808;
-    }
-
-    .featured-section {
-        background-color: #000000;
-    }
-
-    .featured-section h2 {
-
-        box-shadow: 0px 20px 50px rgb(255, 0, 0);
-        background-image: linear-gradient(to bottom right, red 50%, black);
-    }
-
-    .podcast-card {
-        box-shadow: 0px 10px 50px red ;
-    }
-
-    .podcast-title {
-        color: white;
-    }
-
-    .podcast-content {
-        color: white;
-    }
-
-    .podcast-stats {
-        color: #bababa;
-    }
-
-    .podcast-creator {
-        color: #bababa;
-    }
-
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 4rem; }
+  .footer-content { flex-direction: column; gap: 1.5rem; }
+  .footer-links a { margin: 0 0.75rem; }
 }

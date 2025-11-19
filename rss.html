@@ -1,230 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STNET Radio RSS | STNET Radio</title>
-  <meta name="description" content="Welcome to STNET Radio RSS. Self-hosted podcast delivery with smoother playback and significantly improved audio quality." />
-  <meta property="og:title" content="STNET Radio RSS — Welcome" />
-  <meta property="og:description" content="Self-hosted podcast delivery with smoother playback and significantly improved audio quality." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rss.stnetradio.com/" />
-  <meta property="og:image" content="https://rss.stnetradio.com/og-image.png" />
-  <meta name="theme-color" content="#111111" />
-  <link rel="icon" href="./img/fav.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./CSS/rss.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>RSS Service | STNET Radio</title>
+  <meta name="description" content="Self-hosted podcast delivery. Higher fidelity, smoother playback." />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/CSS/brand.css" />
+  <link rel="stylesheet" href="/CSS/rss.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container row between center">
-      <a href="/" class="brand">
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="brand-mark">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M6 9h3v6H6zM10.5 6h3v12h-3zM15 9h3v6h-3z" />
-        </svg>
-        <span class="brand-text">STNET Radio <strong>RSS</strong></span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" id="navToggle">
-        <span class="sr-only">Toggle navigation</span>
-        ☰
-      </button>
-      <nav id="nav" class="site-nav">
-        <a href="#about">About</a>
-        <a href="#listeners">For Listeners</a>
-        <a href="#creators">For Creators</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
+  <header>
+    <a href="/" class="brand">STNET Radio</a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/plus/">SNR+</a></li>
+        <li><a href="/podcast/">Podcasts</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>Welcome to <span class="grad">STNET Radio RSS</span></h1>
-        <p class="lead">
-          A self-hosted podcast delivery service for smoother playback and
-          significantly improved audio quality—built for creators, tuned for listeners.
+  <div class="hero">
+    <div class="status-badge">High Fidelity Audio</div>
+    <h1 class="fade-in-up">STNET Radio <span class="text-red">RSS</span></h1>
+    <p class="hero-desc fade-in-up delay-1">
+      Self-hosted podcast delivery for smoother playback and significantly improved audio quality.
+      <br>Built for creators, tuned for listeners.
+    </p>
+    <div class="fade-in-up delay-2" style="margin-top: 2rem;">
+      <a href="#listeners" class="btn-solid">Get Feed URL</a>
+      <a href="#about" class="link-arrow" style="margin-left: 20px;">How it works</a>
+    </div>
+  </div>
+
+  <main class="main-content">
+
+    <section id="about" class="grid-section">
+      <div class="text-block">
+        <h2>Why Self-Host?</h2>
+        <p>
+          We tested podcasting via <strong>rss.stnetradio.com</strong> and the results were clear:
+          smoother playback and higher bitrate audio.
         </p>
-        <div class="cta-row">
-          <a class="btn primary" href="#listeners">Explore Feeds</a>
-          <a class="btn" href="#about">How it works</a>
-        </div>
-        <div class="hero-note">
-          <span class="badge">New</span>
-          Migrating our shows to <code>rss.stnetradio.com</code> for higher-fidelity audio.
-        </div>
+        <ul class="tick-list">
+          <li>No compression surprises</li>
+          <li>Smart caching for speed</li>
+          <li>Direct delivery pipeline</li>
+        </ul>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
+      <div class="card tilt-card">
+        <h3>Better Sound</h3>
+        <p>
+          Serve high-bitrate files with smart caching for crisp voices and punchy music.
+          It's audio exactly as the creator intended.
+        </p>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container grid two">
-        <div>
-          <h2>About STNET Radio RSS</h2>
-          <p>
-            We tested self-hosted podcasting via <strong>rss.stnetradio.com</strong> with some of our podcasts.
-            The results showed <strong>smoother playback</strong> and <strong>significantly improved audio quality</strong>.
-          </p>
-          <p>
-            STNET Radio RSS was developed to address these issues, allowing our creators to upload
-            high-quality audio files for their listeners seamlessly.
-          </p>
+    <section id="listeners" class="full-width-card">
+      <div class="card-content">
+        <h2>For Listeners</h2>
+        <p>Subscribe directly via RSS for the highest quality experience.</p>
+        
+        <div class="feed-box">
+          <input id="feedUrl" type="text" value="https://rss.stnetradio.com/feeds/stnetradio.xml" readonly />
+          <button id="copyBtn" class="btn-copy">Copy URL</button>
         </div>
-        <div class="card-list">
-          <article class="card">
-            <h3>Why self-host?</h3>
-            <p>More control over delivery, fewer compression surprises, and consistent listener experience.</p>
-          </article>
-          <article class="card">
-            <h3>Better sound</h3>
-            <p>Serve high-bitrate files with smart caching for crisp voices and punchy music.</p>
-          </article>
-          <article class="card">
-            <h3>Simple pipelines</h3>
-            <p>Upload once, publish everywhere via open RSS. No walled gardens.</p>
-          </article>
+        
+        <p class="hint">Paste this URL into Apple Podcasts, Pocket Casts, or Overcast.</p>
+        
+        <div class="app-tags">
+          <span>Apple Podcasts</span>
+          <span>Pocket Casts</span>
+          <span>Overcast</span>
+          <span>AntennaPod</span>
         </div>
       </div>
     </section>
 
-    <!-- Listeners -->
-    <section id="listeners" class="section tint">
-      <div class="container grid two">
-        <div>
-          <h2>For General Listeners</h2>
-          <p>
-            Soon, our podcasts will be even easier to access via RSS Feed, allowing you to stay
-            updated and enjoy high-quality content through our website <strong>rss.stnetradio.com</strong>.
-          </p>
-          <div class="inline-cta">
-            <label class="sr-only" for="feedUrl">Main feed URL</label>
-            <input id="feedUrl" type="text" value="https://rss.stnetradio.com/feeds/stnetradio.xml" readonly />
-            <button class="btn small" id="copyBtn" data-copied="Copied!">Copy</button>
-          </div>
-          <p class="hint">Paste this into any podcast app that supports RSS (Apple Podcasts, Pocket Casts, etc.).</p>
-          <ul class="tick">
-            <li>Stay subscribed with instant updates</li>
-            <li>Higher-fidelity audio streams</li>
-            <li>Privacy-friendly, open standard</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Quick Start</h3>
-          <ol class="steps">
-            <li>Copy the feed URL.</li>
-            <li>Open your podcast app → “Add a show by URL”.</li>
-            <li>Paste, subscribe, and enjoy.</li>
-          </ol>
-          <div class="apps">
-            <span class="chip">Apple Podcasts</span>
-            <span class="chip">Pocket Casts</span>
-            <span class="chip">Overcast</span>
-            <span class="chip">AntennaPod</span>
-            <span class="chip">Castbox</span>
-          </div>
-        </div>
+    <section id="creators" class="grid-section reverse-mobile">
+      <div class="card tilt-card">
+        <h3>Creator Tools</h3>
+        <p>Coming soon: A dashboard with drag-and-drop upload, ID3 validation, and scheduled publishing.</p>
+        <a href="mailto:team@stnetradio.com" class="link-arrow">Contact Team</a>
+      </div>
+      <div class="text-block">
+        <h2>For Creators</h2>
+        <p>
+          Upload high-quality audio and publish via open RSS. Our pipeline is designed for reliability, speed, and clean metadata.
+        </p>
+        <ul class="tick-list">
+          <li>High-bitrate uploads</li>
+          <li>CDN acceleration</li>
+          <li>Privacy-aware analytics</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Creators -->
-    <section id="creators" class="section">
-      <div class="container grid two">
-        <div>
-          <h2>For Creators</h2>
-          <p>
-            Upload high-quality audio, publish via open RSS, and deliver a premium listening experience.
-            Our pipeline is designed for reliability, speed, and clean metadata.
-          </p>
-          <ul class="tick">
-            <li>High-bitrate uploads (with automatic fallback)</li>
-            <li>CDN acceleration + cache validation</li>
-            <li>Episode analytics (privacy-aware)</li>
-            <li>Easy redirects from legacy feeds</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Coming Up</h3>
-          <p>Creator dashboard with drag-and-drop upload, ID3 validation, and scheduled publishing.</p>
-          <div class="cta-row">
-            <a class="btn disabled" aria-disabled="true">Dashboard (Soon)</a>
-            <a class="btn" href="mailto:team@stnetradio.com">Contact Team</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section tint">
-      <div class="container">
-        <h2>FAQ</h2>
+    <section id="faq" class="faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
         <details>
           <summary>What is an RSS feed?</summary>
-          <p>RSS is an open format for distributing updates. Podcast apps can subscribe to an RSS URL to fetch new episodes automatically.</p>
+          <p>RSS is an open format for distributing updates. Apps subscribe to this URL to fetch new episodes automatically.</p>
         </details>
         <details>
-          <summary>Will existing podcast links still work?</summary>
-          <p>Yes. We’re setting redirects for legacy feeds so your app continues to receive updates without manual changes.</p>
+          <summary>Will old links work?</summary>
+          <p>Yes. We are setting redirects for legacy feeds so your apps continue to update without changes.</p>
         </details>
         <details>
-          <summary>Why does audio sound better now?</summary>
-          <p>Self-hosting lets us control encoding and delivery, avoiding extra re-compression and preserving more detail.</p>
+          <summary>Is it free?</summary>
+          <p>For listeners, yes. For creators, we offer varied hosting plans included with STNET Radio+ memberships.</p>
         </details>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container row between start">
-      <div>
-        <strong>STNET Radio RSS</strong><br />
-        <small>© <span id="y"></span> STNET Radio. All rights reserved.</small>
-      </div>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#listeners">Listeners</a>
-        <a href="#creators">Creators</a>
-        <a href="mailto:support@stnetradio.com">Contact</a>
+  <footer>
+    <div class="footer-content">
+      <p class="copyright">&copy; 2025 STNET Radio.</p>
+      <div class="footer-links">
+        <a href="/Privacy-Policy.html">Privacy</a>
+        <a href="/Terms-of-Service.html">Terms</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile nav
-    const navToggle = document.getElementById('navToggle');
-    const nav = document.getElementById('nav');
-    navToggle.addEventListener('click', () => {
-      const open = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('open');
-    });
-
-    // Copy feed URL
+    // Copy Functionality
     const copyBtn = document.getElementById('copyBtn');
     const feedInput = document.getElementById('feedUrl');
-    copyBtn?.addEventListener('click', async () => {
+    
+    copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(feedInput.value);
         const original = copyBtn.textContent;
-        copyBtn.textContent = copyBtn.dataset.copied || 'Copied!';
-        setTimeout(() => (copyBtn.textContent = original), 1200);
-      } catch {
-        feedInput.select();
-        document.execCommand('copy');
+        copyBtn.textContent = 'Copied!';
+        copyBtn.style.background = '#000';
+        copyBtn.style.color = '#fff';
+        
+        setTimeout(() => {
+          copyBtn.textContent = original;
+          copyBtn.style.background = ''; // Reset to CSS default
+          copyBtn.style.color = '';
+        }, 1500);
+      } catch (err) {
+        console.error('Failed to copy', err);
       }
     });
-
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

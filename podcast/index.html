@@ -2,40 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Podcast | STNET Radio</title>
-  <link rel="icon" href="https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/logo/fav.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/CSS/podcast/index.css" />
-  <link rel="stylesheet" href="/CSS/footer.css" />
-  <link rel="stylesheet" href="/CSS/brand.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Podcasts | STNET Radio</title>
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="../CSS/brand.css" />
+  <link rel="stylesheet" href="../CSS/podcast/index.css" />
 </head>
 <body>
 
-  <header class="sitebar" role="navigation" aria-label="Primary">
-    <a href="https://stnetradio.com" class="brand">STNET Radio</a>
+  <header>
+    <a href="/" class="brand">STNET Radio</a>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/plus/">Plus+</a></li>
-        <li><a href="/podcast/" aria-current="page">Podcast</a></li>
-        <li><a href="https://support.stnetradio.com" target="_blank" rel="noopener">Support</a></li>
+        <li><a href="/plus/">SNR+</a></li>
+        <li><a href="/podcast/" class="active-link">Podcasts</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="content">
-    <section class="featured-section" aria-labelledby="featured-title">
-      <h2 id="featured-title">Featured Podcasts</h2>
-      <div class="podcasts-grid" id="podcastList"></div>
-    </section>
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Original Series</span>
+      <h1 class="fade-in-up">Audio<br>Stories.</h1>
+      <p class="hero-desc fade-in-up delay-1">
+        Curated podcasts for the curious mind. <br>
+        History, Culture, and Personal Journeys.
+      </p>
+    </div>
+  </div>
+
+  <div class="filter-bar sticky">
+    <button class="filter-btn active">All Shows</button>
+    <button class="filter-btn">Originals</button>
+    <button class="filter-btn">History</button>
+    <button class="filter-btn">Documentary</button>
+  </div>
+
+  <main class="main-content">
+    <div class="podcasts-grid" id="podcastList">
+      </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 <span class="copyright">STNET Radio.</span> All Rights Reserved.</p>
-    <p class="st-link">
-      <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
-      <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
-    </p>
+    <div class="footer-content">
+      <p class="copyright">&copy; 2025 STNET Radio.</p>
+      <div class="footer-links">
+        <a href="/Privacy-Policy.html">Privacy</a>
+        <a href="/Terms-of-Service.html">Terms</a>
+      </div>
+    </div>
   </footer>
 
   <script src="/JavaScript/podcast/index.js"></script>

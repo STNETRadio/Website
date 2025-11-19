@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Availability | STNET Radio Plus+</title>
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/CSS/brand.css" />
+  
+  <style>
+    /* --- Page Specific Minimal CSS --- */
+    :root {
+      --red: #ff0000;
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --subtext: #555555;
+      --border: #e5e5e5;
+      --accent-bg: #f9f9f9;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --text: #ffffff;
+        --subtext: #aaaaaa;
+        --border: #333333;
+        --accent-bg: #111111;
+      }
+    }
+
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* NOTE: I removed the 'header' block here so it uses the one from brand.css */
+
+    /* --- Hero Section --- */
+    .avail-hero {
+      /* Added top padding to clear the floating menu */
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avail-hero h1 {
+      font-family: "Chillax-Variable", sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 0.9;
+    }
+
+    .status-badge {
+      display: inline-block;
+      border: 1px solid var(--red);
+      color: var(--red);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--subtext);
+      line-height: 1.6;
+    }
+    
+    .hero-desc a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid var(--red);
+    }
+
+    /* --- Timeline Grid --- */
+    .timeline-container {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: "Chillax-Variable", sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* The List Grid */
+    .region-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .region-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .time-block {
+      background: var(--accent-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+
+    .time-block:hover {
+      border-color: var(--red);
+    }
+
+    .quarter-label {
+      font-family: "Chillax-Variable", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .country-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .country-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    .country-list li:last-child {
+      border-bottom: none;
+    }
+
+    .country-list li::before {
+      content: "•";
+      color: var(--red);
+      margin-right: 10px;
+      font-size: 1.5rem;
+      line-height: 0;
+    }
+
+    /* --- Contact Section --- */
+    .contact-cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-cta p {
+      font-size: 1.1rem;
+      color: var(--subtext);
+      margin-bottom: 1.5rem;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--red);
+      text-decoration: none;
+      border: 2px solid var(--red);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .email-link:hover {
+      background: var(--red);
+      color: var(--bg);
+    }
+
+    /* --- Footer --- */
+    .minimal-footer {
+      margin-top: auto;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .footer-brand {
+      font-family: "Chillax-Variable", sans-serif;
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 700;
+      color: var(--subtext);
+      opacity: 0.3;
+      text-transform: uppercase;
+      cursor: default;
+    }
+    .minimal-footer:hover .footer-brand { opacity: 1; color: var(--red); }
+
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.1s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="brand">STNET Radio</a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/plus/" style="color: var(--red); font-weight: 700;">SNR+</a></li>
+        <li><a href="/podcast/">Podcasts</a></li>
+        <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="avail-hero">
+    <div class="status-badge">Restricted Availability</div>
+    <h1 class="fade-in-up">Availability Areas</h1>
+    <p class="hero-desc fade-in-up delay-1">
+      STNET Radio Plus+ is currently not available in all regions. <br>
+      Please follow <a href="https://x.com/stnetradioplus">@STNETRadioPlus</a> for live updates.
+    </p>
+  </div>
+
+  <div class="timeline-container">
+    
+    <div class="section-label">On Trial Phase</div>
+    
+    <div class="region-grid">
+      <div class="time-block fade-in-up delay-1">
+        <span class="quarter-label">Subscription with Partner</span>
+        <ul class="country-list">
+          <li>Singapore</li>
+          <li>Japan</li>
+          <li>South Korea</li>
+          <li>Thailand</li>
+        </ul>
+        <div style="font-size:0.8em; opacity:0.6; margin-left:5px;">Now on Apple Podcast and Spotify</div>
+      </div>
+
+      <div class="time-block fade-in-up delay-1">
+        <span class="quarter-label">2026 / Q1</span>
+        <ul class="country-list">
+          <li>Australia</li>
+          <li>Canada</li>
+          <li>United Kingdom <span style="font-size:0.8em; opacity:0.6; margin-left:5px;">(England Only)</span></li>
+          <li>United States <span style="font-size:0.8em; opacity:0.6; margin-left:5px;">(Select States)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-cta fade-in-up delay-1">
+      <p>You can submit a request to join the waiting list for these areas.</p>
+      <a href="mailto:plus@stnetradio.com" class="email-link">plus@stnetradio.com</a>
+    </div>
+
+  </div>
+
+  <footer class="minimal-footer">
+    <div class="footer-brand">STNET Radio</div>
+  </footer>
+
+</body>
+</html>

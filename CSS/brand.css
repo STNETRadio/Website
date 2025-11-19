@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
 @font-face {
   font-family: 'Chillax-Variable';
@@ -7,124 +7,122 @@
        url('/fonts/Chillax-Variable.ttf') format('truetype');
 }
 
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Header styles */
+/* New Floating "Island" Header */
 header {
   font-family: "Chillax-Variable", sans-serif;
-  font-weight: 300;
-  position: sticky;
-  width: max;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
+  
+  /* Positioning to make it float */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  
+  /* Sizing */
+  width: auto;
+  max-width: 90%;
+  min-width: 320px;
+  padding: 0.8rem 2rem;
+  
+  /* Visuals - Glass Pill Style */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px; /* Full rounded corners */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  
+  /* Layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  gap: 2rem;
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dynamic resize on scroll could be added with JS, 
+   but this hover effect mimics interaction */
+header:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .brand {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #333;
-  margin: 0.5rem 0;
+  color: #000;
   text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
-.brand:hover {
-  color: #ff0000;
-  transition: color 0.5s;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-nav li {
-  margin: 0.5rem 0.75rem;
+nav ul { 
+  display: flex; 
+  list-style: none; 
+  gap: 1.5rem; 
+  margin: 0;
 }
 
 nav a {
-  text-transform: uppercase;
   text-decoration: none;
-  color: #333;
+  color: #444;
   font-weight: 500;
-  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   position: relative;
+  transition: color 0.3s;
 }
 
-nav a:hover {
-  font-weight: 800;
-  color: #ff0000;
-  transition: all 0.6s;
+nav a:hover { 
+  color: #cc0000; 
 }
 
-/* Add underline animation to nav links */
+/* Minimal Dot Indicator on Hover */
 nav a::after {
   content: '';
   position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #ff0000;
-  transition: width 0.6s ease;
+  width: 4px;
+  height: 4px;
+  background: #cc0000;
+  border-radius: 50%;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav a:hover::after {
-  width: 100%;
+  transform: translateX(-50%) scale(1);
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
+/* Mobile Responsiveness */
+@media (max-width: 700px) {
   header {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 0.8rem 1.5rem;
+    width: 90%;
+    flex-direction: row; /* Keep it horizontal on mobile if possible */
+    justify-content: space-between;
   }
-
-  nav ul {
-    justify-content: center;
-  }
+  
+  .brand { font-size: 1.1rem; }
+  
+  /* Hide less important links on very small screens or use a hamburger (simplified here) */
+  nav ul { gap: 1rem; }
+  nav a { font-size: 0.8rem; }
 }
 
-  @media (prefers-color-scheme: dark) {
-
-    header {
-      background-image: linear-gradient(to bottom right,rgb(62, 1, 1),black 99%);
-      border-bottom: none;
-    }
-
-    .brand {
-      color: white;
-      align-content: center;
-      align-items: center;
-      text-align: center;
-      border: 0px solid;
-      border-radius: 12px;
-    }
-
-    .brand:hover {
-      color: white;
-      text-shadow: -2px 1px 20px red;
-      transition: 0.7s;
-    }
-
-    nav a {
-      color: white;
-    }
-
-    nav a:hover {
-      text-shadow: 1px -1px 20px red;
-    }
+@media (prefers-color-scheme: dark) {
+  header {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
+  .brand { color: #fff; }
+  nav a { color: #ccc; }
+  nav a:hover { color: #fff; }
+  nav a::after { background: #ff3333; }
+}

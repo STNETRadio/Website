@@ -1,53 +1,96 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>พลัส+ | STNET Radio</title>
-  <link rel="icon" href="https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/logo/fav.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/CSS/th/plus/plus.css">
-  <link rel="stylesheet" href="/CSS/th/brand.css">
-    <link rel="stylesheet" href="/CSS/th/footer.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>STNET Radio+ | เสียงระดับพรีเมียม</title>
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="/CSS/brand.css">
+  <link rel="stylesheet" href="/CSS/plus/plus.css">
 </head>
 
 <body>
 
-    <header>
-        <a href="https://stnetradio.com" class="brand">STNET Radio</a>
-        <nav>
-          <ul>
-            <li><a href="/th">หน้าหลัก</a></li>
-            <li><a href="#">พลัส+</a></li>
-            <li><a href="/podcast/">พอดคาสต์</a></li>
-            <li><a href="https://support.stnetradio.com" target="_blank">ฝ่ายสนับสนุน</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-      <section class="intro">
-        <h1>สวัสดี</h1>
-        <h2>Plus</h2>
-        <h4>Plus</h4>
-        <a href="#about" class="intro-btn">เริ่มใช้งาน <b>พลัส+</b></a>
-      </section>
-      
-      <section class="whatsup" id="about">
-        <h1>ว่าไง!</h1>
-        <p><b>STNET Radio Plus+</b> is a new service from STNET Radio that will help you and the creators get closer together. You will receive special privileges such as talking to our creators closely and privately, watching special videos, special gifts from creators, etc.
-          Plus+ is open for trial in some countries. To improve our service and will be open for every countries by 2025</p>
-        <a href="https://support.stnetradio.com/plus/available-list" class="whatsup-btn"><b>พื้นที่</b>บริการ</a>
-      </section>
+  <header>
+    <a href="/" class="brand">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul>
+        <li><a href="/th">หน้าหลัก</a></li>
+        <li><a href="/th/plus/" style="color: var(--red, #ff0000); font-weight: 700;">SNR+</a></li>
+        <li><a href="/th/podcast/">พอดคาสต์</a></li>
+        <li><a href="https://support.stnetradio.com/th" target="_blank">ฝ่ายสนับสนุน</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <section class="comingsoon">
-        <h1><i>Coming</i> Soon</h1>
-        <a href="https://support.stnetradio.com/plus/available-list" class="comingsoon-btn"><b>พื้นที่</b>บริการ</a>
-        <p>พวกเราได้ยกเลิกทดสอบการให้บริการใน<b>ประเทศไทย</b>แล้ว</p>
-      </section>
+  <main class="intro">
+    <div class="hero-content">
+      <h1 class="fade-in-up">STNET Radio<span class="plus-mark">+</span></h1>
+      <h2 class="fade-in-up delay-1">สัมผัส<br>ทุกสิ่ง</h2>
+      <p class="hero-desc fade-in-up delay-2">ไม่มีโฆษณา เนื้อหาพิเศษ เสียงบริสุทธิ์</p>
+      <div class="fade-in-up delay-3">
+        <a href="#features" class="btn-solid">เริ่มต้น STNET Radio+</a>
+      </div>
+    </div>
+  </main>
 
-      <footer>
-        <p>&copy; 2025 <span class="copyright">STNET Radio.</span> สงวนลิขสิทธิ์ทั้งหมด</p>
-        <p class="st-link"><a href="https://docs.stnetradio.com/privacy-policy" class="st-link" > นโยบายความเป็นส่วนตัว</a> | <a href="https://docs.stnetradio.com/terms-of-service" class="st-link">เงื่อนไขการให้บริการ</a></p>
-      </footer>
+  <section class="features" id="features">
+    <div class="grid-features">
+      <div class="feature-item slide-up delay-1">
+        <span class="num">01</span>
+        <h3>การเข้าถึงส่วนตัว</h3>
+        <p>สายตรงถึงครีเอเตอร์ พื้นที่สำหรับคุณโดยเฉพาะ</p>
+      </div>
+      <div class="feature-item slide-up delay-2">
+        <span class="num">02</span>
+        <h3>สิทธิพิเศษ</h3>
+        <p>ตอนพิเศษ วิดีโอ และของขวัญพิเศษ</p>
+      </div>
+      <div class="feature-item slide-up delay-3">
+        <span class="num">03</span>
+        <h3>ไม่มีโฆษณา</h3>
+        <p>ฟังได้ต่อเนื่อง เพียงแค่เรื่องราวที่คุณรัก</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="status-section">
+    <div class="status-box">
+      <div class="status-header">
+        <div class="live-dot"></div>
+        <span>สถานะ: ช่วงทดลอง</span>
+      </div>
+      <p class="status-msg">
+        กำลังขยายไปทั่วโลกเร็วๆ นี้
+        <br>
+      </p>
+      <a href="/th/plus/availability.html" class="link-arrow">ตรวจสอบพื้นที่ให้บริการ &rarr;</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p class="copyright">&copy; 2025 STNET Radio.</p>
+      <div class="footer-links">
+        <a href="/th/Privacy-Policy.html">นโยบายความเป็นส่วนตัว</a>
+        <a href="/th/Terms-of-Service.html">เงื่อนไขการให้บริการ</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

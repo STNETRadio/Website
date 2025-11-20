@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --red: #ff0000;
@@ -26,7 +30,7 @@
 }
 
 body {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.5;
@@ -47,7 +51,7 @@ body {
 }
 
 .intro h1 {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 600;
     text-transform: uppercase;
@@ -56,7 +60,7 @@ body {
 }
 
 .intro h2 {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: clamp(3.5rem, 10vw, 8rem);
     line-height: 0.9;
     font-weight: 700;
@@ -64,7 +68,10 @@ body {
     margin-bottom: 2rem;
 }
 
-.plus-mark { font-style: italic; font-weight: 800; }
+.plus-mark {
+    font-style: italic;
+    font-weight: 800;
+}
 
 .hero-desc {
     font-size: 1.25rem;
@@ -109,15 +116,20 @@ body {
 }
 
 .feature-item h3 {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 600;
 }
 
-.feature-item p { font-size: 1.1rem; color: var(--subtext); opacity: 0.9; }
+.feature-item p {
+    font-size: 1.1rem;
+    color: var(--subtext);
+    opacity: 0.9;
+}
+
 .feature-item .num {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: 4rem;
     font-weight: 700;
     opacity: 0.2;
@@ -145,10 +157,23 @@ body {
     background: var(--status-hover-bg);
     color: var(--status-hover-text);
 }
-.status-box:hover p, .status-box:hover .thai-font { color: var(--status-hover-text); }
 
-.status-msg { font-size: 1.2rem; margin-bottom: 2rem; color: var(--subtext); }
-.thai-font { font-family: "IBM Plex Sans Thai", sans-serif; font-weight: 500; color: var(--subtext); }
+.status-box:hover p,
+.status-box:hover .thai-font {
+    color: var(--status-hover-text);
+}
+
+.status-msg {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--subtext);
+}
+
+.thai-font {
+    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-weight: 500;
+    color: var(--subtext);
+}
 
 .link-arrow {
     text-decoration: none;
@@ -159,14 +184,18 @@ body {
     text-transform: uppercase;
     font-size: 0.9rem;
 }
-.status-box:hover .link-arrow { color: #fff; border-color: #fff; }
+
+.status-box:hover .link-arrow {
+    color: #fff;
+    border-color: #fff;
+}
 
 footer {
     margin-top: auto;
     padding: 2rem;
     border-top: 2px solid var(--border);
     text-align: center;
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
 }
 
 .footer-content {
@@ -179,9 +208,44 @@ footer {
     gap: 1rem;
 }
 
-.footer-links a { color: var(--red); text-decoration: none; margin-left: 1.5rem; font-weight: 500; text-transform: uppercase; }
+.footer-links a {
+    color: var(--red);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
-.slide-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
-.delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s forwards;
+    opacity: 0;
+}
+
+.slide-up {
+    animation: fadeInUp 0.8s forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}

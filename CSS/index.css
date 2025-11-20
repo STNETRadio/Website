@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Theme Variables - Light Default */
 :root {
@@ -12,6 +16,10 @@
   --card-border: #f0f0f0;
   --btn-text: #ffffff;
   --btn-bg: #ff0000;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* Auto Dark Mode */
@@ -26,7 +34,7 @@
 }
 
 body {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   font-weight: 300;
   background-color: var(--bg);
   color: var(--text);
@@ -39,7 +47,7 @@ body {
 }
 
 .hero {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -70,7 +78,7 @@ body {
 }
 
 .hero-desc {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -95,15 +103,24 @@ body {
 }
 
 @media (min-width: 900px) {
-  .grid-section { grid-template-columns: 1fr 1fr; }
-  .reverse-mobile { direction: ltr; }
+  .grid-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reverse-mobile {
+    direction: ltr;
+  }
 }
+
 @media (max-width: 899px) {
-  .reverse-mobile { display: flex; flex-direction: column-reverse; }
+  .reverse-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 h2 {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -153,7 +170,7 @@ h2 {
 }
 
 .card h3 {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: var(--red);
@@ -168,7 +185,7 @@ h2 {
 
 .thai-title {
   display: block;
-  font-family: "IBM Plex Sans Thai", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.3rem;
   font-weight: 500;
   margin-top: 0.5rem;
@@ -181,8 +198,18 @@ h2 {
   font-weight: 500;
   color: var(--subtext);
 }
-.plus-features li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;}
-.plus-features li::before { content: "✦"; color: var(--red); }
+
+.plus-features li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plus-features li::before {
+  content: "✦";
+  color: var(--red);
+}
 
 .platforms {
   font-size: 0.9rem;
@@ -193,7 +220,27 @@ h2 {
   color: var(--subtext);
 }
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}

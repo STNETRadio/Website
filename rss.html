@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -9,17 +10,24 @@
 
   <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="/CSS/brand.css" />
   <link rel="stylesheet" href="/CSS/rss.css" />
 </head>
+
 <body>
 
   <header>
     <a href="/" class="brand">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -71,14 +79,14 @@
       <div class="card-content">
         <h2>For Listeners</h2>
         <p>Subscribe directly via RSS for the highest quality experience.</p>
-        
+
         <div class="feed-box">
           <input id="feedUrl" type="text" value="https://rss.stnetradio.com/feeds/stnetradio.xml" readonly />
           <button id="copyBtn" class="btn-copy">Copy URL</button>
         </div>
-        
+
         <p class="hint">Paste this URL into Apple Podcasts, Pocket Casts, or Overcast.</p>
-        
+
         <div class="app-tags">
           <span>Apple Podcasts</span>
           <span>Pocket Casts</span>
@@ -97,7 +105,8 @@
       <div class="text-block">
         <h2>For Creators</h2>
         <p>
-          Upload high-quality audio and publish via open RSS. Our pipeline is designed for reliability, speed, and clean metadata.
+          Upload high-quality audio and publish via open RSS. Our pipeline is designed for reliability, speed, and clean
+          metadata.
         </p>
         <ul class="tick-list">
           <li>High-bitrate uploads</li>
@@ -112,7 +121,8 @@
       <div class="faq-grid">
         <details>
           <summary>What is an RSS feed?</summary>
-          <p>RSS is an open format for distributing updates. Apps subscribe to this URL to fetch new episodes automatically.</p>
+          <p>RSS is an open format for distributing updates. Apps subscribe to this URL to fetch new episodes
+            automatically.</p>
         </details>
         <details>
           <summary>Will old links work?</summary>
@@ -141,7 +151,7 @@
     // Copy Functionality
     const copyBtn = document.getElementById('copyBtn');
     const feedInput = document.getElementById('feedUrl');
-    
+
     copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(feedInput.value);
@@ -149,7 +159,7 @@
         copyBtn.textContent = 'Copied!';
         copyBtn.style.background = '#000';
         copyBtn.style.color = '#fff';
-        
+
         setTimeout(() => {
           copyBtn.textContent = original;
           copyBtn.style.background = ''; // Reset to CSS default
@@ -160,5 +170,7 @@
       }
     });
   </script>
+  <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

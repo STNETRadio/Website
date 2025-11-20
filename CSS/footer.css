@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
 footer {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   padding: 4rem 2rem;
   background-color: #f9f9f9;
   color: #666;
@@ -42,11 +42,25 @@ footer .st-link {
   margin: 0 0.5rem;
 }
 
-footer .st-link:hover { color: #cc0000; }
+footer .st-link:hover {
+  color: #cc0000;
+}
 
 @media (prefers-color-scheme: dark) {
-  footer { background-color: #050505; border-top: 1px solid #222; }
-  footer .copyright { color: #fff; }
-  footer .social-links a { color: #ccc; }
-  footer .social-links a:hover { color: #fff; }
+  footer {
+    background-color: #050505;
+    border-top: 1px solid #222;
+  }
+
+  footer .copyright {
+    color: #fff;
+  }
+
+  footer .social-links a {
+    color: #ccc;
+  }
+
+  footer .social-links a:hover {
+    color: #fff;
+  }
 }

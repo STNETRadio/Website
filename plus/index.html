@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>STNET Radio+ | Premium Audio</title>
-  <meta name="theme-color" content="#ffffff" />
-  
-  <link rel="icon" href="/img/fav.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
 
-  <link rel="stylesheet" href="/CSS/brand.css">
-  <link rel="stylesheet" href="/CSS/plus/plus.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>STNET Radio+ | Premium Audio</title>
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/CSS/brand.css">
+    <link rel="stylesheet" href="/CSS/plus/plus.css">
 </head>
+
 <body>
 
     <header>
         <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
         <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/plus/" style="color: var(--red, #ff0000); font-weight: 700;">SNR+</a></li>
-            <li><a href="/podcast/">Podcasts</a></li>
-            <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
-          </ul>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/plus/" style="color: var(--red, #ff0000); font-weight: 700;">SNR+</a></li>
+                <li><a href="/podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+            </ul>
         </nav>
     </header>
-      
+
     <main class="intro">
         <div class="hero-content">
             <h1 class="fade-in-up">STNET Radio<span class="plus-mark">+</span></h1>
@@ -38,7 +46,7 @@
             </div>
         </div>
     </main>
-      
+
     <section class="features" id="features">
         <div class="grid-features">
             <div class="feature-item slide-up delay-1">
@@ -82,5 +90,7 @@
             </div>
         </div>
     </footer>
+    <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -8,12 +9,14 @@
 
   <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="/CSS/brand.css" />
-  
+
   <style>
     /* --- Page Specific Minimal CSS --- */
     :root {
@@ -87,7 +90,7 @@
       color: var(--subtext);
       line-height: 1.6;
     }
-    
+
     .hero-desc a {
       color: var(--red);
       text-decoration: none;
@@ -113,6 +116,7 @@
       align-items: center;
       gap: 1rem;
     }
+
     .section-label::after {
       content: "";
       flex: 1;
@@ -129,7 +133,9 @@
     }
 
     @media (min-width: 768px) {
-      .region-grid { grid-template-columns: 1fr 1fr; }
+      .region-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .time-block {
@@ -187,7 +193,7 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    
+
     .contact-cta p {
       font-size: 1.1rem;
       color: var(--subtext);
@@ -219,6 +225,7 @@
       border-top: 1px solid var(--border);
       background: var(--bg);
     }
+
     .footer-brand {
       font-family: "Chillax-Variable", sans-serif;
       font-size: clamp(3rem, 10vw, 5rem);
@@ -228,18 +235,44 @@
       text-transform: uppercase;
       cursor: default;
     }
-    .minimal-footer:hover .footer-brand { opacity: 1; color: var(--red); }
+
+    .minimal-footer:hover .footer-brand {
+      opacity: 1;
+      color: var(--red);
+    }
 
     /* Animations */
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
-    .delay-1 { animation-delay: 0.1s; }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s forwards;
+      opacity: 0;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
   </style>
 </head>
+
 <body>
 
   <header>
     <a href="/" class="brand">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -260,9 +293,9 @@
   </div>
 
   <div class="timeline-container">
-    
+
     <div class="section-label">On Trial Phase</div>
-    
+
     <div class="region-grid">
       <div class="time-block fade-in-up delay-1">
         <span class="quarter-label">Subscription with Partner</span>
@@ -297,5 +330,7 @@
     <div class="footer-brand">STNET Radio</div>
   </footer>
 
+  <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

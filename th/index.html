@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -11,205 +12,38 @@
   <link rel="icon" href="https://stnetradio.com/img/fav.ico" type="image/x-icon" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/CSS/brand.css" />
 
-  <style>
-    /* Chillax-Variable (logo only) */
-    @font-face {
-      font-family: "Chillax-Variable";
-      src: url("/fonts/Chillax-Variable.woff2") format("woff2"),
-           url("/fonts/Chillax-Variable.woff") format("woff"),
-           url("/fonts/Chillax-Variable.ttf") format("truetype");
-      font-weight: 100 900;
-      font-display: swap;
-    }
-
-    :root{
-      --bg:#000; --text:#fff; --muted:#cfd3d7;
-      --container:900px;
-      --maxw:580px; --gap:26px; --page-pad:48px;
-      --radius:24px; --shadow:0 0 80px rgba(0,0,0,.5);
-      --ease:cubic-bezier(.22,.61,.36,1);
-      --hdr:64px; /* set by JS */
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    img{max-width:100%;height:auto;display:block}
-    html{-webkit-text-size-adjust:100%}
-
-    body{
-      background:var(--bg); color:var(--text);
-      color-scheme:dark;
-      font-family:"IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Thai", sans-serif;
-      line-height:1.65; letter-spacing:.2px;
-      min-height:100svh; min-height:100dvh;
-      display:flex; flex-direction:column; align-items:center;
-      text-align:center;
-      padding: calc(var(--page-pad) + env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom));
-    }
-
-    /* Sticky header */
-    header{
-      position:sticky; top:env(safe-area-inset-top);
-      z-index:10000;
-      width:100%; max-width:var(--container);
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px 24px; gap:12px;
-      background:linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,0));
-      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
-    }
-
-    /* โลโก้ใช้ Chillax เท่านั้น */
-    .brand-logo{
-      font-family:"Chillax-Variable",sans-serif;
-      font-weight:600; font-size:22px; letter-spacing:.6px;
-      color:#fff; text-decoration:none; text-transform:none; white-space:nowrap;
-    }
-
-    /* เมนู/เนื้อหาทั้งหมดใช้ IBM */
-    nav ul{list-style:none; display:flex; flex-wrap:wrap; gap:16px;}
-    nav a{
-      font-family:"IBM Plex Sans Thai",sans-serif;
-      text-decoration:none; color:var(--muted);
-      font-size:14px; letter-spacing:.2px;
-      transition:color .25s var(--ease);
-    }
-    @media (hover:hover){ nav a:hover{color:#fff} }
-
-    /* Hamburger */
-    .nav-toggle{
-      display:none; width:44px; height:44px; background:transparent; border:none;
-      position:relative; cursor:pointer; z-index:9999;
-    }
-    .nav-toggle .line{
-      position:absolute; width:22px; height:2px; background:#fff; border-radius:2px;
-      left:50%; transform:translateX(-50%); transition:.35s var(--ease);
-    }
-    .nav-toggle .line:nth-child(1){top:14px}
-    .nav-toggle .line:nth-child(2){top:21px}
-    .nav-toggle .line:nth-child(3){top:28px}
-    .nav-toggle.active .line:nth-child(1){transform:translateX(-50%) rotate(45deg); top:21px}
-    .nav-toggle.active .line:nth-child(2){opacity:0}
-    .nav-toggle.active .line:nth-child(3){transform:translateX(-50%) rotate(-45deg); top:21px}
-
-    /* Backdrop */
-    #nav-backdrop{
-      position:fixed; inset:0; background:rgba(0,0,0,.5);
-      opacity:0; visibility:hidden; transition:.3s var(--ease);
-      pointer-events:none; z-index:8500;
-    }
-    #nav-backdrop.show{opacity:1; visibility:visible; pointer-events:auto;}
-
-    /* Mobile: Glass Card under logo */
-    @media (max-width:768px){
-      .nav-toggle{display:inline-grid; place-items:center}
-      nav{position:static}
-
-      #site-nav{
-        position:fixed;
-        left:50%;
-        top: calc(env(safe-area-inset-top) + var(--hdr));
-        transform: translate(-50%, -12px);
-        width:min(92vw, 500px);
-
-        background:rgba(0,0,0,.92);
-        border:1px solid rgba(255,255,255,.08);
-        border-radius:16px;
-        box-shadow:0 8px 32px rgba(0,0,0,.55);
-        -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-
-        opacity:0; visibility:hidden; pointer-events:none;
-        transition: transform .35s var(--ease), opacity .35s var(--ease), visibility .35s var(--ease);
-        z-index:9000;
-
-        max-height: calc(100dvh - (env(safe-area-inset-top) + 140px));
-        overflow:auto;
-        padding:8px 10px;
-      }
-      #site-nav.open{
-        transform:translate(-50%, 0);
-        opacity:1; visibility:visible; pointer-events:auto;
-      }
-
-      #site-nav ul{display:flex; flex-direction:column; gap:6px; padding:0; list-style:none}
-      #site-nav a{
-        display:block; padding:14px 12px; border-radius:10px; text-align:center;
-        color:#e9edf1; font-family:"IBM Plex Sans Thai",sans-serif;
-        font-weight:600; font-size:15px; letter-spacing:.1px; line-height:1.25;
-        transition:background .25s var(--ease);
-      }
-      #site-nav a:active, #site-nav a:focus-visible{background:rgba(255,255,255,.08)}
-    }
-
-    /* Figure & fade */
-    figure{width:100%; max-width:var(--container); margin:0 auto 150px}
-    .portrait-wrap{
-      width:100%; max-width:var(--maxw); margin:0 auto;
-      position:relative; overflow:hidden; border-radius:var(--radius);
-      box-shadow:var(--shadow); isolation:isolate;
-    }
-    .portrait{
-      width:100%; filter:grayscale(100%);
-      opacity:0; transform:translateY(6px); animation:fadeIn .9s var(--ease) forwards;
-      -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-              mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
-      -webkit-mask-size:100% 145%; mask-size:100% 145%;
-      -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
-    }
-    .portrait-wrap::after{
-      content:""; position:absolute; left:0; right:0; bottom:0; height:42%;
-      background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,1) 100%);
-      pointer-events:none;
-    }
-
-    /* Caption */
-    figcaption{
-      opacity:0; margin-top:var(--gap);
-      animation:fadeInUp .8s var(--ease) forwards 1.05s;
-      display:flex; flex-direction:column; gap:6px;
-    }
-    .royal-title{font-weight:600; font-size:clamp(17px,2.3vw,22px); line-height:1.5; color:var(--text)}
-    .royal-sub{font-size:clamp(14px,2vw,18px); font-weight:400; opacity:.75; line-height:1.5}
-    .royal-year{font-size:clamp(13px,1.9vw,16px); font-weight:400; opacity:.45; line-height:1.5; margin-top:4px}
-
-    /* Footer */
-    footer{width:100%; max-width:var(--container); font-size:14px; color:#778; opacity:.6}
-
-    /* Motion & Print */
-    @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} .portrait, figcaption{opacity:1; transform:none} }
-    @media print{ body{background:#fff;color:#000;padding:0} header,footer{display:none} .portrait{-webkit-mask-image:none;mask-image:none} .portrait-wrap::after{display:none} }
-
-    @keyframes fadeIn{to{opacity:1; transform:none}}
-    @keyframes fadeInUp{to{opacity:1; transform:translateY(-3px)}}
-  </style>
+  <link rel="stylesheet" href="/CSS/th/index.css" />
 </head>
+
 <body class="nav-glass">
   <header id="site-header">
-    <a href="#" class="brand-logo">STNET Radio</a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
-      <span class="line"></span><span class="line"></span><span class="line"></span>
+    <a href="/" class="brand">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
     </button>
-
     <nav id="site-nav" aria-label="เมนูหลัก">
       <ul>
-        <li><a href="#" aria-current="page">หน้าหลัก</a></li>
-        <li><a href="/th/plus">พลัส+</a></li>
+        <li><a href="/th" aria-current="page">หน้าหลัก</a></li>
+        <li><a href="/th/plus">SNR+</a></li>
         <li><a href="/th/podcast/">พอดคาสต์</a></li>
         <li><a href="https://support.stnetradio.com/th" target="_blank" rel="noopener">ฝ่ายสนับสนุน</a></li>
       </ul>
     </nav>
   </header>
 
-  <div id="nav-backdrop" hidden></div>
+
 
   <figure>
     <div class="portrait-wrap">
-      <img src="/img/queen-sirikit.png"
-           alt="สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง"
-           class="portrait" loading="eager" decoding="async" fetchpriority="high">
+      <img src="/img/queen-sirikit.png" alt="สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง"
+        class="portrait" loading="eager" decoding="async" fetchpriority="high">
     </div>
     <figcaption>
       <span class="royal-title">สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ</span>
@@ -224,40 +58,8 @@
     &copy; 2025 STNET Radio. สงวนสิทธิ์ทั้งหมด
   </footer>
 
-  <script>
-    const btn = document.getElementById('navToggle');
-    const nav = document.getElementById('site-nav');
-    const backdrop = document.getElementById('nav-backdrop');
-    const headerEl = document.getElementById('site-header');
 
-    function setHeaderOffset(){
-      const px = (headerEl?.offsetHeight) || 64;
-      document.documentElement.style.setProperty('--hdr', px + 'px');
-    }
-    window.addEventListener('load', setHeaderOffset);
-    window.addEventListener('resize', setHeaderOffset);
-
-    function toggleNav(force){
-      const willOpen = (typeof force === 'boolean') ? force : !nav.classList.contains('open');
-      nav.classList.toggle('open', willOpen);
-      btn.classList.toggle('active', willOpen);
-      btn.setAttribute('aria-expanded', String(willOpen));
-      btn.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
-      backdrop.hidden = !willOpen;
-      backdrop.classList.toggle('show', willOpen);
-    }
-
-    btn.addEventListener('click', () => toggleNav());
-    backdrop.addEventListener('click', () => toggleNav(false));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
-
-    document.addEventListener('click', (e) => {
-      if (window.matchMedia('(max-width:768px)').matches) {
-        if (!nav.contains(e.target) && !btn.contains(e.target)) toggleNav(false);
-      }
-    });
-
-    setHeaderOffset();
-  </script>
+  <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

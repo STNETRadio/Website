@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
 /* --- 1. Global Reset & Theme Variables --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Prevent Blue Links Globally */
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 :root {
   --red: #ff0000;
   --bg: #ffffff;
-  --text: #1a1a1a;        /* Beautiful Dark Grey for reading */
-  --subtext: #555555;     /* Lighter Grey for descriptions */
+  --text: #1a1a1a;
+  /* Beautiful Dark Grey for reading */
+  --subtext: #555555;
+  /* Lighter Grey for descriptions */
   --card-bg: #ffffff;
   --card-border: #e5e5e5;
   --card-hover-shadow: rgba(255, 0, 0, 0.08);
@@ -31,7 +40,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 body {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -51,7 +60,7 @@ body {
 
 /* --- 3. Hero Section --- */
 .hero {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   padding: 8rem 2rem 4rem;
   text-align: center;
   border-bottom: 1px solid var(--card-border);
@@ -81,7 +90,7 @@ body {
 }
 
 .hero-desc {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.2rem;
   max-width: 500px;
   margin: 0 auto;
@@ -95,19 +104,21 @@ body {
   gap: 1rem;
   padding: 1.5rem 2rem;
   position: sticky;
-  top: 0; /* Sticks below header */
+  top: 0;
+  /* Sticks below header */
   z-index: 90;
   background: var(--filter-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--card-border);
-  overflow-x: auto; /* Allows scroll on mobile */
+  overflow-x: auto;
+  /* Allows scroll on mobile */
 }
 
 .filter-btn {
   background: transparent;
   border: none;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--subtext);
@@ -118,8 +129,14 @@ body {
   white-space: nowrap;
 }
 
-.filter-btn:hover { color: var(--red); }
-.filter-btn.active { background: var(--red); color: #fff; }
+.filter-btn:hover {
+  color: var(--red);
+}
+
+.filter-btn.active {
+  background: var(--red);
+  color: #fff;
+}
 
 /* --- 5. Main Grid --- */
 .main-content {
@@ -179,7 +196,7 @@ body {
 }
 
 .podcast-title {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.1;
@@ -193,18 +210,26 @@ body {
 }
 
 /* Font Utilities */
-.thai-font, .thai-font-p { font-family: "IBM Plex Sans Thai", sans-serif; }
-.english-font, .english-font-p { font-family: "Source Sans 3", sans-serif; }
+.thai-font,
+.thai-font-p {
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+}
+
+.english-font,
+.english-font-p {
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+}
 
 .podcast-content p {
   font-size: 1rem;
   color: var(--subtext);
   line-height: 1.6;
   margin-bottom: 1rem;
-  
+
   /* Clamp text to 3 lines */
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -226,7 +251,11 @@ footer {
   gap: 1rem;
 }
 
-.copyright { color: var(--subtext); font-size: 0.9rem; }
+.copyright {
+  color: var(--subtext);
+  font-size: 0.9rem;
+}
+
 .footer-links a {
   color: var(--text);
   font-weight: 600;
@@ -234,16 +263,45 @@ footer {
   font-size: 0.9rem;
   transition: color 0.2s;
 }
-.footer-links a:hover { color: var(--red); }
+
+.footer-links a:hover {
+  color: var(--red);
+}
 
 /* --- 8. Animations --- */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; }
-.delay-1 { animation-delay: 0.1s; }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s forwards;
+  opacity: 0;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 4rem; }
-  .footer-content { flex-direction: column; gap: 1.5rem; }
-  .footer-links a { margin: 0 0.75rem; }
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    margin: 0 0.75rem;
+  }
 }

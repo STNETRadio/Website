@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>STNET Radio | A Home for Podcasts</title>
   <meta name="theme-color" content="#ffffff" />
-  
+
   <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="/CSS/brand.css" />
   <link rel="stylesheet" href="/CSS/index.css" />
   <link rel="stylesheet" href="/CSS/footer.css" />
 </head>
+
 <body>
 
   <header>
     <a href="/" class="brand">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <ul>
         <li><a href="/" style="color: var(--red); font-weight: 700;">Home</a></li>
@@ -44,10 +52,11 @@
     <section class="grid-section">
       <div class="text-block slide-in-left">
         <h2>Curated Listening</h2>
-        <p>STNET Radio is built around storytelling. We release episodes through the <strong>STNET Radio RSS</strong> system to bring you content that feels alive.</p>
+        <p>STNET Radio is built around storytelling. We release episodes through the <strong>STNET Radio RSS</strong>
+          system to bring you content that feels alive.</p>
         <a href="/podcast/" class="btn-solid">Explore All Podcasts</a>
       </div>
-      
+
       <div class="card tilt-card slide-in-right">
         <h3>Popular Now</h3>
         <div class="podcast-feature">
@@ -68,7 +77,7 @@
           <li>Exclusive content</li>
         </ul>
         <div class="platforms">
-            <span>Apple Podcasts</span> &bull; <span>Spotify</span>
+          <span>Apple Podcasts</span> &bull; <span>Spotify</span>
         </div>
       </div>
 
@@ -88,9 +97,11 @@
     </div>
     <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
     <p>
-      <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> | 
+      <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
       <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
     </p>
   </footer>
+  <script src="/JavaScript/mobile-menu.js"></script>
 </body>
+
 </html>

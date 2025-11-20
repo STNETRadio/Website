@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --bg: #ffffff;
@@ -19,7 +23,7 @@
 }
 
 body {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
   background-color: var(--bg);
   color: var(--red);
   height: 100vh;
@@ -39,10 +43,12 @@ body {
   background: var(--bg);
 }
 
-.content-wrapper { max-width: 800px; }
+.content-wrapper {
+  max-width: 800px;
+}
 
 .huge-text {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   font-size: clamp(10rem, 30vw, 20rem);
   font-weight: 700;
   line-height: 0.8;
@@ -52,7 +58,7 @@ body {
 }
 
 .sub-text {
-  font-family: "Chillax-Variable", sans-serif;
+  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   text-transform: uppercase;
   font-weight: 600;

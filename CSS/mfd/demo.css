@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Chillax-Variable';
-  src: url('/fonts/Chillax-Variable.woff2') format('woff2'),
-       url('/fonts/Chillax-Variable.woff') format('woff'),
-       url('/fonts/Chillax-Variable.ttf') format('truetype');
+    font-family: 'Chillax-Variable';
+    src: url('/fonts/Chillax-Variable.woff2') format('woff2'),
+        url('/fonts/Chillax-Variable.woff') format('woff'),
+        url('/fonts/Chillax-Variable.ttf') format('truetype');
 }
 
 * {
@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: 'Chillax-Variable';
+    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
     background: red;
     color: var(--light-text);
     font-weight: 300;
@@ -50,7 +50,7 @@ body {
 .blog {
     background-color: white;
     border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     margin: 2rem 7%;
     padding: 3rem;
     position: relative;
@@ -83,7 +83,8 @@ body {
     margin-bottom: 2rem;
 }
 
-.blog p, .blog li {
+.blog p,
+.blog li {
     font-weight: 400;
     font-size: 1.1rem;
     color: var(--light-text);

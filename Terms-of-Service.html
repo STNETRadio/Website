@@ -1,71 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terms of Service | STNET Radio</title>
   <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet"/>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="/CSS/brand.css" />
-  
+
   <style>
     /* Auto Dark Mode Variables */
-    :root { 
-      --bg: #ffffff; 
-      --text: #111111; 
-      --red: #ff0000; 
-      --toc-bg: #f9f9f9; 
-      --footer-text: #e0e0e0; 
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --red: #ff0000;
+      --toc-bg: #f9f9f9;
+      --footer-text: #e0e0e0;
       --border: #eee;
     }
-    
+
     @media (prefers-color-scheme: dark) {
-      :root { 
-        --bg: #000000; 
-        --text: #eeeeee; 
-        --red: #ff0000; 
-        --toc-bg: #111111; 
-        --footer-text: #333333; 
+      :root {
+        --bg: #000000;
+        --text: #eeeeee;
+        --red: #ff0000;
+        --toc-bg: #111111;
+        --footer-text: #333333;
         --border: #333;
       }
     }
-    
-    body { 
-      font-family: "Source Sans 3", sans-serif; 
-      background-color: var(--bg); 
-      color: var(--text); 
-      margin: 0; 
-      display: flex; 
-      flex-direction: column; 
-      min-height: 100vh; 
-      transition: background 0.3s, color 0.3s; 
+
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
       line-height: 1.7;
     }
 
-    /* Header Override */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    @media (prefers-color-scheme: dark) {
-      header { background: rgba(0, 0, 0, 0.8); border-color: var(--border); }
+    .policy-hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
     }
 
-    .policy-hero { padding: 8rem 2rem 4rem; text-align: center; }
-    .policy-hero h1 { 
+    .policy-hero h1 {
       font-family: "Chillax-Variable", sans-serif;
-      font-size: 3rem; 
-      font-weight: 700; 
-      text-transform: uppercase; 
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
+
     .updated-date {
       color: var(--red);
       font-weight: 600;
@@ -74,70 +69,130 @@
       font-size: 0.9rem;
     }
 
-    .policy-content { max-width: 800px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .policy-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
 
-    .toc { background: var(--toc-bg); padding: 2rem; border-radius: 24px; margin-bottom: 4rem; }
-    .toc h2 { border: none; padding: 0; margin-bottom: 1rem; font-size: 1.2rem; }
-    .toc ol { padding-left: 1.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem 2rem; }
-    .toc li a { color: var(--text); text-decoration: none; font-weight: 500; }
-    .toc li a:hover { color: var(--red); }
+    .toc {
+      background: var(--toc-bg);
+      padding: 2rem;
+      border-radius: 24px;
+      margin-bottom: 4rem;
+    }
 
-    section { margin-bottom: 3rem; }
-    h2 { 
+    .toc h2 {
+      border: none;
+      padding: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .toc ol {
+      padding-left: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem 2rem;
+    }
+
+    .toc li a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc li a:hover {
+      color: var(--red);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
       font-family: "Chillax-Variable", sans-serif;
-      border-left: 4px solid var(--red); 
-      padding-left: 1rem; 
-      color: var(--text); 
+      border-left: 4px solid var(--red);
+      padding-left: 1rem;
+      color: var(--text);
       text-transform: uppercase;
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    p, li { color: var(--text); margin-bottom: 1rem; }
-    a.link { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
-    a.link:hover { background: var(--red); color: var(--bg); }
-    
-    .note { 
-      border: 2px solid var(--red); 
-      padding: 1.5rem; 
-      border-radius: 16px; 
+
+    p,
+    li {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    a.link {
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+    }
+
+    a.link:hover {
+      background: var(--red);
+      color: var(--bg);
+    }
+
+    .note {
+      border: 2px solid var(--red);
+      padding: 1.5rem;
+      border-radius: 16px;
       font-weight: 600;
       margin-bottom: 3rem;
     }
-    
-    .minimal-footer { 
-      margin-top: auto; 
-      padding: 4rem 2rem; 
-      text-align: center; 
-      border-top: 1px solid var(--border); 
-      background: var(--bg); 
+
+    .minimal-footer {
+      margin-top: auto;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
     }
-    .footer-brand { 
+
+    .footer-brand {
       font-family: "Chillax-Variable", sans-serif;
-      font-size: 5rem; 
-      font-weight: 700; 
-      color: var(--footer-text); 
-      text-transform: uppercase; 
-      cursor: default; 
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--footer-text);
+      text-transform: uppercase;
+      cursor: default;
       line-height: 1;
     }
-    .minimal-footer:hover .footer-brand { color: var(--red); }
 
-    html { scroll-behavior: smooth; }
-    [id] { scroll-margin-top: 100px; }
+    .minimal-footer:hover .footer-brand {
+      color: var(--red);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    [id] {
+      scroll-margin-top: 100px;
+    }
   </style>
 </head>
+
 <body>
+
+
 
 
   <div class="policy-hero">
     <h1>Terms of Service</h1>
     <div class="updated-date">Effective date: July 22, 2024</div>
   </div>
-  
+
   <div class="policy-content">
     <section id="intro">
       <p class="note">
-        WELCOME TO STNET RADIO! THESE TERMS OF SERVICE ("TERMS") GOVERN YOUR USE OF OUR WEBSITE, SERVICES, AND CONTENT, INCLUDING OUR RE:WRITE EBOOK DISTRIBUTION SERVICE. BY ACCESSING OR USING OUR SERVICES, YOU AGREE TO THESE TERMS. IF YOU DO NOT AGREE, PLEASE REFRAIN FROM USING OUR SERVICES.
+        WELCOME TO STNET RADIO! THESE TERMS OF SERVICE ("TERMS") GOVERN YOUR USE OF OUR WEBSITE, SERVICES, AND CONTENT,
+        INCLUDING OUR RE:WRITE EBOOK DISTRIBUTION SERVICE. BY ACCESSING OR USING OUR SERVICES, YOU AGREE TO THESE TERMS.
+        IF YOU DO NOT AGREE, PLEASE REFRAIN FROM USING OUR SERVICES.
       </p>
     </section>
 
@@ -165,89 +220,116 @@
     <main>
       <section id="acceptance">
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or using our services, you agree to be bound by these Terms. If you do not agree with any part of the Terms, you may not use our services.</p>
+        <p>By accessing or using our services, you agree to be bound by these Terms. If you do not agree with any part
+          of the Terms, you may not use our services.</p>
       </section>
 
       <section id="use">
         <h2>2. Use of Services</h2>
-        <p>You agree to use our services for lawful purposes only. You must not misuse our services, violate any laws, or infringe on the rights of others.</p>
+        <p>You agree to use our services for lawful purposes only. You must not misuse our services, violate any laws,
+          or infringe on the rights of others.</p>
       </section>
 
       <section id="accounts">
         <h2>3. User Accounts</h2>
-        <p>To access certain features, you may need to create a user account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        <p>To access certain features, you may need to create a user account. You are responsible for maintaining the
+          confidentiality of your account credentials and for all activities that occur under your account.</p>
       </section>
 
       <section id="ip">
         <h2>4. Intellectual Property</h2>
-        <p>All content and materials available on our website are protected by intellectual property laws. You may not use, modify, reproduce, or distribute any content without our explicit written consent.</p>
+        <p>All content and materials available on our website are protected by intellectual property laws. You may not
+          use, modify, reproduce, or distribute any content without our explicit written consent.</p>
       </section>
 
       <section id="privacy">
         <h2>5. Privacy</h2>
-        <p>Our Privacy Policy governs the collection and use of your personal information. By using our services, you consent to the terms outlined in our <a class="link" href="/Privacy-Policy.html">Privacy Policy</a>.</p>
+        <p>Our Privacy Policy governs the collection and use of your personal information. By using our services, you
+          consent to the terms outlined in our <a class="link" href="/Privacy-Policy.html">Privacy Policy</a>.</p>
       </section>
 
       <section id="billing">
         <h2>6. Payment and Billing</h2>
-        <p>If you make a payment for our services, you agree to provide accurate and complete payment information. You are responsible for any fees associated with your use of our paid services.</p>
+        <p>If you make a payment for our services, you agree to provide accurate and complete payment information. You
+          are responsible for any fees associated with your use of our paid services.</p>
       </section>
 
       <section id="rewrite">
         <h2>7. RE:WRITE eBook Distribution Service</h2>
-        <p>Our RE:WRITE service involves distributing eBooks to various platforms. By using this service, you agree to the following terms:</p>
+        <p>Our RE:WRITE service involves distributing eBooks to various platforms. By using this service, you agree to
+          the following terms:</p>
         <ul>
-          <li><strong>Content Submission:</strong> You are responsible for ensuring that the eBook content you provide complies with all applicable laws and does not infringe on the intellectual property rights of others.</li>
-          <li><strong>Revenue and Payment:</strong> Revenue from eBook sales will be split with 90% going to the author and 10% to us. Any additional fees related to the service will not be collected from customers but will be charged to the author as specified.</li>
-          <li><strong>Customer Payments:</strong> Payments for eBook distribution services will be in accordance with the policies of the respective platforms.</li>
-          <li><strong>Rights and Licenses:</strong> By submitting eBooks to our RE:WRITE service, you grant us a non-exclusive, royalty-free license to distribute your eBook on the platforms we support.</li>
-          <li><strong>Content Removal:</strong> We reserve the right to remove or suspend any eBook from distribution if we believe it violates these Terms or applicable laws.</li>
-          <li><strong>Support and Disputes:</strong> For any issues or disputes related to the RE:WRITE service, please contact our support team at <a class="link" href="mailto:SUPPORT@STNETRADIO.COM">SUPPORT@STNETRADIO.COM</a>.</li>
+          <li><strong>Content Submission:</strong> You are responsible for ensuring that the eBook content you provide
+            complies with all applicable laws and does not infringe on the intellectual property rights of others.</li>
+          <li><strong>Revenue and Payment:</strong> Revenue from eBook sales will be split with 90% going to the author
+            and 10% to us. Any additional fees related to the service will not be collected from customers but will be
+            charged to the author as specified.</li>
+          <li><strong>Customer Payments:</strong> Payments for eBook distribution services will be in accordance with
+            the policies of the respective platforms.</li>
+          <li><strong>Rights and Licenses:</strong> By submitting eBooks to our RE:WRITE service, you grant us a
+            non-exclusive, royalty-free license to distribute your eBook on the platforms we support.</li>
+          <li><strong>Content Removal:</strong> We reserve the right to remove or suspend any eBook from distribution if
+            we believe it violates these Terms or applicable laws.</li>
+          <li><strong>Support and Disputes:</strong> For any issues or disputes related to the RE:WRITE service, please
+            contact our support team at <a class="link" href="mailto:SUPPORT@STNETRADIO.COM">SUPPORT@STNETRADIO.COM</a>.
+          </li>
         </ul>
       </section>
 
       <section id="refunds">
         <h2>8. RE:WRITE Refund Policy</h2>
-        <p>We apologize if you are dissatisfied or wish to request a refund for a purchase made through our RE:WRITE platform. Please follow these guidelines to request a refund:</p>
+        <p>We apologize if you are dissatisfied or wish to request a refund for a purchase made through our RE:WRITE
+          platform. Please follow these guidelines to request a refund:</p>
         <ul>
-          <li><strong>Purchases Directly from RE:WRITE:</strong> If you have made a payment through RE:WRITE and received a PDF file for reading the book, please note that our policy does not permit refunds as you have full access to the content and we cannot enforce the deletion of the eBook file after download.</li>
-          <li><strong>Purchases through Other Channels:</strong> If you made a purchase through other channels, please contact the customer service of the respective provider for further information.</li>
+          <li><strong>Purchases Directly from RE:WRITE:</strong> If you have made a payment through RE:WRITE and
+            received a PDF file for reading the book, please note that our policy does not permit refunds as you have
+            full access to the content and we cannot enforce the deletion of the eBook file after download.</li>
+          <li><strong>Purchases through Other Channels:</strong> If you made a purchase through other channels, please
+            contact the customer service of the respective provider for further information.</li>
         </ul>
       </section>
 
       <section id="termination">
         <h2>9. Termination</h2>
-        <p>We reserve the right to terminate or suspend your account and access to our services at our discretion, without notice, for any reason, including a breach of these Terms.</p>
+        <p>We reserve the right to terminate or suspend your account and access to our services at our discretion,
+          without notice, for any reason, including a breach of these Terms.</p>
       </section>
 
       <section id="mods">
         <h2>10. Modifications to Services</h2>
-        <p>We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of our services.</p>
+        <p>We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not
+          be liable to you or any third party for any modification, suspension, or discontinuation of our services.</p>
       </section>
 
       <section id="warranties">
         <h2>11. Disclaimer of Warranties</h2>
-        <p>Our services are provided "as is" without warranties of any kind, whether express or implied. We do not warrant that our services will be error-free or uninterrupted.</p>
+        <p>Our services are provided "as is" without warranties of any kind, whether express or implied. We do not
+          warrant that our services will be error-free or uninterrupted.</p>
       </section>
 
       <section id="liability">
         <h2>12. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our services.</p>
+        <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, special,
+          consequential, or punitive damages arising out of or in connection with your use of our services.</p>
       </section>
 
       <section id="regional">
         <h2>13. Regional Terms</h2>
-        <p>If you access our services from a region with specific laws or regulations, you are responsible for complying with local laws and regulations.</p>
+        <p>If you access our services from a region with specific laws or regulations, you are responsible for complying
+          with local laws and regulations.</p>
       </section>
 
       <section id="changes">
         <h2>14. Changes to Terms</h2>
-        <p>We reserve the right to update or amend these Terms at any time. We will notify you of such changes by posting the updated Terms on our website. Your continued use of our services after the effective date of any changes will constitute your acceptance of the revised Terms.</p>
+        <p>We reserve the right to update or amend these Terms at any time. We will notify you of such changes by
+          posting the updated Terms on our website. Your continued use of our services after the effective date of any
+          changes will constitute your acceptance of the revised Terms.</p>
       </section>
 
       <section id="contact">
         <h2>15. Contact Us</h2>
-        <p>If you have any questions or concerns about these Terms, please contact us at <a class="link" href="mailto:LEGAL@STNETRADIO.COM">LEGAL@STNETRADIO.COM</a>.</p>
+        <p>If you have any questions or concerns about these Terms, please contact us at <a class="link"
+            href="mailto:LEGAL@STNETRADIO.COM">LEGAL@STNETRADIO.COM</a>.</p>
       </section>
     </main>
   </div>
@@ -255,5 +337,7 @@
   <footer class="minimal-footer">
     <div class="footer-brand">STNET Radio</div>
   </footer>
+
 </body>
+
 </html>

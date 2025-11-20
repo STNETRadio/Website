@@ -31,76 +31,7 @@ body {
   flex-direction: column;
 }
 
-header {
-  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
-  font-weight: 300;
-  position: sticky;
-  width: max;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.brand {
-  font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333;
-  margin: 0.5rem 0;
-  text-decoration: none;
-}
-
-.brand:hover {
-  color: #ff0000;
-  transition: color 0.5s;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-nav li {
-  margin: 0.5rem 0.75rem;
-}
-
-nav a {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 0.25rem 0;
-  position: relative;
-}
-
-nav a:hover {
-  font-weight: 800;
-  color: #ff0000;
-  transition: all 0.6s;
-}
-
-/* Add underline animation to nav links */
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #ff0000;
-  transition: width 0.6s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
+/* Header styles removed to use brand.css */
 
 .hero {
   font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
@@ -270,33 +201,7 @@ footer .st-link:hover {
 
 @media (prefers-color-scheme: dark) {
 
-  header {
-    background-image: linear-gradient(to bottom right, rgb(62, 1, 1), black 99%);
-    border-bottom: none;
-  }
-
-  .brand {
-    color: white;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    border: 0px solid;
-    border-radius: 12px;
-  }
-
-  .brand:hover {
-    color: white;
-    text-shadow: -2px 1px 20px red;
-    transition: 0.7s;
-  }
-
-  nav a {
-    color: white;
-  }
-
-  nav a:hover {
-    text-shadow: 1px -1px 20px red;
-  }
+  /* Dark mode header styles removed */
 
   body {
     font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
@@ -372,16 +277,7 @@ footer .st-link:hover {
 
 @media (max-width: 768px) {
 
-  header {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  nav ul {
-    justify-content: center;
-  }
+  /* Mobile header styles removed */
 
   .hero h1 {
     font-size: 2.5rem;

@@ -261,6 +261,33 @@ nav a:hover::after {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  header:hover {
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.15);
+  }
+
+  header:hover .brand {
+    color: #ffffff;
+  }
+
+  header:hover nav a {
+    color: #ffffff;
+  }
+
+  header:hover nav a:hover {
+    color: #cc0000;
+  }
+
+  header:hover #hamburger-btn span {
+    background-color: #000;
+  }
+
+  /* Ensure X is visible on dark overlay even when hovered */
+  header.mobile-nav-open #hamburger-btn span,
+  header.mobile-nav-open:hover #hamburger-btn span {
+    background-color: #fff;
+  }
+
   .brand {
     color: #fff;
   }

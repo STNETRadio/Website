@@ -21,6 +21,14 @@
     --ease: cubic-bezier(.22, .61, .36, 1);
     --hdr: 64px;
     /* set by JS */
+
+    /* Force Dark Mode Variables for index.css components */
+    --red: #ff0000;
+    --subtext: #cccccc;
+    --card-bg: #111111;
+    --card-border: #333333;
+    --btn-bg: #ff0000;
+    --btn-text: #ffffff;
 }
 
 * {
@@ -39,6 +47,18 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+/* Scoped styles for Queen Tribute section */
+.queen-tribute {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: calc(var(--page-pad) + env(safe-area-inset-top)) 16px 0;
+    margin-bottom: 4rem;
+}
+
+/* Global body resets to match index.css */
 body {
     background: var(--bg);
     color: var(--text);
@@ -46,13 +66,10 @@ body {
     font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
     line-height: 1.65;
     letter-spacing: .2px;
-    min-height: 100svh;
-    min-height: 100dvh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: calc(var(--page-pad) + env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom));
+    overflow-x: hidden;
 }
 
 /* Thai Font Override for Mobile Menu */
@@ -137,13 +154,7 @@ figcaption {
 }
 
 /* Footer */
-footer {
-    width: 100%;
-    max-width: var(--container);
-    font-size: 14px;
-    color: #778;
-    opacity: .6
-}
+/* Footer styles removed to allow CSS/footer.css to control layout */
 
 /* Motion & Print */
 @media (prefers-reduced-motion:reduce) {

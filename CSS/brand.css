@@ -245,12 +245,13 @@ nav a:hover::after {
   }
 
   /* Hamburger Animation when Open */
+  /* Hamburger Animation when Open */
   header.mobile-nav-open #hamburger-btn span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
+    transform: translateY(4px) rotate(45deg);
   }
 
   header.mobile-nav-open #hamburger-btn span:nth-child(2) {
-    transform: rotate(-45deg) translate(5px, -6px);
+    transform: translateY(-4px) rotate(-45deg);
   }
 }
 

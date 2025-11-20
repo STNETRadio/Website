@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>นโยบายความเป็นส่วนตัว | STNET Radio</title>
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+
+
+    <style>
+        /* Auto Dark Mode Variables */
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --red: #ff0000;
+            --toc-bg: #f9f9f9;
+            --footer-text: #e0e0e0;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #eeeeee;
+                --red: #ff0000;
+                --toc-bg: #111111;
+                --footer-text: #333333;
+                --border: #333;
+            }
+        }
+
+        body {
+            font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+
+        .policy-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .policy-hero h1 {
+            font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .updated-date {
+            color: var(--red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--toc-bg);
+            padding: 2rem;
+            border-radius: 24px;
+            margin-bottom: 4rem;
+        }
+
+        .toc h2 {
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .toc ol {
+            padding-left: 1.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem 2rem;
+        }
+
+        .toc li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc li a:hover {
+            color: var(--red);
+        }
+
+        /* Content Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+            border-left: 4px solid var(--red);
+            padding-left: 1rem;
+            color: var(--text);
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        a.link {
+            color: var(--red);
+            text-decoration: none;
+            border-bottom: 1px solid var(--red);
+        }
+
+        a.link:hover {
+            background: var(--red);
+            color: var(--bg);
+        }
+
+        .note {
+            border: 2px solid var(--red);
+            padding: 1.5rem;
+            border-radius: 16px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        .minimal-footer {
+            margin-top: auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .footer-brand {
+            font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--footer-text);
+            text-transform: uppercase;
+            cursor: default;
+            line-height: 1;
+        }
+
+        .minimal-footer:hover .footer-brand {
+            color: var(--red);
+        }
+
+        /* Scroll Offset */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <div class="policy-hero">
+        <h1>นโยบายความเป็นส่วนตัว</h1>
+        <div class="updated-date">อัปเดตล่าสุด: 20 พฤศจิกายน 2023</div>
+    </div>
+
+    <div class="policy-content">
+        <section id="intro">
+            <p class="note">
+                STNET RADIO ("เรา", "พวกเรา" หรือ "ของเรา")
+                มุ่งมั่นที่จะปกป้องความเป็นส่วนตัวและความปลอดภัยของข้อมูลส่วนบุคคลของคุณ
+                นโยบายความเป็นส่วนตัวนี้ระบุประเภทของข้อมูลที่เราเก็บรวบรวม วิธีที่เราใช้และปกป้องข้อมูลนั้น
+                และทางเลือกของคุณเกี่ยวกับข้อมูลส่วนบุคคลของคุณ
+            </p>
+        </section>
+
+        <nav class="toc" aria-label="สารบัญ">
+            <h2>สารบัญ</h2>
+            <ol>
+                <li><a href="#info-we-collect">ข้อมูลที่เราเก็บรวบรวม</a></li>
+                <li><a href="#how-we-collect">วิธีที่เราเก็บรวบรวม</a></li>
+                <li><a href="#use-of-info">การใช้ข้อมูล</a></li>
+                <li><a href="#storage">การจัดเก็บ</a></li>
+                <li><a href="#retention">การเก็บรักษาข้อมูล</a></li>
+                <li><a href="#sharing">การแบ่งปัน</a></li>
+                <li><a href="#choices">ทางเลือกของคุณ</a></li>
+                <li><a href="#security">ความปลอดภัย</a></li>
+                <li><a href="#updates">การอัปเดต</a></li>
+                <li><a href="#contact">ติดต่อเรา</a></li>
+            </ol>
+        </nav>
+
+        <main>
+            <section id="info-we-collect">
+                <h2>1. ข้อมูลที่เราเก็บรวบรวม</h2>
+                <ul>
+                    <li>ชื่อ</li>
+                    <li>ที่อยู่</li>
+                    <li>หมายเลขโทรศัพท์</li>
+                    <li>หมายเลขบัตรเครดิต</li>
+                    <li>ข้อมูลส่วนบุคคลที่ส่งมาระหว่างการสมัครงาน</li>
+                </ul>
+            </section>
+
+            <section id="how-we-collect">
+                <h2>2. วิธีที่เราเก็บรวบรวมข้อมูล</h2>
+                <p>เราอาจเก็บรวบรวมข้อมูลโดยตรงจากคุณเมื่อคุณโต้ตอบกับเว็บไซต์ บริการ หรือสมัครงานกับเรา
+                    เราอาจเก็บรวบรวมข้อมูลโดยอัตโนมัติผ่านการใช้คุกกี้และเทคโนโลยีการติดตามอื่นๆ</p>
+            </section>
+
+            <section id="use-of-info">
+                <h2>3. การใช้ข้อมูล</h2>
+                <p>เราใช้ข้อมูลที่เก็บรวบรวมเพื่อวัตถุประสงค์ต่อไปนี้:</p>
+                <ul>
+                    <li>เพื่อประมวลผลธุรกรรมและให้บริการที่ร้องขอ</li>
+                    <li>เพื่อสื่อสารกับคุณ ตอบข้อซักถาม และให้บริการลูกค้า</li>
+                    <li>เพื่อประเมินและประมวลผลการสมัครงาน</li>
+                    <li>เพื่อปรับปรุงผลิตภัณฑ์และบริการของเรา</li>
+                </ul>
+            </section>
+
+            <section id="storage">
+                <h2>4. การจัดเก็บข้อมูล</h2>
+                <p>ข้อมูลที่เก็บรวบรวมทั้งหมดจะถูกจัดเก็บอย่างปลอดภัยในระบบคลาวด์
+                    เราใช้มาตรการทางเทคนิคและองค์กรที่เหมาะสมเพื่อปกป้องข้อมูลของคุณ</p>
+            </section>
+
+            <section id="retention">
+                <h2>5. การเก็บรักษาข้อมูล</h2>
+                <p>ข้อมูลของคุณจะถูกเก็บรักษาไว้เป็นระยะเวลา 45 วันหลังจากสิ้นสุดบริการหรือการสมัครงานที่เกี่ยวข้อง
+                    หลังจากระยะเวลานี้ ข้อมูลจะถูกลบอย่างปลอดภัย</p>
+            </section>
+
+            <section id="sharing">
+                <h2>6. การแบ่งปันข้อมูล</h2>
+                <p>เราไม่ขาย แลกเปลี่ยน
+                    หรือโอนข้อมูลส่วนบุคคลของคุณไปยังบริษัทภายนอกหรือบุคคลที่สามโดยไม่ได้รับความยินยอมจากคุณ
+                    ยกเว้นตามที่กฎหมายกำหนด</p>
+            </section>
+
+            <section id="choices">
+                <h2>7. ทางเลือกของคุณ</h2>
+                <p>คุณมีสิทธิ์ที่จะ:</p>
+                <ul>
+                    <li>เข้าถึงข้อมูลส่วนบุคคลของคุณ</li>
+                    <li>แก้ไขความไม่ถูกต้องในข้อมูลส่วนบุคคลของคุณ</li>
+                    <li>ร้องขอให้ลบข้อมูลส่วนบุคคลของคุณ ภายใต้ข้อกำหนดทางกฎหมายที่เกี่ยวข้อง</li>
+                </ul>
+            </section>
+
+            <section id="security">
+                <h2>8. ความปลอดภัย</h2>
+                <p>เราใช้มาตรการที่เหมาะสมเพื่อปกป้องข้อมูลส่วนบุคคลของคุณจากการเข้าถึง การเปิดเผย การเปลี่ยนแปลง
+                    และการทำลายโดยไม่ได้รับอนุญาต อย่างไรก็ตาม
+                    ไม่มีวิธีการส่งข้อมูลผ่านอินเทอร์เน็ตหรือการจัดเก็บข้อมูลอิเล็กทรอนิกส์ใดที่ปลอดภัยอย่างสมบูรณ์</p>
+            </section>
+
+            <section id="updates">
+                <h2>9. การอัปเดตนโยบายความเป็นส่วนตัว</h2>
+                <p>เราอาจอัปเดตนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว
+                    การเปลี่ยนแปลงใดๆ จะมีผลทันทีเมื่อมีการโพสต์นโยบายที่แก้ไขบนเว็บไซต์ของเรา</p>
+            </section>
+
+            <section id="contact">
+                <h2>10. ติดต่อเรา</h2>
+                <p>หากคุณมีคำถามหรือข้อกังวลเกี่ยวกับนโยบายความเป็นส่วนตัวนี้หรือข้อมูลส่วนบุคคลของคุณ โปรดติดต่อเราที่
+                    <a class="link" href="mailto:LEGAL@STNETRADIO.COM">LEGAL@STNETRADIO.COM</a>
+                </p>
+            </section>
+
+            <section id="consent">
+                <p style="font-weight: 600; text-align: center; margin-top: 2rem;">
+                    โดยการใช้บริการของเราหรือให้ข้อมูลของคุณแก่เรา คุณยอมรับข้อกำหนดของนโยบายความเป็นส่วนตัวนี้
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer class="minimal-footer">
+        <div class="footer-brand">STNET Radio</div>
+    </footer>
+
+
+</body>
+
+</html>

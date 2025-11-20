@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>บริการ RSS | STNET Radio</title>
+    <meta name="description" content="การส่งพอดคาสต์แบบโฮสต์เอง เพื่อการเล่นที่ราบรื่นและคุณภาพเสียงที่ดียิ่งขึ้น" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/rss.css" />
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/th">หน้าหลัก</a></li>
+                <li><a href="/th/plus/">SNR+</a></li>
+                <li><a href="/th/podcast/">พอดคาสต์</a></li>
+                <li><a href="https://support.stnetradio.com/th" target="_blank">ฝ่ายสนับสนุน</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="status-badge">เสียงคุณภาพสูง</div>
+        <h1 class="fade-in-up">STNET Radio <span class="text-red">RSS</span></h1>
+        <p class="hero-desc fade-in-up delay-1">
+            การส่งพอดคาสต์แบบโฮสต์เอง เพื่อการเล่นที่ราบรื่นและคุณภาพเสียงที่ดียิ่งขึ้น
+            <br>สร้างเพื่อครีเอเตอร์ ปรับแต่งเพื่อผู้ฟัง
+        </p>
+        <div class="fade-in-up delay-2" style="margin-top: 2rem;">
+            <a href="#listeners" class="btn-solid">รับ URL ฟีด</a>
+            <a href="#about" class="link-arrow" style="margin-left: 20px;">วิธีการทำงาน</a>
+        </div>
+    </div>
+
+    <main class="main-content">
+
+        <section id="about" class="grid-section">
+            <div class="text-block">
+                <h2>ทำไมต้องโฮสต์เอง?</h2>
+                <p>
+                    เราทดสอบพอดคาสต์ผ่าน <strong>rss.stnetradio.com</strong> และผลลัพธ์ชัดเจน:
+                    การเล่นที่ราบรื่นและบิตเรตเสียงที่สูงขึ้น
+                </p>
+                <ul class="tick-list">
+                    <li>ไม่มีการบีบอัดที่ไม่คาดคิด</li>
+                    <li>แคชอัจฉริยะเพื่อความเร็ว</li>
+                    <li>ท่อส่งตรง</li>
+                </ul>
+            </div>
+            <div class="card tilt-card">
+                <h3>เสียงที่ดีกว่า</h3>
+                <p>
+                    ให้บริการไฟล์บิตเรตสูงพร้อมแคชอัจฉริยะเพื่อเสียงพูดที่คมชัดและดนตรีที่หนักแน่น
+                    เหมือนที่ครีเอเตอร์ตั้งใจ
+                </p>
+            </div>
+        </section>
+
+        <section id="listeners" class="full-width-card">
+            <div class="card-content">
+                <h2>สำหรับผู้ฟัง</h2>
+                <p>สมัครสมาชิกโดยตรงผ่าน RSS เพื่อประสบการณ์คุณภาพสูงสุด</p>
+
+                <div class="feed-box">
+                    <input id="feedUrl" type="text" value="https://rss.stnetradio.com/feeds/stnetradio.xml" readonly />
+                    <button id="copyBtn" class="btn-copy">คัดลอก URL</button>
+                </div>
+
+                <p class="hint">วาง URL นี้ใน Apple Podcasts, Pocket Casts หรือ Overcast</p>
+
+                <div class="app-tags">
+                    <span>Apple Podcasts</span>
+                    <span>Pocket Casts</span>
+                    <span>Overcast</span>
+                    <span>AntennaPod</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="creators" class="grid-section reverse-mobile">
+            <div class="card tilt-card">
+                <h3>เครื่องมือครีเอเตอร์</h3>
+                <p>เร็วๆ นี้: แดชบอร์ดพร้อมการอัปโหลดแบบลากและวาง การตรวจสอบ ID3 และการเผยแพร่ตามกำหนดเวลา</p>
+                <a href="mailto:team@stnetradio.com" class="link-arrow">ติดต่อทีมงาน</a>
+            </div>
+            <div class="text-block">
+                <h2>สำหรับครีเอเตอร์</h2>
+                <p>
+                    อัปโหลดเสียงคุณภาพสูงและเผยแพร่ผ่าน RSS แบบเปิด ท่อส่งของเราออกแบบมาเพื่อความน่าเชื่อถือ ความเร็ว
+                    และข้อมูลเมตาที่สะอาด
+                </p>
+                <ul class="tick-list">
+                    <li>อัปโหลดบิตเรตสูง</li>
+                    <li>เร่งความเร็วด้วย CDN</li>
+                    <li>การวิเคราะห์ที่คำนึงถึงความเป็นส่วนตัว</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2>คำถามที่พบบ่อย</h2>
+            <div class="faq-grid">
+                <details>
+                    <summary>RSS feed คืออะไร?</summary>
+                    <p>RSS เป็นรูปแบบเปิดสำหรับการแจกจ่ายการอัปเดต แอปสมัครสมาชิก URL นี้เพื่อดึงตอนใหม่โดยอัตโนมัติ</p>
+                </details>
+                <details>
+                    <summary>ลิงก์เก่าจะใช้ได้หรือไม่?</summary>
+                    <p>ใช่ เราตั้งค่าการเปลี่ยนเส้นทางสำหรับฟีดเก่าเพื่อให้แอปของคุณอัปเดตต่อไปโดยไม่ต้องเปลี่ยนแปลง</p>
+                </details>
+                <details>
+                    <summary>ฟรีหรือไม่?</summary>
+                    <p>สำหรับผู้ฟัง ใช่ สำหรับครีเอเตอร์ เรามีแผนการโฮสต์ที่หลากหลายรวมอยู่ในสมาชิก STNET Radio+</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 STNET Radio.</p>
+            <div class="footer-links">
+                <a href="/th/Privacy-Policy.html">นโยบายความเป็นส่วนตัว</a>
+                <a href="/th/Terms-of-Service.html">เงื่อนไขการให้บริการ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copy Functionality
+        const copyBtn = document.getElementById('copyBtn');
+        const feedInput = document.getElementById('feedUrl');
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(feedInput.value);
+                const original = copyBtn.textContent;
+                copyBtn.textContent = 'คัดลอกแล้ว!';
+                copyBtn.style.background = '#000';
+                copyBtn.style.color = '#fff';
+
+                setTimeout(() => {
+                    copyBtn.textContent = original;
+                    copyBtn.style.background = ''; // Reset to CSS default
+                    copyBtn.style.color = '';
+                }, 1500);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+        });
+    </script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+</body>
+
+</html>

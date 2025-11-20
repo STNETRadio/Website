@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>พอดคาสต์ | STNET Radio</title>
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/podcast/index.css" />
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/th">หน้าหลัก</a></li>
+                <li><a href="/th/plus/">SNR+</a></li>
+                <li><a href="/th/podcast/" class="active-link">พอดคาสต์</a></li>
+                <li><a href="https://support.stnetradio.com/th" target="_blank">ฝ่ายสนับสนุน</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">ซีรีส์ต้นฉบับ</span>
+            <h1 class="fade-in-up">เรื่องราว<br>เสียง</h1>
+            <p class="hero-desc fade-in-up delay-1">
+                พอดคาสต์ที่คัดสรรมาเพื่อผู้ที่อยากรู้อยากเห็น <br>
+                ประวัติศาสตร์ วัฒนธรรม และการเดินทางส่วนตัว
+            </p>
+        </div>
+    </div>
+
+    <div class="filter-bar sticky">
+        <button class="filter-btn active">รายการทั้งหมด</button>
+        <button class="filter-btn">ต้นฉบับ</button>
+        <button class="filter-btn">ประวัติศาสตร์</button>
+        <button class="filter-btn">สารคดี</button>
+    </div>
+
+    <main class="main-content">
+        <div class="podcasts-grid" id="podcastList">
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 STNET Radio.</p>
+            <div class="footer-links">
+                <a href="/th/Privacy-Policy.html">นโยบายความเป็นส่วนตัว</a>
+                <a href="/th/Terms-of-Service.html">เงื่อนไขการให้บริการ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JavaScript/podcast/index-th.js"></script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+</body>
+
+</html>

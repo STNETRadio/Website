@@ -1,0 +1,20 @@
+{
+  "name": "STNET Radio",
+  "short_name": "STNET",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/img/STNET-App.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/STNET-App.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

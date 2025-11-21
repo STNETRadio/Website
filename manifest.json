@@ -1,6 +1,6 @@
 {
-  "name": "STNET Radio",
-  "short_name": "STNET",
+  "name": "STNET Radio+",
+  "short_name": "SNR+",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

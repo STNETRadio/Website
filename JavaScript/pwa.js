@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pwaButton.className = 'btn-solid pwa-btn';
             pwaButton.textContent = buttonText;
             pwaButton.style.marginTop = '1rem';
-            pwaButton.style.backgroundColor = '#872ec4'; // Apple Podcasts purple-ish or brand color
+            pwaButton.style.backgroundColor = '#ff0000ff';
             pwaButton.style.color = 'white';
             pwaButton.style.display = 'inline-block';
 
@@ -35,6 +35,69 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 heroContent.appendChild(pwaButton);
             }
+        }
+
+        // Relink "Get STNET Radio+" button to Apple Podcasts
+        const plusButtons = document.querySelectorAll('a[href="/plus"], a[href="/plus/"], a[href="/th/plus"], a[href="/th/plus/"]');
+        plusButtons.forEach(btn => {
+            if (btn.textContent.includes('STNET Radio+')) {
+                btn.href = 'https://podcasts.apple.com/th/channel/stnet-radio/id6442482179?hasPaidContent=true';
+            }
+        });
+
+        // Language Switcher
+        const langSwitchText = isThai ? 'English' : 'ภาษาไทย';
+        const langSwitchUrl = isThai ? '/' : '/th/';
+
+        const langButton = document.createElement('a');
+        langButton.href = langSwitchUrl;
+        langButton.className = 'btn-solid';
+        langButton.textContent = langSwitchText;
+        langButton.style.marginTop = '1rem';
+        langButton.style.marginLeft = '0.5rem';
+        langButton.style.display = 'inline-block';
+        langButton.style.backgroundColor = '#333'; // Neutral color for language switch
+        langButton.style.color = 'white';
+        langButton.style.cursor = 'pointer';
+
+        // Append next to the PWA button if it exists, or append to hero content
+        if (pwaButton && pwaButton.parentNode) {
+            pwaButton.insertAdjacentElement('afterend', langButton);
+        } else {
+            const heroDesc = heroContent.querySelector('.hero-desc');
+            if (heroDesc) {
+                heroDesc.insertAdjacentElement('afterend', langButton);
+            } else {
+                heroContent.appendChild(langButton);
+            }
+        }
+
+
+        // Inject into Mobile Menu
+        const mobileNav = document.querySelector('nav ul');
+        if (mobileNav) {
+            // Separator
+            const separator = document.createElement('li');
+            separator.style.borderTop = '1px solid rgba(255,255,255,0.1)';
+            separator.style.margin = '10px 0';
+            mobileNav.appendChild(separator);
+
+            // Apple Podcasts Link in Menu
+            const menuPodcastsLi = document.createElement('li');
+            const menuPodcastsLink = document.createElement('a');
+            menuPodcastsLink.href = 'https://podcasts.apple.com/th/channel/stnet-radio/id6442482179?hasPaidContent=true';
+            menuPodcastsLink.textContent = isThai ? 'ฟังบน Apple Podcasts' : 'Listen on Apple Podcasts';
+            menuPodcastsLink.style.color = '#872ec4'; // Brand color
+            menuPodcastsLi.appendChild(menuPodcastsLink);
+            mobileNav.appendChild(menuPodcastsLi);
+
+            // Language Switcher in Menu
+            const menuLangLi = document.createElement('li');
+            const menuLangLink = document.createElement('a');
+            menuLangLink.href = langSwitchUrl;
+            menuLangLink.textContent = langSwitchText;
+            menuLangLi.appendChild(menuLangLink);
+            mobileNav.appendChild(menuLangLi);
         }
     }
 });

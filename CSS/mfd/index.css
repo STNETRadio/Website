@@ -193,7 +193,7 @@ section {
 }
 
 .cta-text {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     color: var(--text);
@@ -219,7 +219,7 @@ section {
 }
 
 .cta-title {
-    font-family: "Chillax-Variable", sans-serif;
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
     font-size: clamp(4rem, 15vw, 10rem);
     line-height: 1;
     margin: 0;

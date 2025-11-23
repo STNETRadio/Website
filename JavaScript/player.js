@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainAudio = document.getElementById('mainAudio');
     const playerCover = document.getElementById('playerCover');
     const playerTitle = document.getElementById('playerTitle');
+    const headerBg = document.getElementById('headerBg');
+    const navTitle = document.getElementById('navTitle');
+    const episodeCount = document.getElementById('episodeCount');
 
     if (!feedUrl) {
-        loadingScreen.textContent = 'No feed URL provided.';
+        loadingScreen.innerHTML = '<div>No feed URL provided.</div>';
         return;
     }
 
@@ -48,7 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itunesImage) podcastImage = itunesImage.getAttribute("href");
             }
 
-            // --- Render Header ---
+            // --- Update UI ---
+
+            // Set Blurred Background
+            headerBg.style.backgroundImage = `url('${podcastImage}')`;
+
+            // Set Nav Title (Initially hidden via CSS opacity, but set text)
+            navTitle.textContent = podcastTitle;
+
+            // Render Header
             podcastHeader.innerHTML = `
                 <img src="${podcastImage}" alt="${podcastTitle}" class="podcast-cover">
                 <div class="podcast-title">${podcastTitle}</div>
@@ -57,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // --- Parse Episodes ---
             const items = Array.from(data.querySelectorAll("item"));
+            episodeCount.textContent = `${items.length} Episodes`;
 
             if (items.length === 0) {
                 episodeListContainer.innerHTML = '<div style="text-align:center; padding:2rem;">No episodes found.</div>';
@@ -85,8 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="ep-title">${title}</div>
                             <div class="ep-desc">${desc}</div>
                             <div class="ep-meta">
-                                <span>Tap to play</span>
-                                <div class="play-icon">▶</div>
+                                <div class="play-btn-small">
+                                    <span>▶</span> Play
+                                </div>
+                                <!-- <span style="font-size:0.75rem; color:var(--secondary-text)">Details</span> -->
                             </div>
                         `;
 
@@ -100,13 +114,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Hide loading
-            loadingScreen.style.display = 'none';
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 300);
 
         })
         .catch(err => {
             console.error(err);
-            loadingScreen.innerHTML = `Error loading feed: ${err.message}<br><br>Please try again later.`;
+            loadingScreen.innerHTML = `<div style="text-align:center; padding:20px;">Error loading feed:<br>${err.message}<br><br>Please try again later.</div>`;
         });
+
+    // --- Scroll Effect for Nav Title ---
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            navTitle.style.opacity = '1';
+        } else {
+            navTitle.style.opacity = '0';
+        }
+    });
 
     // --- Helper Functions ---
     function getTagValue(parent, tagName) {
@@ -127,7 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
         stickyPlayer.classList.add('visible');
 
         // Update Active State in List
-        document.querySelectorAll('.episode-item').forEach(el => el.classList.remove('active'));
-        if (cardElement) cardElement.classList.add('active');
+        document.querySelectorAll('.episode-item').forEach(el => {
+            el.classList.remove('active');
+            const btn = el.querySelector('.play-btn-small');
+            if (btn) btn.innerHTML = '<span>▶</span> Play';
+        });
+
+        if (cardElement) {
+            cardElement.classList.add('active');
+            const btn = cardElement.querySelector('.play-btn-small');
+            if (btn) btn.innerHTML = '<span>II</span> Playing';
+        }
     }
 });

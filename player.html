@@ -20,10 +20,11 @@
             --bg-color: #ffffff;
             --text-color: #1d1d1f;
             --secondary-text: #86868b;
-            --card-bg: #f5f5f7;
-            --border-color: #e5e5e5;
+            --card-bg: #ffffff;
+            --border-color: #f0f0f0;
             --accent-color: #872ec4;
-            --player-bg: rgba(255, 255, 255, 0.95);
+            --player-bg: rgba(255, 255, 255, 0.85);
+            --shadow-color: rgba(0, 0, 0, 0.08);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -32,8 +33,9 @@
                 --text-color: #f5f5f7;
                 --secondary-text: #a1a1a6;
                 --card-bg: #1c1c1e;
-                --border-color: #38383a;
-                --player-bg: rgba(28, 28, 30, 0.95);
+                --border-color: #2c2c2e;
+                --player-bg: rgba(28, 28, 30, 0.85);
+                --shadow-color: rgba(0, 0, 0, 0.3);
             }
         }
 
@@ -41,12 +43,30 @@
             padding: 0;
             margin: 0;
             padding-top: env(safe-area-inset-top);
-            padding-bottom: 120px;
-            /* Space for sticky player */
+            padding-bottom: 140px;
+            /* Space for floating player */
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'IBM Plex Sans Thai', 'Poppins', sans-serif;
             transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* Blurred Background */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(50px) saturate(1.5);
+            opacity: 0.4;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, black, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+            transition: background-image 0.5s ease;
         }
 
         /* Header */
@@ -56,107 +76,141 @@
             padding: 1rem;
             position: sticky;
             top: 0;
-            background: var(--bg-color);
             z-index: 10;
-            border-bottom: 1px solid var(--border-color);
+            /* background: transparent; */
+            /* Let blur show through */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .back-btn {
-            background: none;
+            background: rgba(128, 128, 128, 0.1);
             border: none;
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            padding: 0.5rem;
             margin-right: 1rem;
             color: var(--text-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .page-title {
             font-weight: 600;
             font-size: 1.1rem;
+            opacity: 0;
+            /* Hidden initially, could fade in on scroll */
+            transition: opacity 0.3s;
         }
 
         /* Podcast Info */
         .podcast-header {
-            padding: 2rem 1.5rem;
+            padding: 1rem 1.5rem 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
         .podcast-cover {
-            width: 200px;
-            height: 200px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            width: 220px;
+            height: 220px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 1.5rem;
             object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .podcast-cover:active {
+            transform: scale(0.95);
         }
 
         .podcast-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
-            line-height: 1.3;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
         .podcast-desc {
             font-size: 0.95rem;
             color: var(--secondary-text);
-            line-height: 1.5;
+            line-height: 1.6;
             max-width: 600px;
             margin: 0 auto;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            font-weight: 400;
         }
 
         /* Episode List */
         .episode-list {
-            padding: 1rem;
+            padding: 0 1rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .list-header {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1rem;
             padding-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .episode-count {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-weight: 500;
         }
 
         .episode-item {
             display: flex;
             flex-direction: column;
-            padding: 1rem;
+            padding: 1.2rem;
             margin-bottom: 1rem;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            /* box-shadow: 0 2px 10px var(--shadow-color); */
         }
 
         .episode-item:active {
             transform: scale(0.98);
+            background-color: var(--border-color);
         }
 
         .episode-item.active {
-            border: 2px solid var(--accent-color);
+            border: 1px solid var(--accent-color);
+            background-color: rgba(135, 46, 196, 0.05);
         }
 
         .ep-date {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--secondary-text);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
+            font-weight: 600;
             letter-spacing: 0.5px;
         }
 
         .ep-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+            color: var(--text-color);
         }
 
         .ep-desc {
@@ -166,47 +220,66 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
         }
 
         .ep-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.8rem;
-            color: var(--secondary-text);
-            margin-top: 0.5rem;
+            margin-top: 0.2rem;
         }
 
-        .play-icon {
-            background: var(--accent-color);
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+        .play-btn-small {
+            background: rgba(135, 46, 196, 0.1);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            gap: 6px;
+            transition: background 0.2s;
         }
 
-        /* Sticky Player */
+        .episode-item.active .play-btn-small {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Floating Player */
         .sticky-player {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 24px;
+            left: 16px;
+            right: 16px;
             background: var(--player-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             padding: 1rem;
-            padding-bottom: calc(1rem + env(safe-area-inset-bottom));
             display: flex;
             flex-direction: column;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(100%);
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(150%);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 100;
+        }
+
+        @media (min-width: 600px) {
+            .sticky-player {
+                left: 50%;
+                transform: translateX(-50%) translateY(150%);
+                width: 90%;
+                max-width: 500px;
+            }
+
+            .sticky-player.visible {
+                transform: translateX(-50%) translateY(0);
+            }
         }
 
         .sticky-player.visible {
@@ -222,9 +295,10 @@
         .mini-cover {
             width: 48px;
             height: 48px;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-right: 1rem;
             object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .now-playing-text {
@@ -237,6 +311,7 @@
             color: var(--accent-color);
             text-transform: uppercase;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .np-title {
@@ -245,11 +320,18 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            color: var(--text-color);
         }
 
         audio {
             width: 100%;
-            height: 36px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        /* Custom Audio Controls Styling (Webkit) */
+        audio::-webkit-media-controls-panel {
+            background-color: transparent;
         }
 
         .loading-screen {
@@ -260,18 +342,41 @@
             bottom: 0;
             background: var(--bg-color);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 100;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--secondary-text);
+            font-weight: 500;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(135, 46, 196, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div id="loadingScreen" class="loading-screen">Loading Podcast...</div>
+    <div id="headerBg" class="header-bg"></div>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <div>Loading Podcast...</div>
+    </div>
 
     <div class="nav-header">
         <button class="back-btn" onclick="history.back()">
@@ -280,7 +385,7 @@
                 <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
         </button>
-        <span class="page-title">Podcast</span>
+        <span id="navTitle" class="page-title">Podcast</span>
     </div>
 
     <div id="podcastHeader" class="podcast-header">
@@ -288,7 +393,10 @@
     </div>
 
     <div class="episode-list">
-        <div class="list-header">Episodes</div>
+        <div class="list-header">
+            <span>Episodes</span>
+            <span id="episodeCount" class="episode-count"></span>
+        </div>
         <div id="episodeListContainer">
             <!-- Injected by JS -->
         </div>

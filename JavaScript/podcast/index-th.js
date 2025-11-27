@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const podcasts = [
         {
-            title: "เล่าเรื่องเก่ง", creator: "sorasukt", image: "/img/podcast/tmsas4.png", rating: "4.8", listeners: "1.6K", link: "https://podcasts.apple.com/th/podcast/%E0%B9%80%E0%B8%A5-%E0%B8%B2%E0%B9%80%E0%B8%A3-%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81-%E0%B8%87/id1486563415",
+            title: "เล่าเรื่องเก่ง", creator: "sorasukt", image: "/img/podcast/tmsa.png", rating: "4.8", listeners: "1.6K", link: "https://podcasts.apple.com/th/podcast/%E0%B9%80%E0%B8%A5-%E0%B8%B2%E0%B9%80%E0%B8%A3-%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81-%E0%B8%87/id1486563415",
             rss: "https://s3.ap-southeast-1.amazonaws.com/rss.stnetradio.com/STNETRadioEnt/TMSA/RSS.xml"
         },
         {

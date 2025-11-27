@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     episodeListContainer.innerHTML = ''; // Clear
                     items.forEach((item, index) => {
                         const title = getTagValue(item, "title");
-                        const pubDate = new Date(getTagValue(item, "pubDate")).toLocaleDateString('th-TH', {
+                        const pubDate = new Date(getTagValue(item, "pubDate")).toLocaleDateString('en-US', {
                             year: 'numeric', month: 'short', day: 'numeric'
                         });
                         const desc = getTagValue(item, "description").replace(/<[^>]*>?/gm, '').substring(0, 150) + '...';

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "Talking with LITALK",
             creator: "LITALK Education",
-            image: "https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/podcast/talkingwithlitalk.png",
+            image: "https://s3.ap-southeast-1.amazonaws.com/rss.stnetradio.com/SoaqerStudio/LITALKPodcast/Logo.png",
             rating: "Coming Soon Show",
             listeners: "1K",
             link: "https://podcasts.apple.com/th/podcast/talking-with-litalk/id1786381161",

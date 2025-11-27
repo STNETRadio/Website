@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const menuPodcastsLink = document.createElement('a');
             menuPodcastsLink.href = 'https://podcasts.apple.com/th/channel/stnet-radio/id6442482179?hasPaidContent=true';
             menuPodcastsLink.textContent = isThai ? 'ฟังบน Apple Podcasts' : 'Listen on Apple Podcasts';
-            menuPodcastsLink.style.color = '#872ec4'; // Brand color
+            menuPodcastsLink.style.color = '#ff0000'; // Brand color
             menuPodcastsLi.appendChild(menuPodcastsLink);
             mobileNav.appendChild(menuPodcastsLi);
 

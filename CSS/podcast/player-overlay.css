@@ -257,7 +257,7 @@
 
 .player-overlay .episode-item.active {
     border: 1px solid var(--accent-color);
-    background-color: rgba(135, 46, 196, 0.05);
+    background-color: rgba(255, 0, 0, 0.05);
 }
 
 .player-overlay .ep-date {
@@ -296,7 +296,7 @@
 }
 
 .player-overlay .play-btn-small {
-    background: rgba(135, 46, 196, 0.1);
+    background: rgba(255, 0, 0, 0.1);
     color: var(--accent-color);
     padding: 6px 14px;
     border-radius: 20px;
@@ -427,7 +427,7 @@
     justify-content: center;
     font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(135, 46, 196, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
     transition: transform 0.2s, background 0.2s;
 }
 
@@ -485,7 +485,7 @@
 .player-overlay .spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid rgba(135, 46, 196, 0.3);
+    border: 3px solid rgba(255, 0, 0, 0.3);
     border-radius: 50%;
     border-top-color: var(--accent-color);
     animation: spin 1s ease-in-out infinite;

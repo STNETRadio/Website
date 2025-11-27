@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>STNET ID Staff Portal | STNET Radio</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-startup-image" href="/img/STNET-App.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/staff.css" />
+    <link rel="stylesheet" href="/CSS/footer.css" />
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/plus/">SNR+</a></li>
+                <li><a href="/podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+                <li><a href="/staff/" style="color: var(--red); font-weight: 700;">Staff Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="staff-badge fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <h1 class="fade-in-up delay-1">STNET ID</h1>
+            <p class="hero-sub fade-in-up delay-2">Staff Portal</p>
+            <div class="hero-desc fade-in-up delay-3">
+                Welcome to the staff portal<br>
+                Manage your work and access important information anytime, anywhere
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <!-- Quick Access Section -->
+        <section class="grid-section">
+            <div class="text-block slide-in-left">
+                <h2>Quick Access</h2>
+                <p>Access the essential tools and systems you need for your daily work<br>
+                    The <strong>STNET ID</strong> system helps you manage everything efficiently</p>
+            </div>
+
+            <div class="card-grid slide-in-right">
+                <div class="quick-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Dashboard</h3>
+                    <p>Overview and work statistics</p>
+                    <a href="#dashboard" class="card-link">Open</a>
+                </div>
+                <div class="quick-card">
+                    <div class="card-icon">📝</div>
+                    <h3>Tasks</h3>
+                    <p>Assigned tasks and projects</p>
+                    <a href="#tasks" class="card-link">Open</a>
+                </div>
+                <div class="quick-card">
+                    <div class="card-icon">📁</div>
+                    <h3>Files</h3>
+                    <p>Documents and work files</p>
+                    <a href="#files" class="card-link">Open</a>
+                </div>
+                <div class="quick-card">
+                    <div class="card-icon">💬</div>
+                    <h3>Messages</h3>
+                    <p>Messages and communications</p>
+                    <a href="#messages" class="card-link">Open</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="grid-section reverse-mobile">
+            <div class="card tilt-card slide-in-left">
+                <h3>Guides & Documentation</h3>
+                <ul class="resource-list">
+                    <li>
+                        <span class="resource-icon">📖</span>
+                        <div>
+                            <strong>Employee Handbook</strong>
+                            <p>Complete employee handbook</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="resource-icon">🔐</span>
+                        <div>
+                            <strong>Security Guidelines</strong>
+                            <p>Security and data protection guidelines</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="resource-icon">🎯</span>
+                        <div>
+                            <strong>Best Practices</strong>
+                            <p>Recommended best practices</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="resource-icon">📞</span>
+                        <div>
+                            <strong>IT Support</strong>
+                            <p>Contact IT department for assistance</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-block slide-in-right">
+                <h2>Resources</h2>
+                <p>Access documents, guides, and guidelines essential for your work</p>
+                <a href="#resources" class="btn-solid">View All</a>
+            </div>
+        </section>
+
+        <!-- System Status Section -->
+        <section class="grid-section">
+            <div class="text-block slide-in-left">
+                <h2>System Status</h2>
+                <p>Check the operational status of systems you use regularly<br>
+                    Real-time updates</p>
+                <a href="#status" class="btn-solid">View Details</a>
+            </div>
+
+            <div class="card status-card slide-in-right">
+                <h3>Core Systems</h3>
+                <div class="status-list">
+                    <div class="status-item">
+                        <span class="status-dot online"></span>
+                        <div class="status-info">
+                            <strong>Email System</strong>
+                            <span class="status-label">Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot online"></span>
+                        <div class="status-info">
+                            <strong>File Server</strong>
+                            <span class="status-label">Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot online"></span>
+                        <div class="status-info">
+                            <strong>Authentication</strong>
+                            <span class="status-label">Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot maintenance"></span>
+                        <div class="status-info">
+                            <strong>Database Backup</strong>
+                            <span class="status-label">Backup in Progress</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="status-update">Last updated: Today at 15:45</p>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section class="announcements-section">
+            <h2 class="section-title">Announcements & News</h2>
+            <div class="announcements-grid">
+                <div class="announcement-card important">
+                    <div class="announcement-badge">Important</div>
+                    <h4>Security System Update</h4>
+                    <p>Please change your STNET ID password by November 30, 2024</p>
+                    <span class="announcement-date">Nov 25, 2024</span>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-badge">General</div>
+                    <h4>2025 Annual Holidays</h4>
+                    <p>Check the 2025 annual holiday calendar and plan your leave in advance</p>
+                    <span class="announcement-date">Nov 20, 2024</span>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-badge">Update</div>
+                    <h4>New Features in Staff Portal</h4>
+                    <p>Real-time notification system and Mobile App are now available</p>
+                    <span class="announcement-date">Nov 18, 2024</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://facebook.com/stnetradio" aria-label="Facebook">FB</a>
+            <a href="https://x.com/stnetradio" aria-label="Twitter">X</a>
+            <a href="https://instagram.com/stnetradio" aria-label="Instagram">IG</a>
+        </div>
+        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+        <p>
+            <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
+            <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script src="/JavaScript/mobile-menu.js"></script>
+    <script src="/JavaScript/pwa.js"></script>
+</body>
+
+</html>

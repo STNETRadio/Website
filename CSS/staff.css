@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Source+Sans+3:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Theme Variables - Light Default */
+:root {
+    --red: #ff0000;
+    --bg: #ffffff;
+    --text: #ff0000;
+    --subtext: #333333;
+    --card-bg: #ffffff;
+    --card-border: #f0f0f0;
+    --btn-text: #ffffff;
+    --btn-bg: #ff0000;
+    --success: #00cc66;
+    --warning: #ff9900;
+    --info: #0099ff;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Auto Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #000000;
+        --text: #ff0000;
+        --subtext: #cccccc;
+        --card-bg: #111111;
+        --card-border: #333333;
+    }
+}
+
+body {
+    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-weight: 300;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg);
+}
+
+.staff-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--red), #cc0000);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+    animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+    }
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: clamp(4rem, 12vw, 9rem);
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+    color: var(--red);
+}
+
+.hero-sub {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    color: var(--subtext);
+}
+
+.hero-desc {
+    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+    color: var(--subtext);
+}
+
+/* Main Content */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    border-top: 2px solid var(--red);
+}
+
+.grid-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+@media (min-width: 900px) {
+    .grid-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .reverse-mobile {
+        direction: ltr;
+    }
+}
+
+@media (max-width: 899px) {
+    .reverse-mobile {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+h2 {
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: var(--red);
+}
+
+.text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
+    color: var(--subtext);
+}
+
+.btn-solid {
+    display: inline-block;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--red);
+    transition: all 0.3s;
+}
+
+.btn-solid:hover {
+    background-color: var(--bg);
+    color: var(--red);
+    transform: translateY(-3px);
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 32px;
+    position: relative;
+    transition: transform 0.4s;
+    border: 2px solid var(--card-border);
+}
+
+.card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    border-color: var(--red);
+}
+
+.card h3 {
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--red);
+}
+
+/* Quick Access Cards Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.quick-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 2px solid var(--card-border);
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.quick-card:hover::before {
+    opacity: 1;
+}
+
+.quick-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--red);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.quick-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--red);
+}
+
+.quick-card p {
+    font-size: 0.9rem;
+    color: var(--subtext);
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.card-link:hover {
+    transform: translateX(5px);
+}
+
+.card-link::after {
+    content: ' →';
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.card-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* Resource List */
+.resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.resource-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--card-border);
+    transition: all 0.3s;
+}
+
+.resource-list li:last-child {
+    border-bottom: none;
+}
+
+.resource-list li:hover {
+    padding-left: 1rem;
+    background: rgba(255, 0, 0, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.resource-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.resource-list strong {
+    display: block;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.resource-list p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--subtext);
+}
+
+/* Status Card */
+.status-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 32px;
+    border: 2px solid var(--card-border);
+}
+
+.status-list {
+    margin: 2rem 0;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+    background: var(--success);
+    box-shadow: 0 0 10px var(--success);
+}
+
+.status-dot.maintenance {
+    background: var(--warning);
+    box-shadow: 0 0 10px var(--warning);
+}
+
+.status-dot.offline {
+    background: var(--red);
+    box-shadow: 0 0 10px var(--red);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-info strong {
+    color: var(--subtext);
+    font-weight: 600;
+}
+
+.status-label {
+    font-size: 0.85rem;
+    color: var(--subtext);
+    opacity: 0.7;
+}
+
+.status-update {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--subtext);
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* Announcements Section */
+.announcements-section {
+    margin-bottom: 8rem;
+}
+
+.section-title {
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: var(--red);
+    text-align: center;
+}
+
+.announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.announcement-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 2px solid var(--card-border);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--red);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+}
+
+.announcement-card.important {
+    border-color: var(--red);
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 0, 0, 0.05) 100%);
+}
+
+.announcement-badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.announcement-card h4 {
+    font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+    font-size: 1.5rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+}
+
+.announcement-card p {
+    color: var(--subtext);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.announcement-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--subtext);
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .main-content {
+        padding: 4rem 1.5rem;
+    }
+
+    .card,
+    .status-card {
+        padding: 2rem;
+    }
+
+    .card h3 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .announcements-grid {
+        grid-template-columns: 1fr;
+    }
+}

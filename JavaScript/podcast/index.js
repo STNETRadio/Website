@@ -70,8 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPodcasts() {
         podcastList.innerHTML = podcasts.map((podcast, index) => {
             // If PWA, use onclick handler. If not, use normal link.
-            const href = isStandalone && podcast.rss ? '#' : podcast.link;
-            const clickHandler = isStandalone && podcast.rss ? `onclick="openPodcast('${podcast.rss}', event)"` : '';
+            const href = isStandalone && podcast.rss ? '#' : '#';
+            const clickHandler = isStandalone && podcast.rss
+                ? `onclick="openPodcast('${podcast.rss}', event)"`
+                : `onclick="showPWAPrompt(event)"`;
 
             return `
             <a href="${href}" class="podcast-card" ${clickHandler} data-rss="${podcast.rss}">
@@ -96,6 +98,47 @@ document.addEventListener("DOMContentLoaded", () => {
             </a>
         `}).join('');
     }
+
+    // --- PWA Prompt Logic ---
+    window.showPWAPrompt = (event) => {
+        if (event) event.preventDefault();
+
+        // Check if modal exists, if not create it
+        let modal = document.getElementById('pwaModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'pwaModal';
+            modal.className = 'pwa-modal-overlay';
+            modal.innerHTML = `
+                <div class="pwa-modal">
+                    <div class="pwa-modal-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3>App Experience Only</h3>
+                    <p>This player is designed for the best experience on our app.<br>Please add this website to your home screen to listen.</p>
+                    <button class="pwa-modal-btn" onclick="closePWAPrompt()">Got it</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Close on click outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closePWAPrompt();
+            });
+        }
+
+        // Show modal (small delay to allow transition)
+        requestAnimationFrame(() => {
+            modal.classList.add('visible');
+        });
+    };
+
+    window.closePWAPrompt = () => {
+        const modal = document.getElementById('pwaModal');
+        if (modal) {
+            modal.classList.remove('visible');
+        }
+    };
 
     // --- SPA Navigation Logic ---
 

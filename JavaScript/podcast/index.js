@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const podcastList = document.getElementById("podcastList");
-    // const isStandalone = window.navigator.standalone === true;
-    const isStandalone = true; // For testing: Force true so we can test in browser
+    const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+    // const isStandalone = true; // For testing: Force true so we can test in browser
 
     console.log("Podcast Index Loaded. Standalone Mode:", isStandalone);
 

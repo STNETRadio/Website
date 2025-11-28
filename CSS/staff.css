@@ -224,11 +224,14 @@ h2 {
 }
 
 .quick-card {
+    display: block;
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 24px;
     border: 2px solid var(--card-border);
     text-align: center;
+    text-decoration: none;
+    color: inherit;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
@@ -244,6 +247,7 @@ h2 {
     background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .quick-card:hover::before {
@@ -259,18 +263,24 @@ h2 {
 .card-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .quick-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--red);
+    position: relative;
+    z-index: 1;
 }
 
 .quick-card p {
     font-size: 0.9rem;
     color: var(--subtext);
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .card-link {
@@ -284,7 +294,7 @@ h2 {
     transition: all 0.3s;
 }
 
-.card-link:hover {
+.quick-card:hover .card-link {
     transform: translateX(5px);
 }
 
@@ -294,7 +304,7 @@ h2 {
     display: inline-block;
 }
 
-.card-link:hover::after {
+.quick-card:hover .card-link::after {
     transform: translateX(5px);
 }
 

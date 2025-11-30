@@ -44,17 +44,17 @@ body.no-scroll {
         --primary-dark: #dc2626;
         --primary-light: #f87171;
 
-        --bg-primary: #0f172a;
-        --bg-secondary: #1e293b;
-        --bg-tertiary: #334155;
+        --bg-primary: #280000;
+        --bg-secondary: #000000;
+        --bg-tertiary: #000000;
 
         --text-primary: #f1f5f9;
         --text-secondary: #cbd5e1;
         --text-tertiary: #94a3b8;
 
-        --border-light: #334155;
-        --border-medium: #475569;
-        --border-dark: #64748b;
+        --border-light: #000000;
+        --border-medium: #000000;
+        --border-dark: #000000;
 
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);

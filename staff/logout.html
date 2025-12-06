@@ -18,187 +18,115 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
         rel="stylesheet" />
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <link rel="stylesheet" href="/CSS/brand.css" />
     <link rel="stylesheet" href="/CSS/staff.css" />
     <link rel="stylesheet" href="/CSS/footer.css" />
+
     <style>
-        /* Logout page specific styles */
+        /* Specific Centered Layout for Logout */
         .logout-container {
-            min-height: calc(100vh - 80px);
+            flex: 1;
+            /* Occupy remaining vertical space */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            background: var(--bg-secondary);
+            padding: 10rem 2rem 4rem;
+            /* Increased top padding to clear fixed header */
+            min-height: 60vh;
+            /* Minimum height safeguard */
         }
 
-        .logout-content {
+        .logout-card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            border: 2px solid var(--card-border);
             text-align: center;
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .logout-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--red);
         }
 
         .logout-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: var(--success);
-            border-radius: 50%;
+            font-size: 3.5rem;
+            color: var(--status-green);
+            margin-bottom: 1.5rem;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .logout-card h1 {
+            font-size: 2rem;
+            color: var(--red);
+            margin-bottom: 0.8rem;
+        }
+
+        .logout-card p {
+            color: var(--subtext);
             margin-bottom: 2rem;
-            color: white;
-            box-shadow: var(--shadow-lg);
-            animation: scaleIn 0.4s ease-out;
+            font-size: 1.05rem;
         }
 
-        .logout-icon svg {
-            width: 40px;
-            height: 40px;
-        }
-
-        .logout-content h1 {
-            font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            animation: fadeInUp 0.5s ease-out 0.1s both;
-        }
-
-        .logout-content p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            animation: fadeInUp 0.5s ease-out 0.2s both;
-        }
-
-        .logout-actions {
+        .controls {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
-            align-items: center;
-            animation: fadeInUp 0.5s ease-out 0.3s both;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--primary);
-            color: white;
-            padding: 0.875rem 2.5rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.01em;
-            border: none;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-sm);
-            width: fit-content;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            color: var(--text-secondary);
-            padding: 0.875rem 2.5rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.01em;
-            border: 1px solid var(--border-medium);
-            background: var(--bg-primary);
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-sm);
-            width: fit-content;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--border-dark);
-            background: var(--bg-tertiary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary:active {
-            transform: translateY(0);
-        }
-
-        .security-note {
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            animation: fadeInUp 0.5s ease-out 0.4s both;
-        }
-
-        .security-note h3 {
-            font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .security-note p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.6;
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--subtext);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .security-tip {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--subtext);
+            opacity: 0.7;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .security-tip i {
+            color: var(--red);
+            margin-right: 5px;
         }
 
         @keyframes scaleIn {
             from {
-                transform: scale(0.8);
+                transform: scale(0.5);
                 opacity: 0;
             }
 
             to {
                 transform: scale(1);
                 opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logout-actions {
-                width: 100%;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                justify-content: center;
             }
         }
     </style>
@@ -225,26 +153,23 @@
     </header>
 
     <div class="logout-container">
-        <div class="logout-content">
+        <div class="logout-card">
             <div class="logout-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <i class="fa-solid fa-circle-check"></i>
             </div>
 
             <h1>Successfully Logged Out</h1>
-            <p>You have been safely logged out of your STNET ID account.<br>Thank you for using the Staff Portal.</p>
+            <p>Thank you for using STNET ID. You have been safely logged out.</p>
 
-            <div class="security-note">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    Security Tip
-                </h3>
-                <p>For additional security, please close all browser windows when using a shared or public computer.</p>
+            <div class="controls">
+                <a href="/staff/" class="btn-outline">Back to Home</a>
+            </div>
+
+            <div class="security-tip">
+                <p><i class="fa-solid fa-lock"></i>
+                    <strong>Security Tip:</strong> Close your browser if you're on a public computer. Contact us if you
+                    have any questions.
+                </p>
             </div>
         </div>
     </div>

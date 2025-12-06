@@ -18,6 +18,9 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
         rel="stylesheet" />
 
+    <!-- Font Awesome (Solid Style) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <link rel="stylesheet" href="/CSS/brand.css" />
     <link rel="stylesheet" href="/CSS/staff.css" />
     <link rel="stylesheet" href="/CSS/footer.css" />
@@ -26,7 +29,7 @@
 <body>
 
     <header>
-        <a href="/" class="brand">SNR Staff Portal</a></a>
+        <a href="/" class="brand">SNR Staff Portal</a>
         <button id="hamburger-btn" aria-label="Toggle navigation">
             <span></span>
             <span></span>
@@ -45,183 +48,149 @@
 
     <div class="hero">
         <div class="hero-content">
-            <div class="staff-badge fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-            </div>
-            <h1 class="fade-in-up delay-1">STNET ID</h1>
-            <p class="hero-sub fade-in-up delay-2">Staff Portal</p>
-            <div class="hero-desc fade-in-up delay-3">
-                Welcome to the staff portal<br>
-                Manage your work and access important information anytime, anywhere
-            </div>
+            <h1 class="fade-in-up">STNET ID</h1>
+            <p class="hero-sub fade-in-up delay-1">Staff Portal & Workspace</p>
         </div>
     </div>
 
-    <div class="main-content">
+    <div class="dashboard-container">
 
-        <!-- Quick Access Section -->
-        <section class="grid-section">
-            <div class="text-block slide-in-left">
+        <!-- 1. Quick Access (4 Cols) -->
+        <section class="dashboard-section">
+            <div class="section-header">
                 <h2>Quick Access</h2>
-                <p>Access the essential tools and systems you need for your daily work<br>
-                    The <strong style="font-family: 'Chillax-Variable', sans-serif;">STNET ID</strong> system helps you
-                    manage everything efficiently</p>
+                <p>Essential daily tools</p>
             </div>
-
-            <div class="card-grid slide-in-right">
-                <a href="http://calendar.stnetradio.com" class="quick-card" target="_blank">
-                    <div class="card-icon">📅</div>
-                    <h3>Calendar</h3>
-                    <p>View your schedule and events</p>
-                    <span class="card-link">Open</span>
+            <div class="quick-grid">
+                <a href="http://calendar.stnetradio.com" class="tool-card" target="_blank">
+                    <i class="tool-icon fa-solid fa-calendar-days"></i>
+                    <span class="tool-name">Calendar</span>
+                    <span class="tool-desc">Schedule & Events</span>
                 </a>
-                <a href="http://email.stnetradio.com" class="quick-card" target="_blank">
-                    <div class="card-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>View and manage your emails</p>
-                    <span class="card-link">Open</span>
+                <a href="http://email.stnetradio.com" class="tool-card" target="_blank">
+                    <i class="tool-icon fa-solid fa-envelope"></i>
+                    <span class="tool-name">Email</span>
+                    <span class="tool-desc">Inbox & Drafts</span>
                 </a>
-                <a href="http://drive.stnetradio.com" class="quick-card" target="_blank">
-                    <div class="card-icon">📁</div>
-                    <h3>Drive</h3>
-                    <p>View and manage your files</p>
-                    <span class="card-link">Open</span>
+                <a href="http://drive.stnetradio.com" class="tool-card" target="_blank">
+                    <i class="tool-icon fa-brands fa-google-drive"></i>
+                    <span class="tool-name">Drive</span>
+                    <span class="tool-desc">Files & Storage</span>
                 </a>
-                <a href="http://messages.stnetradio.com" class="quick-card" target="_blank">
-                    <div class="card-icon">💬</div>
-                    <h3>Messages</h3>
-                    <p>View and manage your messages</p>
-                    <span class="card-link">Open</span>
+                <a href="http://messages.stnetradio.com" class="tool-card" target="_blank">
+                    <i class="tool-icon fa-solid fa-message"></i>
+                    <span class="tool-name">Messages</span>
+                    <span class="tool-desc">Chat & Team</span>
                 </a>
             </div>
         </section>
 
-        <!-- Resources Section -->
-        <section class="grid-section reverse-mobile">
-            <div class="card tilt-card slide-in-left">
-                <h3>Guides & Documentation</h3>
-                <ul class="resource-list">
-                    <li>
+        <!-- 2. System Status & Resources (Split) -->
+        <section class="dashboard-section">
+            <div class="info-grid">
+
+                <!-- System Status Widget -->
+                <div class="dash-card">
+                    <h3><i class="fa-solid fa-server"></i> System Status</h3>
+                    <div class="link-list">
+                        <div class="status-row">
+                            <div class="status-name">
+                                <i class="fa-brands fa-google" style="width: 20px;"></i> Email
+                            </div>
+                            <span class="status-indicator st-operational">Operational</span>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-name">
+                                <i class="fa-brands fa-google-drive" style="width: 20px;"></i> Drive
+                            </div>
+                            <span class="status-indicator st-operational">Operational</span>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-name">
+                                <i class="fa-solid fa-id-card" style="width: 20px;"></i> STNET ID
+                            </div>
+                            <span class="status-indicator st-maintenance">Maintenance</span>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-name">
+                                <i class="fa-solid fa-rss" style="width: 20px;"></i> RSS
+                            </div>
+                            <span class="status-indicator st-operational">Operational</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; opacity: 0.6;">
+                        Last updated: Nov 30, 2025 12:00 AM
+                    </div>
+                </div>
+
+                <!-- Resources Widget -->
+                <div class="dash-card">
+                    <h3><i class="fa-solid fa-book-open"></i> Resources</h3>
+                    <div class="link-list">
                         <a href="https://docs.stnetradio.com/stnetid/home#login-instructions-for-employees"
-                            target="_blank"
-                            style="display: flex; align-items: flex-start; gap: 1rem; text-decoration: none; color: inherit;">
-                            <span class="resource-icon">🔐</span>
-                            <div>
+                            class="link-item" target="_blank">
+                            <div class="link-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="link-content">
                                 <strong>Security Guidelines</strong>
-                                <p>Security and data protection guidelines</p>
+                                <span>Login instructions & 2FA setups</span>
                             </div>
                         </a>
-                    </li>
-                    <li>
-                        <a href="mailto:team@stnetradio.com" target="_blank"
-                            style="display: flex; align-items: flex-start; gap: 1rem; text-decoration: none; color: inherit;">
-                            <span class="resource-icon">📞</span>
-                            <div>
+                        <a href="mailto:team@stnetradio.com" class="link-item" target="_blank">
+                            <div class="link-icon"><i class="fa-solid fa-headset"></i></div>
+                            <div class="link-content">
                                 <strong>IT Support</strong>
-                                <p>Send an email to IT department for assistance</p>
+                                <span>Contact helpdesk for assistance</span>
                             </div>
                         </a>
-                    </li>
-                </ul>
-            </div>
+                        <a href="https://docs.stnetradio.com" class="link-item" target="_blank">
+                            <div class="link-icon"><i class="fa-solid fa-folder-open"></i></div>
+                            <div class="link-content">
+                                <strong>Knowledge Base</strong>
+                                <span>Browse all documentation</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-            <div class="text-block slide-in-right">
-                <h2>Resources</h2>
-                <p>Access documents, guides, and guidelines essential for your work</p>
-                <a href="https://docs.stnetradio.com" class="btn-solid" target="_blank">View All</a>
             </div>
         </section>
 
-        <!-- System Status Section -->
-        <section class="grid-section">
-            <div class="text-block slide-in-left">
-                <h2>System Status</h2>
-                <p>Check the operational status of systems you use regularly<br>
-                    Real-time updates</p>
+        <!-- 3. Announcements -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h2>Announcements</h2>
+                <p>Latest updates from the team</p>
             </div>
 
-            <div class="card status-card slide-in-right">
-                <h3>Core Systems</h3>
-                <div class="status-list">
-                    <div class="status-item">
-                        <span class="status-dot online"></span>
-                        <div class="status-info">
-                            <strong>Email by Google Workspace</strong>
-                            <span class="status-label">Operational</span>
-                        </div>
-                    </div>
-                    <div class="status-item">
-                        <span class="status-dot online"></span>
-                        <div class="status-info">
-                            <strong>Drive by Google Workspace</strong>
-                            <span class="status-label">Operational</span>
-                        </div>
-                    </div>
-                    <div class="status-item">
-                        <span class="status-dot maintenance"></span>
-                        <div class="status-info">
-                            <strong>STNET ID</strong>
-                            <span class="status-label">Maintenance</span>
-                        </div>
-                    </div>
-                    <div class="status-item">
-                        <span class="status-dot online"></span>
-                        <div class="status-info">
-                            <strong>STNET Radio RSS</strong>
-                            <span class="status-label">Operational</span>
-                        </div>
+            <div class="news-grid">
+
+                <div class="news-card">
+                    <span class="news-badge">Tips</span>
+                    <h4>Chrome Integration</h4>
+                    <p>Use STNET ID on Google Chrome for seamless login across all our apps including VPN and RSS.</p>
+                    <div class="news-meta">
+                        <a href="https://support.google.com/chrome" class="link" target="_blank">Read Guide</a> • Nov 28
                     </div>
                 </div>
-                <p class="status-update">Last updated: Nov 30, 2025 12:00 AM</p>
-            </div>
-        </section>
 
-        <!-- Announcements Section -->
-        <section class="announcements-section">
-            <h2 class="section-title">Announcements & News</h2>
-            <div class="announcements-grid">
-                <div class="announcement-card">
-                    <div class="announcement-badge">Trips</div>
-                    <h4>STNET ID on Google Chrome</h4>
-                    <p>Use STNET ID on Google Chrome for more convenience. Such as logging in to STNET Radio website,
-                        STNET Radio RSS, STNET Radio VPN, and more and keep your account secure.</p>
-                    <p>Learn How to login STNET ID on Google Chrome <a
-                            href="https://support.google.com/chrome/answer/185277?hl=en&co=GENIE.Platform%3DDesktop#zippy=%2Csign-in-turn-on-sync"
-                            class="link" target="_blank">here</a></p>
-                    <span class="announcement-date">Nov 28, 2025</span>
-                </div>
-
-                <div class="announcement-card important">
-                    <div class="announcement-badge">Important</div>
+                <div class="news-card">
+                    <span class="news-badge">Important</span>
                     <h4>Cloudflare Outage</h4>
-                    <p>Due to an outage with Cloudflare, our website and services may be affected. We are working to
-                        resolve the issue as soon as possible. STNET Radio ID, STNET Radio RSS and STNET Radio VPN are
-                        temporarily unavailable.</p>
-                    <p>Follow an update on this issue at <a
-                            href="https://x.com/TeamSTNETRadio/status/1990784922924298363" class="link"
-                            target="_blank">Official Team
-                            STNET Radio's X</a></p>
-                    <span class="announcement-date">Nov 18, 2025</span>
+                    <p>Services including ID and VPN are temporarily unavailable due to upstream provider issues.</p>
+                    <div class="news-meta">
+                        <a href="https://x.com/TeamSTNETRadio" class="link" target="_blank">Check Status</a> • Nov 18
+                    </div>
                 </div>
 
-                <div class="announcement-card important">
-                    <div class="announcement-badge">Important</div>
-                    <h4>STNET Email has been moved to Google Workspace</h4>
-                    <p>From the <a href="https://docs.stnetradio.com/stnetid/home" class="link"
-                            target="_blank">announcement</a> of the transition to the STNET ID System, you can now use
-                        Gmail to receive and send emails with your STNET ID. For first-time logins <a
-                            href="https://docs.stnetradio.com/stnetid/home#login-instructions-for-employees"
-                            class="link" target="_blank">please visit our login page</a>. Further information about <a
-                            href="https://docs.stnetradio.com/stnetid/service" class="link" target="_blank">the services
-                            we support</a> is available.</p>
-                    <span class="announcement-date">Nov 1, 2025</span>
+                <div class="news-card">
+                    <span class="news-badge">Update</span>
+                    <h4>Google Workspace</h4>
+                    <p>STNET Email has moved to Gmail. Please check the new login instructions for access.</p>
+                    <div class="news-meta">
+                        <a href="https://docs.stnetradio.com" class="link" target="_blank">Learn More</a> • Nov 1
+                    </div>
                 </div>
+
             </div>
         </section>
 

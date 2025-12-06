@@ -37,16 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "เล่าเรื่องเก่ง",
             creator: "sorasukt",
-            image: "/img/podcast/tmsas4.png",
+            image: "/img/podcast/tmsa.png",
             rating: "4.8",
-            listeners: "34K",
+            listeners: "54K",
             link: "https://podcasts.apple.com/th/podcast/%E0%B9%80%E0%B8%A5-%E0%B8%B2%E0%B9%80%E0%B8%A3-%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81-%E0%B8%87/id1486563415",
             rss: "https://s3.ap-southeast-1.amazonaws.com/rss.stnetradio.com/STNETRadioEnt/TMSA/RSS.xml"
         },
         {
             title: "Talking with LITALK",
             creator: "LITALK Education",
-            image: "https://s3.ap-southeast-1.amazonaws.com/rss.stnetradio.com/SoaqerStudio/LITALKPodcast/Logo.png",
+            image: "/img/podcast/litalk.png",
             rating: "Coming Soon Show",
             listeners: "1K",
             link: "https://podcasts.apple.com/th/podcast/talking-with-litalk/id1786381161",
@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "ติดกับเรื่องราว",
             creator: "sorasukt",
-            image: "https://s3.ap-southeast-1.amazonaws.com/files.stnetradio.com/podcast/tidkab.png",
+            image: "/img/podcast/tidkab.png",
             rating: "3.2",
             listeners: "317",
-            link: "https://podcasts.apple.com/th/podcast/%E0%B8%95-%E0%B8%94%E0%B8%81-%E0%B8%9A%E0%B9%80%E0%B8%A3-%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A7/id1564119401",
+            link: "/img/podcast/tidkab.png",
             rss: "https://anchor.fm/s/5b844008/podcast/rss"
         },
     ];

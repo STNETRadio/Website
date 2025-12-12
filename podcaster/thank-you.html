@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Application Received | STNET Radio</title>
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
     <!-- Fonts -->
@@ -15,17 +15,20 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-        <style>
+    <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
         :root {
             --bg: #ffffff;
         }
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg: #000000;
             }
         }
+
         html {
             background-color: var(--bg) !important;
             margin: 0 !important;
@@ -33,6 +36,7 @@
             min-height: 100dvh !important;
             height: 100% !important;
         }
+
         body {
             background-color: var(--bg) !important;
             margin: 0 !important;
@@ -46,33 +50,7 @@
     <link rel="stylesheet" href="/CSS/brand.css" />
     <link rel="stylesheet" href="/CSS/footer.css" />
     <link rel="stylesheet" href="/CSS/index.css" />
-    <style>
-        .disclaimer-box {
-            margin: 2.5rem auto;
-            padding: 1.5rem;
-            background: #fafafa;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            color: #666;
-            max-width: 650px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* Dark mode support for the box */
-        @media (prefers-color-scheme: dark) {
-            .disclaimer-box {
-                background: #111;
-                border-color: #333;
-                color: #aaa;
-            }
-        }
-
-        .hero {
-            margin-top: 80px;
-        }
-    </style>
+    <link rel="stylesheet" href="/CSS/podcaster/thank-you.css" />
 </head>
 
 <body>
@@ -98,34 +76,50 @@
             <h1 class="fade-in-up">Application Received</h1>
             <p class="hero-sub fade-in-up delay-1">Thank you, <span id="name-display">Podcaster</span>!</p>
             <div class="hero-desc fade-in-up delay-2">
-                <p>We have received your application details.</p>
-                <div style="margin: 1.5rem 0; opacity: 0.8; font-size: 1.1rem;">
-                    <strong>Submission ID:</strong> <span id="submission-id-display">-</span><br>
-                    <strong>Age:</strong> <span id="age-display">-</span><br>
-                    <strong>Contact:</strong> <span id="email-display">-</span><br>
-                    <strong>Your audio link:</strong> <span id="audio-link-display">-</span><br>
+
+                <!-- CONFIRMATION CARD -->
+                <div class="confirmation-card">
+                    <div class="card-header">
+                        <div class="card-header-label">Your Submission ID</div>
+                        <div class="card-header-id" id="submission-id-display">-</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="data-row">
+                            <span class="data-label">Name</span>
+                            <span class="data-value" id="card-name-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Age</span>
+                            <span class="data-value" id="age-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Contact Email</span>
+                            <span class="data-value" id="email-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Audio Link</span>
+                            <span class="data-value" id="audio-link-display">-</span>
+                        </div>
+                    </div>
                 </div>
-                <p>We will review your podcast concept and get back to you shortly.</p>
 
                 <div class="disclaimer-box">
                     We will contact you via <strong>hr@stnetradio.com</strong> or an official
                     <strong>@stnetradio.com</strong> staff email only.<br>
                     If you have any further questions, please contact us at
                     <strong>becomepodcaster@stnetradio.com</strong> 24 hours a day.
-                    <br>
-                    <br>
-                    <strong>Thank you for your application!</strong> <br>
-                    <strong>Note:</strong> <a>Please keep your submission ID for future reference.</a>
+                    <br><br>
+                    <strong>Thank you for your application!</strong><br>
+                    <strong>Note:</strong> Please keep your submission ID for future reference.
                 </div>
 
-                <a href="/" class="btn-solid">Back to Home</a>
+                <div class="scam-warning" style="margin: 2rem auto;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Beware of scams!</strong><br>
+                    STNET Radio will NEVER ask for money or personal banking information.
+                </div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
-    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -137,7 +131,10 @@
             const audioLink = params.get('audioLink');
             const submissionId = params.get('submissionId');
 
-            if (name) document.getElementById('name-display').textContent = name;
+            if (name) {
+                document.getElementById('name-display').textContent = name;
+                document.getElementById('card-name-display').textContent = name;
+            }
             if (age) document.getElementById('age-display').textContent = age;
             if (email) document.getElementById('email-display').textContent = email;
             if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;

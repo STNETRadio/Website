@@ -15,6 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
@@ -49,45 +50,7 @@
     <link rel="stylesheet" href="/CSS/brand.css" />
     <link rel="stylesheet" href="/CSS/footer.css" />
     <link rel="stylesheet" href="/CSS/index.css" />
-    <style>
-        /* Thai Typography Fixes */
-        h1,
-        .hero-sub,
-        .hero-desc,
-        .disclaimer-box {
-            font-family: "IBM Plex Sans Thai", "Chillax-Variable", sans-serif !important;
-        }
-
-        h1 {
-            line-height: 1.3 !important;
-        }
-
-        .disclaimer-box {
-            margin: 2.5rem auto;
-            padding: 1.5rem;
-            background: #fafafa;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            color: #666;
-            max-width: 650px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* Dark mode support for the box */
-        @media (prefers-color-scheme: dark) {
-            .disclaimer-box {
-                background: #111;
-                border-color: #333;
-                color: #aaa;
-            }
-        }
-
-        .hero {
-            margin-top: 80px;
-        }
-    </style>
+    <link rel="stylesheet" href="/CSS/podcaster/thank-you.css" />
 </head>
 
 <body>
@@ -113,34 +76,49 @@
             <h1 class="fade-in-up">ได้รับใบสมัครเรียบร้อยแล้ว</h1>
             <p class="hero-sub fade-in-up delay-1">ขอบคุณครับ, <span id="name-display">คุณพอดแคสเตอร์</span>!</p>
             <div class="hero-desc fade-in-up delay-2">
-                <p>เราได้รับข้อมูลใบสมัครของคุณแล้ว</p>
-                <div style="margin: 1.5rem 0; opacity: 0.8; font-size: 1.1rem;">
-                    <strong>รหัสใบสมัคร:</strong> <span id="submission-id-display">-</span><br>
-                    <strong>อายุ:</strong> <span id="age-display">-</span><br>
-                    <strong>ติดต่อกลับทาง:</strong> <span id="email-display">-</span><br>
-                    <strong>ลิงก์ตัวอย่างเสียง:</strong> <span id="audio-link-display">-</span><br>
+
+                <!-- CONFIRMATION CARD -->
+                <div class="confirmation-card">
+                    <div class="card-header">
+                        <div class="card-header-label">รหัสใบสมัครของคุณ</div>
+                        <div class="card-header-id" id="submission-id-display">-</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="data-row">
+                            <span class="data-label">ชื่อ</span>
+                            <span class="data-value" id="card-name-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">อายุ</span>
+                            <span class="data-value" id="age-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">อีเมลติดต่อ</span>
+                            <span class="data-value" id="email-display">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">ลิงก์ตัวอย่างเสียง</span>
+                            <span class="data-value" id="audio-link-display">-</span>
+                        </div>
+                    </div>
                 </div>
-                <p>ทางทีมงานจะรีบตรวจสอบคอนเซปต์รายการและติดต่อกลับไปโดยเร็วที่สุดครับ</p>
 
                 <div class="disclaimer-box">
                     พวกเราจะติดต่อกลับคุณด้วยอีเมล <strong>hr@stnetradio.com</strong> หรืออีเมลเจ้าหน้าที่ที่ระบุ
                     <strong>@stnetradio.com</strong> เท่านั้น<br>
                     หากมีข้อสงสัยเพิ่มเติมโปรดติดต่อเราที่ <strong>becomepodcaster@stnetradio.com</strong> 24 ชั่วโมง
-                    <br>
-                    <br>
-                    <strong>ขอบคุณสำหรับการสมัครครับ!</strong> <br>
-                    <strong>หมายเหตุ:</strong> <a>โปรดบันทึกรหัสใบสมัครนี้ไว้เพื่อใช้อ้างอิงในอนาคต</a>
+                    <br><br>
+                    <strong>ขอบคุณสำหรับการสมัครครับ!</strong><br>
+                    <strong>หมายเหตุ:</strong> โปรดบันทึกรหัสใบสมัครนี้ไว้เพื่อใช้อ้างอิงในอนาคต
                 </div>
 
-                <a href="/th/" class="btn-solid">กลับสู่หน้าหลัก</a>
+                <div class="scam-warning" style="margin: 2rem auto;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>ระวังมิจฉาชีพ!</strong><br>
+                    STNET Radio จะไม่มีการเรียกเก็บเงินหรือขอข้อมูลบัญชีธนาคารใดๆ ทั้งสิ้น
+                </div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
-    </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
@@ -151,7 +129,10 @@
             const audioLink = params.get('audioLink');
             const submissionId = params.get('submissionId');
 
-            if (name) document.getElementById('name-display').textContent = name;
+            if (name) {
+                document.getElementById('name-display').textContent = name;
+                document.getElementById('card-name-display').textContent = name;
+            }
             if (age) document.getElementById('age-display').textContent = age;
             if (email) document.getElementById('email-display').textContent = email;
             if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Application Received | STNET Radio</title>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/footer.css" />
+    <link rel="stylesheet" href="/CSS/index.css" />
+    <style>
+        .disclaimer-box {
+            margin: 2.5rem auto;
+            padding: 1.5rem;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 650px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Dark mode support for the box */
+        @media (prefers-color-scheme: dark) {
+            .disclaimer-box {
+                background: #111;
+                border-color: #333;
+                color: #aaa;
+            }
+        }
+
+        .hero {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/plus/">SNR+</a></li>
+                <li><a href="/podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Application Received</h1>
+            <p class="hero-sub fade-in-up delay-1">Thank you, <span id="name-display">Podcaster</span>!</p>
+            <div class="hero-desc fade-in-up delay-2">
+                <p>We have received your application details.</p>
+                <div style="margin: 1.5rem 0; opacity: 0.8; font-size: 1.1rem;">
+                    <strong>Submission ID:</strong> <span id="submission-id-display">-</span><br>
+                    <strong>Age:</strong> <span id="age-display">-</span><br>
+                    <strong>Contact:</strong> <span id="email-display">-</span><br>
+                    <strong>Your audio link:</strong> <span id="audio-link-display">-</span><br>
+                </div>
+                <p>We will review your podcast concept and get back to you shortly.</p>
+
+                <div class="disclaimer-box">
+                    We will contact you via <strong>hr@stnetradio.com</strong> or an official
+                    <strong>@stnetradio.com</strong> staff email only.<br>
+                    If you have any further questions, please contact us at
+                    <strong>becomepodcaster@stnetradio.com</strong> 24 hours a day.
+                    <br>
+                    <br>
+                    <strong>Thank you for your application!</strong> <br>
+                    <strong>Note:</strong> <a>Please keep your submission ID for future reference.</a>
+                </div>
+
+                <a href="/" class="btn-solid">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+
+            const name = params.get('name');
+            const age = params.get('age');
+            const email = params.get('email');
+            const audioLink = params.get('audioLink');
+            const submissionId = params.get('submissionId');
+
+            if (name) document.getElementById('name-display').textContent = name;
+            if (age) document.getElementById('age-display').textContent = age;
+            if (email) document.getElementById('email-display').textContent = email;
+            if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;
+            if (submissionId) document.getElementById('submission-id-display').textContent = submissionId;
+        });
+    </script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+</body>
+
+</html>

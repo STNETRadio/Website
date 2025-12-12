@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ได้รับใบสมัครเรียบร้อยแล้ว | STNET Radio</title>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/footer.css" />
+    <link rel="stylesheet" href="/CSS/index.css" />
+    <style>
+        /* Thai Typography Fixes */
+        h1,
+        .hero-sub,
+        .hero-desc,
+        .disclaimer-box {
+            font-family: "IBM Plex Sans Thai", "Chillax-Variable", sans-serif !important;
+        }
+
+        h1 {
+            line-height: 1.3 !important;
+        }
+
+        .disclaimer-box {
+            margin: 2.5rem auto;
+            padding: 1.5rem;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 650px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Dark mode support for the box */
+        @media (prefers-color-scheme: dark) {
+            .disclaimer-box {
+                background: #111;
+                border-color: #333;
+                color: #aaa;
+            }
+        }
+
+        .hero {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/th/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/th/">หน้าหลัก</a></li>
+                <li><a href="/th/plus/">SNR+</a></li>
+                <li><a href="/th/podcast/">รายการ</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">ช่วยเหลือ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">ได้รับใบสมัครเรียบร้อยแล้ว</h1>
+            <p class="hero-sub fade-in-up delay-1">ขอบคุณครับ, <span id="name-display">คุณพอดแคสเตอร์</span>!</p>
+            <div class="hero-desc fade-in-up delay-2">
+                <p>เราได้รับข้อมูลใบสมัครของคุณแล้ว</p>
+                <div style="margin: 1.5rem 0; opacity: 0.8; font-size: 1.1rem;">
+                    <strong>รหัสใบสมัคร:</strong> <span id="submission-id-display">-</span><br>
+                    <strong>อายุ:</strong> <span id="age-display">-</span><br>
+                    <strong>ติดต่อกลับทาง:</strong> <span id="email-display">-</span><br>
+                    <strong>ลิงก์ตัวอย่างเสียง:</strong> <span id="audio-link-display">-</span><br>
+                </div>
+                <p>ทางทีมงานจะรีบตรวจสอบคอนเซปต์รายการและติดต่อกลับไปโดยเร็วที่สุดครับ</p>
+
+                <div class="disclaimer-box">
+                    พวกเราจะติดต่อกลับคุณด้วยอีเมล <strong>hr@stnetradio.com</strong> หรืออีเมลเจ้าหน้าที่ที่ระบุ
+                    <strong>@stnetradio.com</strong> เท่านั้น<br>
+                    หากมีข้อสงสัยเพิ่มเติมโปรดติดต่อเราที่ <strong>becomepodcaster@stnetradio.com</strong> 24 ชั่วโมง
+                    <br>
+                    <br>
+                    <strong>ขอบคุณสำหรับการสมัครครับ!</strong> <br>
+                    <strong>หมายเหตุ:</strong> <a>โปรดบันทึกรหัสใบสมัครนี้ไว้เพื่อใช้อ้างอิงในอนาคต</a>
+                </div>
+
+                <a href="/th/" class="btn-solid">กลับสู่หน้าหลัก</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+
+            const name = params.get('name');
+            const age = params.get('age');
+            const email = params.get('email');
+            const audioLink = params.get('audioLink');
+            const submissionId = params.get('submissionId');
+
+            if (name) document.getElementById('name-display').textContent = name;
+            if (age) document.getElementById('age-display').textContent = age;
+            if (email) document.getElementById('email-display').textContent = email;
+            if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;
+            if (submissionId) document.getElementById('submission-id-display').textContent = submissionId;
+        });
+    </script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+</body>
+
+</html>

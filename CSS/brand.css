@@ -7,10 +7,51 @@
     url('/fonts/Chillax-Variable.ttf') format('truetype');
 }
 
+:root {
+  --red: #ff0000;
+  --bg: #ffffff;
+  --text: #ff0000;
+  --subtext: #333333;
+  --card-bg: #ffffff;
+  --card-border: #f0f0f0;
+  --btn-text: #ffffff;
+  --btn-bg: #ff0000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #ff0000;
+    --subtext: #cccccc;
+    --card-bg: #111111;
+    --card-border: #333333;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg, #ffffff);
+  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--bg, #ffffff);
+  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 /* New Floating "Island" Header */
@@ -256,14 +297,32 @@ nav a:hover::after {
 }
 
 @media (prefers-color-scheme: dark) {
-  header {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  /* On mobile, make header with blur but semi-transparent background */
+  @media (max-width: 700px) {
+    header {
+      background: rgba(0, 0, 0, 0.3) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    header:hover {
+      background: rgba(0, 0, 0, 0.4) !important;
+    }
   }
 
-  header:hover {
-    background: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.15);
+  /* Desktop dark mode */
+  @media (min-width: 701px) {
+    header {
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header:hover {
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.15);
+    }
   }
 
   header:hover .brand {
@@ -306,11 +365,6 @@ nav a:hover::after {
 
   #hamburger-btn span {
     background-color: #fff;
-  }
-
-  header {
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   header.mobile-nav-open nav {

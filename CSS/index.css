@@ -6,32 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Theme Variables - Light Default */
-:root {
-  --red: #ff0000;
-  --bg: #ffffff;
-  --text: #ff0000;
-  --subtext: #333333;
-  --card-bg: #ffffff;
-  --card-border: #f0f0f0;
-  --btn-text: #ffffff;
-  --btn-bg: #ff0000;
-}
-
-body.no-scroll {
-  overflow: hidden;
-}
-
-/* Auto Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #000000;
-    --text: #ff0000;
-    --subtext: #cccccc;
-    --card-bg: #111111;
-    --card-border: #333333;
-  }
-}
+/* Auto Dark Mode handled in brand.css */
 
 body {
   font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
@@ -39,7 +14,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;

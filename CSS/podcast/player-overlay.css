@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #ffffff;
+    --bg: #ffffff;
     --text-color: #1d1d1f;
     --secondary-text: #86868b;
     --card-bg: #ffffff;
@@ -11,7 +11,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #000000;
+        --bg: #000000;
         --text-color: #f5f5f7;
         --secondary-text: #a1a1a6;
         --card-bg: #1c1c1e;
@@ -28,7 +28,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-color, #ffffff);
+    background: var(--bg, #ffffff);
     z-index: 20000;
     /* Ensure it's above the main header (9999) and hamburger (10001) */
     transform: translateY(100%);
@@ -471,7 +471,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--bg-color);
+    background: var(--bg);
     display: flex;
     flex-direction: column;
     align-items: center;

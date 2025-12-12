@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #ffffff;
+    --bg: #ffffff;
     --text-color: #333333;
     --brand-color: #000000;
     --subtext-color: #666666;
@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: var(--bg);
     color: var(--text-color);
     margin: 0;
     padding: 0;
@@ -92,7 +92,7 @@ nav a.active-link {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     text-align: center;
     padding: 2rem;
     position: relative;
@@ -239,7 +239,7 @@ footer p {
 /* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #050505;
+        --bg: #050505;
         --text-color: #ffffff;
         --brand-color: #ffffff;
         --subtext-color: #888888;

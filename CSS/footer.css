@@ -3,10 +3,10 @@
 footer {
   font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
   padding: 4rem 2rem;
-  background-color: #f9f9f9;
-  color: #666;
+  background-color: var(--bg);
+  color: var(--subtext);
   text-align: center;
-  border-top: 1px solid #eee;
+  border: none;
 }
 
 footer .social-links {
@@ -18,49 +18,34 @@ footer .social-links {
 
 footer .social-links a {
   font-weight: 700;
-  color: #333;
+  color: var(--subtext);
   text-decoration: none;
   font-size: 1.2rem;
   transition: transform 0.2s;
 }
 
 footer .social-links a:hover {
-  color: #cc0000;
+  color: var(--red);
   transform: scale(1.2);
 }
 
 footer .copyright {
   font-weight: 600;
-  color: #333;
+  color: var(--subtext);
   margin-bottom: 0.5rem;
 }
 
 footer .st-link {
-  color: #888;
+  color: var(--subtext);
   text-decoration: none;
   font-size: 0.85rem;
   margin: 0 0.5rem;
+  opacity: 0.7;
 }
 
 footer .st-link:hover {
-  color: #cc0000;
+  color: var(--red);
+  opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  footer {
-    background-color: #050505;
-    border-top: 1px solid #222;
-  }
-
-  footer .copyright {
-    color: #fff;
-  }
-
-  footer .social-links a {
-    color: #ccc;
-  }
-
-  footer .social-links a:hover {
-    color: #fff;
-  }
-}
+/* Dark mode handled by var(--bg) now */

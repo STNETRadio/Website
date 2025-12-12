@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
     <meta property="og:url" content="https://stnetradio.com/mfd/demo">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Introducing STNET Radio Move Forward">
@@ -15,9 +17,87 @@
     <meta name="twitter:title" content="Introducing stnet radio move forward">
     <meta name="twitter:image" content="https://stnetradio.com/img/STNETLOGO.png">
     <title>Move Forward | STNET Radio</title>
-    <link rel="icon" href="/img/fav.ico" type="image/ico">
-    <link rel="stylesheet" href="/CSS/mfd/index.css">
-    <link rel="stylesheet" href="/CSS/brand.css">
+    <link rel="icon" href="/img/fav.ico" type="image/ico">    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="/CSS/brand.css">    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="/CSS/mfd/index.css">    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+
     <link rel="stylesheet" href="/CSS/footer.css">
 </head>
 
@@ -111,6 +191,7 @@
             <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
         </p>
     </footer>
+    <script src="/JavaScript/viewport-fix.js"></script>
     <script src="/JavaScript/mobile-menu.js"></script>
 </body>
 

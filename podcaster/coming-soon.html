@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Applications Opening Soon | STNET Radio</title>
-    <meta name="theme-color" content="#050505" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
     <!-- Fonts -->
@@ -14,6 +15,32 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
         rel="stylesheet" />
+
+        <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/CSS/brand.css" />
@@ -68,6 +95,7 @@
         </a>
     </div>
 
+    <script src="/JavaScript/viewport-fix.js"></script>
     <script src="/JavaScript/mobile-menu.js"></script>
 </body>
 

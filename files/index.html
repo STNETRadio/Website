@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>STNET Files | Cloud File Services</title>
+    <meta name="description"
+        content="Access and download files from STNET Radio's cloud storage. Secure file sharing for customers and employees." />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-startup-image" href="../img/STNET-App.png">
+    <link rel="manifest" href="../manifest.json">
+
+    <link rel="icon" href="../img/fav.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../CSS/brand.css" />
+    <link rel="stylesheet" href="../CSS/index.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+
+    <style>
+        /* Page-specific styles */
+        .cloud-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid var(--card-border);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--red);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: "Chillax-Variable", "IBM Plex Sans Thai", sans-serif;
+            font-size: 1.5rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--subtext);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--red);
+            color: var(--red);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--red);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            color: var(--subtext);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .info-banner {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .info-banner .icon {
+            font-size: 2rem;
+        }
+
+        .info-banner p {
+            flex: 1;
+            margin: 0;
+            color: var(--subtext);
+        }
+
+        @media (max-width: 600px) {
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../plus/">SNR+</a></li>
+                <li><a href="../podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="cloud-icon fade-in-up">☁️</div>
+            <h1 class="fade-in-up delay-1">STNET Files</h1>
+            <p class="hero-sub fade-in-up delay-2">Cloud File Services</p>
+            <div class="hero-desc fade-in-up delay-2">
+                Securely access, share, and download files from the cloud.<br>
+                Built for customers and employees.
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <section class="grid-section">
+            <div class="text-block slide-in-left">
+                <h2>Cloud Storage</h2>
+                <p>STNET Files provides secure cloud storage solutions powered by <strong>AWS S3</strong>. Access your
+                    important documents, media files, and resources anytime, anywhere.</p>
+                <a href="https://files.stnetradio.com" class="btn-solid" target="_blank">Access Files</a>
+            </div>
+
+            <div class="card tilt-card slide-in-right">
+                <h3>Why Cloud?</h3>
+                <ul class="features-list">
+                    <li>Secure and encrypted storage</li>
+                    <li>Access from any device</li>
+                    <li>Fast and reliable downloads</li>
+                    <li>Automatic backups</li>
+                    <li>Easy file sharing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="icon">📁</div>
+                    <h3>Customer Files</h3>
+                    <p>Download podcasts, transcripts, show notes, and exclusive content for subscribers.</p>
+                    <a href="https://files.stnetradio.com/customers" class="btn-outline" target="_blank">Customer
+                        Portal</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">💼</div>
+                    <h3>Employee Resources</h3>
+                    <p>Access internal documents, templates, brand assets, and team resources.</p>
+                    <a href="https://files.stnetradio.com/employees" class="btn-outline" target="_blank">Employee
+                        Portal</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">📚</div>
+                    <h3>Documentation</h3>
+                    <p>Browse technical documentation, API guides, and platform resources.</p>
+                    <a href="https://docs.stnetradio.com" class="btn-outline" target="_blank">View Docs</a>
+                </div>
+            </div>
+
+            <div class="info-banner">
+                <div class="icon">🔒</div>
+                <p>All files are securely hosted on AWS S3 with enterprise-grade encryption. Your data is safe with us.
+                </p>
+                <a href="https://support.stnetradio.com" class="btn-outline" target="_blank">Contact Support</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://facebook.com/stnetradio" aria-label="Facebook">FB</a>
+            <a href="https://x.com/stnetradio" aria-label="Twitter">X</a>
+            <a href="https://instagram.com/stnetradio" aria-label="Instagram">IG</a>
+        </div>
+        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+        <p>
+            <a href="../Privacy-Policy.html" class="st-link">Privacy Policy</a> |
+            <a href="../Terms-of-Service.html" class="st-link">Terms of Service</a>
+        </p>
+    </footer>
+    <script src="../JavaScript/viewport-fix.js"></script>
+    <script src="../JavaScript/mobile-menu.js"></script>
+    <script src="../JavaScript/pwa.js"></script>
+</body>
+
+</html>

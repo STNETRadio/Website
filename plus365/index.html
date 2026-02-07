@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Free 365 | STNET Radio Plus+</title>
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <!-- Open Graph / Twitter Card Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stnetradio.com/plus365/">
+    <meta property="og:title" content="STNET Radio+ | Free 365">
+    <meta property="og:description" content="Register for STNET Radio+ Free 365. Experience Everything. No Ads.">
+    <meta property="og:image" content="https://stnetradio.com/img/og/plus.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://stnetradio.com/plus365/">
+    <meta property="twitter:title" content="STNET Radio+ | Free 365">
+    <meta property="twitter:description" content="Register for STNET Radio+ Free 365. Experience Everything. No Ads.">
+    <meta property="twitter:image" content="https://stnetradio.com/img/og/plus.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/plus/plus.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        /* Override or add specific styles for 365 page if needed */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 600px) {
+            .action-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Specific replacements for generic cta-btn if plus.css has different buttons */
+        /* plus.css has .btn-solid. We might want to reuse that style but modify for outlined/different colors if needed.
+           Actually, the previous design had specific internal styling for buttons. I'll keep them but adapters to plus.css theme */
+
+        .cta-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            min-width: 260px;
+            text-align: center;
+            border: 2px solid;
+            line-height: 1.2;
+        }
+
+        /* Platform Colors */
+        .btn-spotify {
+            background-color: #1DB954;
+            /* Spotify Green */
+            border-color: #1DB954;
+            color: #ffffff;
+        }
+
+        .btn-spotify:hover {
+            background-color: #1ed760;
+            color: #ffffff;
+            transform: scale(1.05);
+            /* Add hover effect */
+        }
+
+        .btn-apple {
+            background-color: #872EC4;
+            /* Apple Podcast Purple */
+            color: #ffffff;
+            border-color: #872EC4;
+        }
+
+        .btn-apple:hover {
+            background-color: #a03cde;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .cta-btn span {
+            /* Ensure text is bold and readable */
+            font-weight: 700;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/plus/" style="color: var(--red); font-weight: 700;">SNR+</a></li>
+                <li><a href="/podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="intro">
+        <div class="hero-content">
+            <h1 class="fade-in-up">STNET Radio<span class="plus-mark">+</span></h1>
+            <h2 class="fade-in-up delay-1">Experience<br>Everything.</h2>
+            <h3 class="fade-in-up delay-1"
+                style="font-family: 'Chillax-Variable', sans-serif; font-size: 2rem; color: var(--red); margin-bottom: 1rem; text-transform: uppercase;">
+                Claim 365 Days SNR+</h3>
+            <p class="hero-desc fade-in-up delay-2">
+                Unlock 365 days of STNET Radio+ for free.<br>
+                Choose your platform to get started.
+            </p>
+
+            <div class="action-buttons fade-in-up delay-2">
+                <!-- Spotify via Patreon -->
+                <a href="#" onclick="openSpotifyModal(event)" class="cta-btn btn-spotify">
+                    <span>Claim on Spotify</span>
+                    <span style="font-size: 0.8em; font-weight: 400; opacity: 0.8; margin-top: 4px;">(via
+                        Patreon)</span>
+                </a>
+
+                <!-- Apple Podcasts -->
+                <a href="https://podcasts.apple.com/channel/stnet-radio/id6442482179" target="_blank"
+                    class="cta-btn btn-apple">
+                    <span>Claim on Apple Podcasts</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <section class="features" id="features">
+        <div class="grid-features">
+            <div class="feature-item slide-up delay-1">
+                <div class="feature-icon"><i class="fa-solid fa-rectangle-ad"></i></div>
+                <h3>Ad-Free Listening</h3>
+                <p>Enjoy every episode without interruptions.</p>
+            </div>
+            <div class="feature-item slide-up delay-2">
+                <div class="feature-icon"><i class="fa-solid fa-gift"></i></div>
+                <h3>Bonus Content</h3>
+                <p>Exclusive episodes and extended cuts.</p>
+            </div>
+            <div class="feature-item slide-up delay-3">
+                <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Support Creators</h3>
+                <p>Directly support the shows you love.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 STNET Radio.</p>
+            <!-- Removing footer links if not desired or keeping for consistency with plus/index.html? 
+                 plus/index.html has them. I will include them. -->
+            <div class="footer-links">
+                <a href="/Privacy-Policy.html">Privacy</a>
+                <a href="/Terms-of-Service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Spotify Instructions Modal -->
+    <div id="spotifyModal" class="modal-overlay" onclick="closeSpotifyModal(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeSpotifyModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title">Registration Steps</h3>
+            <ol class="steps-list">
+                <li>Select <strong>Claim on Patreon</strong>. Once on the service website, select "Claim now".</li>
+                <li>Sign up or log in to your Patreon account and register your payment method.</li>
+                <li>Once completed, the system will show a confirmation message. You can also listen to STNET Radio+ via
+                    Patreon.</li>
+                <li>Open Spotify, search for Podcast, or type <strong>STNET Radio+</strong> in the search bar.</li>
+                <li>Select the Podcast you want to listen to, then play it. The system will prompt you to authenticate
+                    with Patreon.</li>
+            </ol>
+            <a href="https://www.patreon.com/STNETRadio/redeem/92B57" target="_blank" class="cta-btn btn-spotify"
+                style="margin-top: 2rem; width: 100%;">
+                Continue to Patreon
+            </a>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg);
+            color: var(--subtext);
+            padding: 2.5rem;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .modal-content {
+                color: #e0e0e0;
+            }
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--subtext);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--red);
+        }
+
+        .modal-title {
+            font-family: "IBM Plex Sans Thai", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--red);
+            padding-right: 2rem;
+        }
+
+        .steps-list {
+            padding-left: 1.5rem;
+            font-family: "IBM Plex Sans Thai", sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: inherit;
+            /* Use the parent's color */
+        }
+
+        .steps-list li {
+            margin-bottom: 1rem;
+        }
+
+        .steps-list strong {
+            color: var(--red);
+        }
+    </style>
+
+    <script>
+        function openSpotifyModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('spotifyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSpotifyModal(e) {
+            // Close if clicking overlay (e exists) or close button (e is undefined or checking target)
+            if (!e || e.target.id === 'spotifyModal') {
+                document.getElementById('spotifyModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeSpotifyModal();
+            }
+        });
+    </script>
+
+    <script src="/JavaScript/viewport-fix.js"></script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+</body>
+
+</html>

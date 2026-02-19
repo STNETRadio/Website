@@ -19,7 +19,8 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
         :root {
@@ -49,61 +50,88 @@
         }
     </style>
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-
-
+    <link rel="stylesheet" href="/CSS/brand.css" />
+    <link rel="stylesheet" href="/CSS/staff.css" />
     <link rel="stylesheet" href="/CSS/footer.css" />
 
     <style>
-        /* Specific Centered Layout for Logout */
+        /* ═══════════════════════════════════════════════
+           LOGOUT — PAGE-SPECIFIC STYLES
+           ═══════════════════════════════════════════════ */
         .logout-container {
             flex: 1;
-            /* Occupy remaining vertical space */
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 10rem 2rem 4rem;
-            /* Increased top padding to clear fixed header */
-            min-height: 60vh;
-            /* Minimum height safeguard */
+            padding: 10rem 2rem 6rem;
+            min-height: 80vh;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            gap: 2rem;
         }
 
         .logout-card {
-            background: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 32px;
-            border: 2px solid var(--card-border);
+            background: var(--card-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-glass-border);
+            padding: 4rem 3rem;
+            border-radius: 28px;
             text-align: center;
-            max-width: 480px;
+            max-width: 560px;
             width: 100%;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s ease;
+        }
+
+        /* Hover glow underlay */
+        .logout-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            background: radial-gradient(ellipse at 50% 0%, var(--glow-color) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .logout-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--red);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.08);
+            border-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .logout-card:hover::before {
+            opacity: 1;
         }
 
         .logout-icon {
-            font-size: 3.5rem;
-            color: var(--status-green);
-            margin-bottom: 1.5rem;
-            animation: scaleIn 0.5s ease;
+            font-size: 4rem;
+            color: #00cc66;
+            margin-bottom: 2rem;
+            animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
         .logout-card h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--red);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            position: relative;
         }
 
         .logout-card p {
             color: var(--subtext);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            opacity: 0.8;
         }
 
         .controls {
@@ -111,42 +139,46 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
         }
 
         .btn-outline {
             display: inline-block;
             background: transparent;
             color: var(--subtext);
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 60px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: 2px solid var(--card-border);
-            transition: all 0.3s;
+            border: 1px solid var(--card-glass-border);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-outline:hover {
             border-color: var(--red);
             color: var(--red);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         .security-tip {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
             font-size: 0.85rem;
             color: var(--subtext);
-            opacity: 0.7;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 1rem;
+            opacity: 0.5;
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            padding: 0 1rem;
+            line-height: 1.6;
         }
 
         .security-tip i {
             color: var(--red);
-            margin-right: 5px;
+            margin-right: 6px;
         }
 
         @keyframes scaleIn {
@@ -158,6 +190,16 @@
             to {
                 transform: scale(1);
                 opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logout-container {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .logout-card {
+                padding: 3rem 2rem;
             }
         }
     </style>
@@ -184,24 +226,27 @@
     </header>
 
     <div class="logout-container">
-        <div class="logout-card">
+        <!-- Decorative glow orbs -->
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-glow-2" aria-hidden="true"></div>
+
+        <div class="logout-card fade-in-up">
             <div class="logout-icon">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
 
             <h1>Successfully Logged Out</h1>
-            <p>Thank you for using STNET ID. You have been safely logged out.</p>
+            <p>Thank you for using STNET ID.<br>You have been safely logged out.</p>
 
             <div class="controls">
                 <a href="/staff/" class="btn-outline">Back to Home</a>
             </div>
+        </div>
 
-            <div class="security-tip">
-                <p><i class="fa-solid fa-lock"></i>
-                    <strong>Security Tip:</strong> Close your browser if you're on a public computer. Contact us if you
-                    have any questions.
-                </p>
-            </div>
+        <div class="security-tip fade-in-up delay-1">
+            <p><i class="fa-solid fa-lock"></i>
+                <strong>Security Tip:</strong> Close your browser if you're on a public computer.
+            </p>
         </div>
     </div>
 
@@ -211,7 +256,7 @@
             <a href="https://x.com/stnetradio" aria-label="Twitter">X</a>
             <a href="https://instagram.com/stnetradio" aria-label="Instagram">IG</a>
         </div>
-        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 STNET Radio. All rights reserved.</p>
         <p>
             <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
             <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>

@@ -19,7 +19,6 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <!-- Font Awesome (Solid Style) -->
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
         :root {
@@ -48,101 +47,10 @@
             overflow-x: hidden !important;
         }
     </style>
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <style>
-        /* CRITICAL: Inline to prevent flash of wrong background */
-        :root {
-            --bg: #ffffff;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #000000;
-            }
-        }
-
-        html {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            height: 100% !important;
-        }
-
-        body {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            overflow-x: hidden !important;
-        }
-    </style>
-
-
     <link rel="stylesheet" href="/CSS/brand.css" />
-    <style>
-        /* CRITICAL: Inline to prevent flash of wrong background */
-        :root {
-            --bg: #ffffff;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #000000;
-            }
-        }
-
-        html {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            height: 100% !important;
-        }
-
-        body {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            overflow-x: hidden !important;
-        }
-    </style>
-
-
     <link rel="stylesheet" href="/CSS/staff.css" />
-    <style>
-        /* CRITICAL: Inline to prevent flash of wrong background */
-        :root {
-            --bg: #ffffff;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #000000;
-            }
-        }
-
-        html {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            height: 100% !important;
-        }
-
-        body {
-            background-color: var(--bg) !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100dvh !important;
-            overflow-x: hidden !important;
-        }
-    </style>
-
-
     <link rel="stylesheet" href="/CSS/footer.css" />
 </head>
 
@@ -167,6 +75,10 @@
     </header>
 
     <div class="hero">
+        <!-- Decorative glow orbs -->
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-glow-2" aria-hidden="true"></div>
+
         <div class="hero-content">
             <h1 class="fade-in-up">STNET ID</h1>
             <p class="hero-sub fade-in-up delay-1">Staff Portal & Workspace</p>
@@ -176,28 +88,28 @@
     <div class="dashboard-container">
 
         <!-- 1. Quick Access (4 Cols) -->
-        <section class="dashboard-section">
+        <section class="dashboard-section" data-animate>
             <div class="section-header">
                 <h2>Quick Access</h2>
                 <p>Essential daily tools</p>
             </div>
             <div class="quick-grid">
-                <a href="http://calendar.stnetradio.com" class="tool-card" target="_blank">
+                <a href="http://calendar.stnetradio.com" class="tool-card" target="_blank" data-animate data-delay="1">
                     <i class="tool-icon fa-solid fa-calendar-days"></i>
                     <span class="tool-name">Calendar</span>
                     <span class="tool-desc">Schedule & Events</span>
                 </a>
-                <a href="http://email.stnetradio.com" class="tool-card" target="_blank">
+                <a href="http://email.stnetradio.com" class="tool-card" target="_blank" data-animate data-delay="2">
                     <i class="tool-icon fa-solid fa-envelope"></i>
                     <span class="tool-name">Email</span>
                     <span class="tool-desc">Inbox & Drafts</span>
                 </a>
-                <a href="http://drive.stnetradio.com" class="tool-card" target="_blank">
+                <a href="http://drive.stnetradio.com" class="tool-card" target="_blank" data-animate data-delay="3">
                     <i class="tool-icon fa-brands fa-google-drive"></i>
                     <span class="tool-name">Drive</span>
                     <span class="tool-desc">Files & Storage</span>
                 </a>
-                <a href="http://messages.stnetradio.com" class="tool-card" target="_blank">
+                <a href="http://messages.stnetradio.com" class="tool-card" target="_blank" data-animate data-delay="4">
                     <i class="tool-icon fa-solid fa-message"></i>
                     <span class="tool-name">Messages</span>
                     <span class="tool-desc">Chat & Team</span>
@@ -210,7 +122,7 @@
             <div class="info-grid">
 
                 <!-- System Status Widget -->
-                <div class="dash-card">
+                <div class="dash-card" data-animate data-delay="1">
                     <h3><i class="fa-solid fa-server"></i> System Status</h3>
                     <div class="link-list">
                         <div class="status-row">
@@ -238,13 +150,13 @@
                             <span class="status-indicator st-operational">Operational</span>
                         </div>
                     </div>
-                    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; opacity: 0.6;">
+                    <div class="status-updated">
                         Last updated: Nov 30, 2025 12:00 AM
                     </div>
                 </div>
 
                 <!-- Resources Widget -->
-                <div class="dash-card">
+                <div class="dash-card" data-animate data-delay="2">
                     <h3><i class="fa-solid fa-book-open"></i> Resources</h3>
                     <div class="link-list">
                         <a href="https://docs.stnetradio.com/stnetid/home#login-instructions-for-employees"
@@ -283,7 +195,7 @@
         </section>
 
         <!-- 3. Announcements -->
-        <section class="dashboard-section">
+        <section class="dashboard-section" data-animate>
             <div class="section-header">
                 <h2>Announcements</h2>
                 <p>Latest updates from the team</p>
@@ -291,16 +203,17 @@
 
             <div class="news-grid">
 
-                <div class="news-card">
+                <div class="news-card" data-animate data-delay="1">
                     <span class="news-badge">Tips</span>
                     <h4>Chrome Integration</h4>
                     <p>Use STNET ID on Google Chrome for seamless login across all our apps including VPN and RSS.</p>
                     <div class="news-meta">
-                        <a href="https://support.google.com/chrome" class="link" target="_blank">Read Guide</a> • Nov 28
+                        <a href="https://support.google.com/chrome" class="link" target="_blank">Read Guide</a> • Nov
+                        28
                     </div>
                 </div>
 
-                <div class="news-card">
+                <div class="news-card" data-animate data-delay="2">
                     <span class="news-badge">Important</span>
                     <h4>Cloudflare Outage</h4>
                     <p>Services including ID and VPN are temporarily unavailable due to upstream provider issues.</p>
@@ -309,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="news-card">
+                <div class="news-card" data-animate data-delay="3">
                     <span class="news-badge">Update</span>
                     <h4>Google Workspace</h4>
                     <p>STNET Email has moved to Gmail. Please check the new login instructions for access.</p>
@@ -329,7 +242,7 @@
             <a href="https://x.com/stnetradio" aria-label="Twitter">X</a>
             <a href="https://instagram.com/stnetradio" aria-label="Instagram">IG</a>
         </div>
-        <p class="copyright">&copy; 2025 STNET Radio. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 STNET Radio. All rights reserved.</p>
         <p>
             <a href="/Privacy-Policy.html" class="st-link">Privacy Policy</a> |
             <a href="/Terms-of-Service.html" class="st-link">Terms of Service</a>
@@ -338,6 +251,7 @@
 
     <script src="/JavaScript/viewport-fix.js"></script>
     <script src="/JavaScript/mobile-menu.js"></script>
+    <script src="/JavaScript/scroll-animate.js"></script>
     <script src="/JavaScript/pwa.js"></script>
 </body>
 

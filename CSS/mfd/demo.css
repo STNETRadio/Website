@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
     background: red;
     color: var(--light-text);
     font-weight: 300;

@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-weight: 500;
   font-style: normal;
   background-color: var(--background-dark);
@@ -58,7 +58,7 @@ body {
 
 /* Podcast Provider Section */
 .podcast-proveder {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   position: relative;
   padding: 6rem 0 5rem;
   background-image: linear-gradient(to bottom right, red, black);
@@ -179,26 +179,26 @@ body {
 
 /* Font Classes */
 .thai-font {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   color: var(--primary-color);
   font-weight: 600;
 }
 
 .english-font {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   color: var(--primary-color);
   font-weight: 600;
 }
 
 .thai-font-p {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   color: var(--text-dark);
   font-weight: 400;
   line-height: 1.6;
 }
 
 .english-font-p {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   color: var(--text-dark);
   font-weight: 400;
   line-height: 1.6;

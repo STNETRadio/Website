@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Source+Sans+3:wght@200..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
@@ -81,22 +81,29 @@
     </header>
 
     <main class="intro">
+        <!-- Decorative glow orbs -->
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-glow-2" aria-hidden="true"></div>
+
         <div class="hero-content">
             <h1 class="fade-in-up">STNET Radio<span class="plus-mark">+</span></h1>
+            <div class="fade-in-up delay-1">
+                <span class="ended-badge"><span class="dot"></span> Campaign Ended</span>
+            </div>
             <h2 class="fade-in-up delay-1">Campaign<br>Ended.</h2>
             <p class="hero-desc fade-in-up delay-2">
                 The Free 365 campaign has ended.<br>
-                Thank you for your interest in STNET Radio+.
+                Thank you for your interest in <span class="font-brand">STNET Radio+</span>.
             </p>
             <div class="fade-in-up delay-3">
-                <a href="/plus/" class="btn-solid">Explore STNET Radio+</a>
+                <a href="/plus/" class="btn-solid">Explore <span class="font-brand">STNET Radio+</span></a>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p class="copyright">&copy; 2025 STNET Radio.</p>
+            <p class="copyright">&copy; 2026 <span class="font-brand">STNET Radio</span>.</p>
             <div class="footer-links">
                 <a href="/Privacy-Policy.html">Privacy</a>
                 <a href="/Terms-of-Service.html">Terms</a>
@@ -106,6 +113,7 @@
 
     <script src="/JavaScript/viewport-fix.js"></script>
     <script src="/JavaScript/mobile-menu.js"></script>
+    <script src="/JavaScript/scroll-animate.js"></script>
 </body>
 
 </html>

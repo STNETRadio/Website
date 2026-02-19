@@ -22,7 +22,7 @@
 body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;

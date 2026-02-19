@@ -9,7 +9,7 @@
 /* Auto Dark Mode handled in brand.css */
 
 body {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-weight: 300;
   background-color: var(--bg);
   color: var(--text);
@@ -53,7 +53,7 @@ body {
 }
 
 .hero-desc {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -160,7 +160,7 @@ h2 {
 
 .thai-title {
   display: block;
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.3rem;
   font-weight: 500;
   margin-top: 0.5rem;

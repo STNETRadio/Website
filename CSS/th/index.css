@@ -63,7 +63,7 @@ body {
     background: var(--bg);
     color: var(--text);
     color-scheme: dark;
-    font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+    font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
     line-height: 1.65;
     letter-spacing: .2px;
     min-height: 100dvh;

@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   background-color: var(--bg);
   color: var(--red);
   height: 100vh;

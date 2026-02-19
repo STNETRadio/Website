@@ -40,7 +40,7 @@ a {
 }
 
 body {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -90,7 +90,7 @@ body {
 }
 
 .hero-desc {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-size: 1.2rem;
   max-width: 500px;
   margin: 0 auto;
@@ -118,7 +118,7 @@ body {
 .filter-btn {
   background: transparent;
   border: none;
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--subtext);
@@ -212,12 +212,12 @@ body {
 /* Font Utilities */
 .thai-font,
 .thai-font-p {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
 }
 
 .english-font,
 .english-font-p {
-  font-family: "Source Sans 3", "IBM Plex Sans Thai", sans-serif;
+  font-family: "Inter", "IBM Plex Sans Thai", sans-serif;
 }
 
 .podcast-content p {

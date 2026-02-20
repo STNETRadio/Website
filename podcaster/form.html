@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Become a Podcaster | STNET Radio</title>
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/brand.css" />
+
+    <!-- Font Awesome 6 Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous">
+
+    <style>
+        /* CRITICAL: Inline to prevent flash of wrong background */
+        :root {
+            --bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+            }
+        }
+
+        html {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            height: 100% !important;
+        }
+
+        body {
+            background-color: var(--bg) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100dvh !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+    <style>
+        /* ── Form-page variables ── */
+        :root {
+            --red: #ff0000;
+            --red-deep: #cc0000;
+            --red-bright: #ff3333;
+            --bg2: #f7f7f9;
+            --card-bg: #ffffff;
+            --card-border: #e8e8ec;
+            --subtext: #222222;
+            --muted: #555555;
+            --dim: #999999;
+            --border: #e8e8ec;
+            --input-bg: #f7f7f9;
+            --input-border: #ddd;
+            --input-focus: #ff0000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg2: #111111;
+                --card-bg: #111111;
+                --card-border: #333333;
+                --subtext: #cccccc;
+                --muted: #999999;
+                --dim: #555555;
+                --border: #2a2a2a;
+                --input-bg: #0d0d0d;
+                --input-border: #333333;
+                --input-focus: #ff3333;
+            }
+        }
+
+        body {
+            color: var(--subtext);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ── Page Wrapper ── */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 110px 24px 80px;
+        }
+
+        /* ── Page Hero ── */
+        .page-hero {
+            text-align: left;
+            margin-bottom: 2rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--red);
+            border-left: 3px solid var(--red);
+            padding: 2px 0 2px 10px;
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            color: var(--subtext);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title span {
+            color: var(--red);
+        }
+
+        .page-sub {
+            font-size: 0.925rem;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .page-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 12px;
+            color: var(--dim);
+        }
+
+        .page-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ── Info Section ── */
+        .info-section {
+            margin-bottom: 2rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-intro {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1.75rem;
+        }
+
+        .info-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-heading {
+            font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--subtext);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-heading::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background: var(--red);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .info-body {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .info-body p+p {
+            margin-top: 0.6rem;
+        }
+
+        /* ── Form Card ── */
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ── Section ── */
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            background: var(--red);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            color: var(--muted);
+        }
+
+        /* ── Field ── */
+        .field {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--subtext);
+            margin-bottom: 5px;
+            letter-spacing: 0.01em;
+        }
+
+        label .req {
+            color: var(--red);
+            margin-left: 2px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            border-radius: 6px;
+            font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+            font-size: 14px;
+            color: var(--subtext);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--dim);
+        }
+
+        /* Two-column grid */
+        .field-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 500px) {
+            .field-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Checkboxes ── */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            background: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            user-select: none;
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--red);
+            background: rgba(255, 0, 0, 0.03);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--red);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item span {
+            font-size: 13.5px;
+            color: var(--subtext);
+        }
+
+        .checkbox-item:has(input:checked) {
+            border-color: var(--red);
+            background: rgba(255, 0, 0, 0.04);
+        }
+
+        /* ── Submit Button ── */
+        .btn-submit {
+            width: 100%;
+            padding: 13px 20px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(255, 0, 0, 0.2);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: var(--red-deep);
+            box-shadow: 0 4px 16px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        /* ── Status Message ── */
+        #statusMessage {
+            margin-top: 1.25rem;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 1.5em;
+            transition: opacity 0.3s;
+        }
+
+        .status-processing {
+            color: var(--muted);
+        }
+
+        .status-success {
+            color: #22c55e;
+        }
+
+        .status-error {
+            color: var(--red);
+        }
+
+        /* ── Footer ── */
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--dim);
+        }
+
+        .page-footer a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .page-footer a:hover {
+            color: var(--red);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .wrapper {
+                padding-top: 80px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .form-card {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="brand">STNET Radio</a>
+        <button id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/plus/">SNR+</a></li>
+                <li><a href="/podcast/">Podcasts</a></li>
+                <li><a href="https://support.stnetradio.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+
+        <!-- Hero -->
+        <div class="page-hero">
+            <div class="page-kicker"><i class="fa-solid fa-file-lines fa-sm"></i>&ensp;Application Form</div>
+            <h1 class="page-title">Podcaster Application<br><span>— STNET Radio</span></h1>
+            <p class="page-sub">Please complete all required fields carefully. Your application will be reviewed by our
+                content team within 5–7 business days.</p>
+            <div class="page-meta">
+                <span><i class="fa-regular fa-clock fa-sm"></i> Est. 5 minutes to complete</span>
+                <span><i class="fa-solid fa-lock fa-sm"></i> Secure &amp; confidential</span>
+            </div>
+        </div>
+
+        <!-- Intro Info -->
+        <div class="info-section">
+            <p class="info-intro">Thank you for your interest! We are so happy to discover people who love to share
+                their thoughts. There is so much you can do, we offer top-notch support and it is all free of charge.
+            </p>
+
+            <div class="info-block">
+                <div class="info-heading">Why STNET Radio?</div>
+                <div class="info-body">
+                    <p>We are all about embracing the limitless possibilities! No matter your age, job or gender, what
+                        truly matters is your bravery to explore something new.</p>
+                    <p>We are here to help you bring fresh content to life and ensure that both podcasters and listeners
+                        have an amazing experience.</p>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-heading">We are what you NEED!</div>
+                <div class="info-body">
+                    <p>Joining our podcasting community is absolutely free! We're excited to offer a range of
+                        future-ready services tailored just for you.</p>
+                    <p>If you're looking to share your podcast with the world in a few easy steps, we're here to assist
+                        you.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+            <form id="podcasterForm">
+
+                <!-- Section 1 -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-num">1</div>
+                        <div class="section-title">Personal Information</div>
+                    </div>
+
+                    <div class="field-grid">
+                        <div class="field">
+                            <label>Full Name <span class="req">*</span></label>
+                            <input type="text" name="name" placeholder="First &amp; Last Name" required>
+                        </div>
+                        <div class="field">
+                            <label>Nickname <span class="req">*</span></label>
+                            <input type="text" name="nickname" placeholder="What people call you" required>
+                        </div>
+                    </div>
+
+                    <div class="field-grid">
+                        <div class="field">
+                            <label>Age <span class="req">*</span></label>
+                            <input type="number" name="age" placeholder="e.g. 24" min="13" max="100" required>
+                        </div>
+                        <div class="field">
+                            <label>Phone Number <span class="req">*</span></label>
+                            <input type="text" name="phone" placeholder="e.g. 081-234-5678" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Email Address <span class="req">*</span></label>
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Social Media Profile</label>
+                        <input type="url" name="socialLink" placeholder="https://instagram.com/yourhandle">
+                    </div>
+
+                    <div class="field">
+                        <label>Country</label>
+                        <input type="text" name="country" placeholder="e.g. Thailand">
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-num">2</div>
+                        <div class="section-title">Podcast Experience</div>
+                    </div>
+
+                    <div class="field">
+                        <label>Have you hosted a radio show or podcast before?</label>
+                        <input type="text" name="hostedBefore" placeholder="Yes / No — add details if yes">
+                    </div>
+
+                    <div class="field">
+                        <label>Audio Editing Skills</label>
+                        <input type="text" name="editingSkills" placeholder="e.g. Advanced (Audition, GarageBand)">
+                    </div>
+
+                    <div class="field">
+                        <label>Current Equipment</label>
+                        <input type="text" name="equipment" placeholder="e.g. XLR Mic, Audio Interface">
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-num">3</div>
+                        <div class="section-title">Podcast Concept</div>
+                    </div>
+
+                    <div class="field">
+                        <label>Category (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="Education / Knowledge">
+                                <span><i class="fa-solid fa-graduation-cap fa-fw"></i> Education / Knowledge</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="Entertainment / Variety">
+                                <span><i class="fa-solid fa-star fa-fw"></i> Entertainment / Variety</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="Interview / Talk Show">
+                                <span><i class="fa-solid fa-comments fa-fw"></i> Interview / Talk Show</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="Storytelling / True Crime / Horror">
+                                <span><i class="fa-solid fa-book-skull fa-fw"></i> Storytelling / True Crime /
+                                    Horror</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="News &amp; Society">
+                                <span><i class="fa-solid fa-newspaper fa-fw"></i> News &amp; Society</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="category-cb" value="Other">
+                                <span><i class="fa-solid fa-ellipsis fa-fw"></i> Other</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Show Name Idea</label>
+                        <input type="text" name="showName" placeholder="What would you call your show?">
+                    </div>
+
+                    <div class="field">
+                        <label>Pitch Your Idea</label>
+                        <textarea name="pitchIdea" rows="3"
+                            placeholder="Describe your show concept in a few sentences..."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label>Target Audience</label>
+                        <input type="text" name="targetAudience"
+                            placeholder="e.g. Students aged 18–25 interested in tech">
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-num">4</div>
+                        <div class="section-title">Send Your Future</div>
+                    </div>
+
+                    <div class="field">
+                        <label>Audio / Video Sample Link <span class="req">*</span></label>
+                        <input type="url" name="audioLink" required placeholder="Google Drive, SoundCloud, YouTube…">
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-num">5</div>
+                        <div class="section-title">Availability &amp; Mindset</div>
+                    </div>
+
+                    <div class="field">
+                        <label>Why do you want to join STNET Radio?</label>
+                        <textarea name="whyJoin" rows="3" placeholder="Tell us what drives you…"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label>Availability (hours per week)</label>
+                        <input type="text" name="availability" placeholder="e.g. 5–10 hours / week">
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Submit Application
+                </button>
+            </form>
+
+            <div id="statusMessage"></div>
+        </div>
+
+        <div class="page-footer">
+            <p>&copy; 2026 <a href="/">STNET Radio</a>. All rights reserved. &nbsp;·&nbsp;
+                <a href="/Privacy-Policy.html">Privacy</a> &nbsp;·&nbsp;
+                <a href="/Terms-of-Service.html">Terms</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('podcasterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMessage = document.getElementById('statusMessage');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting…';
+            statusMessage.className = 'status-processing';
+            statusMessage.innerHTML = 'Processing your application. Please wait…';
+
+            const gasAPIUrl = "https://script.google.com/macros/s/AKfycbw7Nx6ERtXfkF92uTEsekRzOouUjcSMRUczQtymqpjjHAU9goh6bAAFq0o-cZc9F9l_mw/exec";
+
+            const formData = new FormData(this);
+
+            const categories = Array.from(document.querySelectorAll('.category-cb:checked'))
+                .map(cb => cb.value)
+                .join(', ');
+            formData.set('category', categories);
+
+            fetch(gasAPIUrl, { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        const name = encodeURIComponent(formData.get('name') || '');
+                        const age = encodeURIComponent(formData.get('age') || '');
+                        const email = encodeURIComponent(formData.get('email') || '');
+                        const audioLink = encodeURIComponent(formData.get('audioLink') || '');
+                        const submissionId = encodeURIComponent(data.submissionId);
+                        const documentLink = encodeURIComponent(data.url);
+
+                        statusMessage.className = 'status-success';
+                        statusMessage.innerHTML = '<i class="fa-solid fa-circle-check"></i> Success! Redirecting…';
+
+                        const redirectUrl = `https://stnetradio.com/podcaster/thank-you?name=${name}&age=${age}&email=${email}&audioLink=${audioLink}&submissionId=${submissionId}&documentlink=${documentLink}`;
+                        window.location.href = redirectUrl;
+
+                    } else {
+                        statusMessage.className = 'status-error';
+                        statusMessage.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Error: ${data.message}`;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Application';
+                    }
+                })
+                .catch(() => {
+                    statusMessage.className = 'status-error';
+                    statusMessage.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Connection error. Please try again.';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Application';
+                });
+        });
+    </script>
+
+    <script src="/JavaScript/viewport-fix.js"></script>
+    <script src="/JavaScript/mobile-menu.js"></script>
+
+</body>
+
+</html>

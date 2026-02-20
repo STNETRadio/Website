@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
@@ -73,13 +74,18 @@
 
     <div class="hero">
         <div class="hero-content">
-            <h1 class="fade-in-up">Application Received</h1>
-            <p class="hero-sub fade-in-up delay-1">Thank you, <span id="name-display">Podcaster</span>!</p>
+            <div class="success-badge fade-in-up">
+                <i class="fa-solid fa-circle-check"></i> Application Received
+            </div>
+            <h1 class="fade-in-up delay-1">You're In!</h1>
+            <p class="hero-sub fade-in-up delay-2">Thank you, <span id="name-display">Podcaster</span> — we'll be in
+                touch soon.</p>
             <div class="hero-desc fade-in-up delay-2">
 
-                <div class="alert" style="margin: 2rem auto;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Save your Submission ID </strong><br>
-                    Please save your Submission ID for future reference. We're not able to retrieve your submission ID.
+                <div class="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div><strong>Save your Submission ID</strong><br>
+                        Please keep this ID for future reference — we cannot retrieve it later.</div>
                 </div>
 
                 <!-- CONFIRMATION CARD -->
@@ -102,24 +108,32 @@
                             <span class="data-value" id="email-display">-</span>
                         </div>
                         <div class="data-row">
-                            <span class="data-label">Audio Link</span>
+                            <span class="data-label">Audio Sample</span>
                             <span class="data-value" id="audio-link-display">-</span>
                         </div>
+                    </div>
+
+                    <!-- DOCUMENT QR CODE (Receipt Footer) -->
+                    <div id="document-qr-section" style="display:none;">
+                        <p>Document Link</p>
+                        <div id="document-qr-code"></div>
+                        <a id="document-link-display" href="#" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Link
+                        </a>
                     </div>
                 </div>
 
                 <div class="disclaimer-box">
                     We will contact you via <strong>hr@stnetradio.com</strong> or an official
                     <strong>@stnetradio.com</strong> staff email only.<br>
-                    If you have any further questions, please contact us at
-                    <strong>becomepodcaster@stnetradio.com</strong> 24 hours a day.
-                    <br><br>
-                    <strong>Thank you for your application!</strong><br>
+                    Questions? Reach us at <strong>becomepodcaster@stnetradio.com</strong> anytime.<br><br>
+                    <strong>Thank you for your application!</strong>
                 </div>
 
-                <div class="scam-warning" style="margin: 2rem auto;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Beware of scams!</strong><br>
-                    STNET Radio will NEVER ask for money or personal banking information.
+                <div class="scam-warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div><strong>Beware of scams!</strong><br>
+                        STNET Radio will NEVER ask for money or personal banking information.</div>
                 </div>
             </div>
         </div>
@@ -134,6 +148,7 @@
             const email = params.get('email');
             const audioLink = params.get('audioLink');
             const submissionId = params.get('submissionId');
+            const documentLink = params.get('documentlink');
 
             if (name) {
                 document.getElementById('name-display').textContent = name;
@@ -141,8 +156,29 @@
             }
             if (age) document.getElementById('age-display').textContent = age;
             if (email) document.getElementById('email-display').textContent = email;
-            if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;
+            if (audioLink) {
+                const el = document.getElementById('audio-link-display');
+                const a = document.createElement('a');
+                a.href = audioLink;
+                a.textContent = audioLink;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                el.replaceWith(a);
+            }
             if (submissionId) document.getElementById('submission-id-display').textContent = submissionId;
+            if (documentLink) {
+                document.getElementById('document-qr-section').style.display = '';
+                const linkEl = document.getElementById('document-link-display');
+                linkEl.href = documentLink;
+                new QRCode(document.getElementById('document-qr-code'), {
+                    text: documentLink,
+                    width: 180,
+                    height: 180,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
         });
     </script>
     <script src="/JavaScript/viewport-fix.js"></script>

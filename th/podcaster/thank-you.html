@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
         /* CRITICAL: Inline to prevent flash of wrong background */
@@ -73,13 +74,18 @@
 
     <div class="hero">
         <div class="hero-content">
-            <h1 class="fade-in-up">ได้รับใบสมัครเรียบร้อยแล้ว</h1>
-            <p class="hero-sub fade-in-up delay-1">ขอบคุณ <span id="name-display">คุณพอดแคสเตอร์</span>! ที่ให้ความสนใจเรา</p>
+            <div class="success-badge fade-in-up">
+                <i class="fa-solid fa-circle-check"></i> ได้รับใบสมัครแล้ว
+            </div>
+            <h1 class="fade-in-up delay-1">ขอบคุณ!</h1>
+            <p class="hero-sub fade-in-up delay-2">ขอบคุณ <span id="name-display">คุณพอดแคสเตอร์</span> —
+                เราจะติดต่อกลับในเร็วๆ นี้</p>
             <div class="hero-desc fade-in-up delay-2">
 
                 <div class="alert">
-                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>โปรดบันทึกรหัสใบสมัครนี้</strong><br>
-                    โปรดบันทึกรหัสใบสมัครนี้ไว้เพื่อใช้อ้างอิงในอนาคต เราไม่สามารถมอบรหัสใบสมัครได้ในอนาคต
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div><strong>โปรดบันทึกรหัสใบสมัครนี้</strong><br>
+                        โปรดเก็บรหัสใบสมัครนี้ไว้เพื่ออ้างอิง เราไม่สามารถมอบรหัสใบสมัครซ้ำได้</div>
                 </div>
 
                 <!-- CONFIRMATION CARD -->
@@ -106,19 +112,29 @@
                             <span class="data-value" id="audio-link-display">-</span>
                         </div>
                     </div>
+
+                    <!-- DOCUMENT QR CODE (Receipt Footer) -->
+                    <div id="document-qr-section" style="display:none;">
+                        <p>ลิงก์เอกสาร</p>
+                        <div id="document-qr-code"></div>
+                        <a id="document-link-display" href="#" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> เปิดลิงก์
+                        </a>
+                    </div>
                 </div>
 
                 <div class="disclaimer-box">
-                    พวกเราจะติดต่อกลับคุณด้วยอีเมล <strong>hr@stnetradio.com</strong> หรืออีเมลเจ้าหน้าที่ที่ระบุ
+                    พวกเราจะติดต่อกลับด้วยอีเมล <strong>hr@stnetradio.com</strong> หรืออีเมลเจ้าหน้าที่
                     <strong>@stnetradio.com</strong> เท่านั้น<br>
-                    หากมีข้อสงสัยเพิ่มเติมโปรดติดต่อเราที่ <strong>becomepodcaster@stnetradio.com</strong> 24 ชั่วโมง
-                    <br><br>
-                    <strong>ขอบคุณสำหรับการสมัครครับ!</strong><br>
+                    หากมีข้อสงสัย ติดต่อเราได้ที่ <strong>becomepodcaster@stnetradio.com</strong> ตลอด 24
+                    ชั่วโมง<br><br>
+                    <strong>ขอบคุณสำหรับการสมัครครับ!</strong>
                 </div>
 
-                <div class="scam-warning" style="margin: 2rem auto;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>ระวังมิจฉาชีพ!</strong><br>
-                    STNET Radio จะไม่มีการเรียกเก็บเงินหรือขอข้อมูลบัญชีธนาคารใดๆ ทั้งสิ้น
+                <div class="scam-warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div><strong>ระวังมิจฉาชีพ!</strong><br>
+                        STNET Radio จะไม่มีการเรียกเก็บเงินหรือขอข้อมูลบัญชีธนาคารใดๆ ทั้งสิ้น</div>
                 </div>
             </div>
         </div>
@@ -132,6 +148,7 @@
             const email = params.get('email');
             const audioLink = params.get('audioLink');
             const submissionId = params.get('submissionId');
+            const documentLink = params.get('documentlink');
 
             if (name) {
                 document.getElementById('name-display').textContent = name;
@@ -139,8 +156,29 @@
             }
             if (age) document.getElementById('age-display').textContent = age;
             if (email) document.getElementById('email-display').textContent = email;
-            if (audioLink) document.getElementById('audio-link-display').textContent = audioLink;
+            if (audioLink) {
+                const el = document.getElementById('audio-link-display');
+                const a = document.createElement('a');
+                a.href = audioLink;
+                a.textContent = audioLink;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                el.replaceWith(a);
+            }
             if (submissionId) document.getElementById('submission-id-display').textContent = submissionId;
+            if (documentLink) {
+                document.getElementById('document-qr-section').style.display = '';
+                const linkEl = document.getElementById('document-link-display');
+                linkEl.href = documentLink;
+                new QRCode(document.getElementById('document-qr-code'), {
+                    text: documentLink,
+                    width: 180,
+                    height: 180,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
         });
     </script>
     <script src="/JavaScript/viewport-fix.js"></script>

@@ -1,0 +1,200 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+        @font-face {
+            font-family: 'Chillax';
+            src: url('https://stnetradio.com/font/Chillax-Variable.woff2') format('woff2'),
+                url('https://stnetradio.com/font/Chillax-Variable.woff') format('woff'),
+                url('https://stnetradio.com/font/Chillax-Variable.ttf') format('truetype');
+        }
+    </style>
+</head>
+<div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">
+    You have submitted a password change request!
+</div>
+
+<body
+    style="margin:0;padding:0;background-color:#f5f5f7;font-family:'Source Sans 3','IBM Plex Sans Thai',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+        style="table-layout:fixed;background-color:#f5f5f7">
+        <tr>
+            <td align="center" style="padding:40px 20px">
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                    style="max-width:600px;background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.04)">
+
+                    <!-- Header -->
+                    <tr>
+                        <td
+                            style="background:linear-gradient(135deg,#f70000 0%,#cc0000 100%);background-color:#f70000;padding:45px 40px;text-align:center">
+                            <a href="{{ home_url | escape }}" target="_blank"
+                                style="text-decoration:none;display:block">
+                                <h1
+                                    style="margin:0;font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:700;font-size:32px;color:#ffffff;letter-spacing:-0.5px">
+                                    STNET Radio
+                                </h1>
+                            </a>
+                            <p
+                                style="margin:10px 0 0 0;font-size:13px;color:#ffffff;text-transform:uppercase;letter-spacing:2px;font-weight:600">
+                                Password Reset
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Body -->
+                    <tr>
+                        <td style="padding:40px;font-size:16px;line-height:1.6;color:#444444">
+
+                            <h2
+                                style="margin:0 0 20px 0;font-size:20px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                Hi {{ user.name | escape }},</h2>
+
+                            <p style="margin:0 0 24px 0">We received a request to reset the password for your
+                                <strong style="color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">STNET Radio</strong>
+                                Staff Portal account. Use the verification code below to proceed.</p>
+
+                            <!-- OTP Code Box -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td align="center"
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:32px 24px;border:1px solid #eeeeee">
+                                        <p
+                                            style="margin:0 0 12px 0;font-size:13px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:1px">
+                                            Your Verification Code
+                                        </p>
+                                        <p
+                                            style="margin:0 0 12px 0;font-family:'Chillax','IBM Plex Sans Thai',monospace;font-size:42px;font-weight:700;color:#111111;letter-spacing:8px">
+                                            {{ code }}
+                                        </p>
+                                        <p style="margin:0;font-size:13px;color:#888888">
+                                            This code will expire in <strong style="color:#444444">10 minutes</strong>.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin:0 0 24px 0">If you did not request a password reset, you can safely
+                                ignore this email. Your account security will not be affected.</p>
+
+                            <!-- Security Notice -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:24px;border-left:4px solid #ff0000">
+                                        <p
+                                            style="margin:0 0 6px 0;font-size:12px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:0.5px">
+                                            Security Notice
+                                        </p>
+                                        <p style="margin:0;font-size:15px;color:#444444;font-weight:500">
+                                            Never share this code with anyone. STNET Radio staff will never ask for
+                                            your verification code.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <hr style="border:0;border-top:1px solid #eeeeee;margin:40px 0">
+
+                            <!-- Thai Section -->
+                            <h2
+                                style="margin:0 0 20px 0;font-size:20px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                สวัสดี {{ user.name | escape }},</h2>
+
+                            <p style="margin:0 0 24px 0">เราได้รับคำขอรีเซ็ตรหัสผ่านสำหรับบัญชี
+                                <strong style="color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">STNET Radio</strong>
+                                Staff Portal ของคุณ กรุณาใช้รหัสยืนยันด้านล่างเพื่อดำเนินการต่อ</p>
+
+                            <!-- OTP Code Box (Thai) -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td align="center"
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:32px 24px;border:1px solid #eeeeee">
+                                        <p
+                                            style="margin:0 0 12px 0;font-size:13px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:1px">
+                                            รหัสยืนยันของคุณ
+                                        </p>
+                                        <p
+                                            style="margin:0 0 12px 0;font-family:'Chillax','IBM Plex Sans Thai',monospace;font-size:42px;font-weight:700;color:#111111;letter-spacing:8px">
+                                            {{ code }}
+                                        </p>
+                                        <p style="margin:0;font-size:13px;color:#888888">
+                                            รหัสนี้จะหมดอายุใน <strong style="color:#444444">10 นาที</strong>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin:0 0 24px 0">หากคุณไม่ได้ขอรีเซ็ตรหัสผ่าน
+                                คุณสามารถเพิกเฉยต่ออีเมลนี้ได้ ความปลอดภัยของบัญชีคุณจะไม่ได้รับผลกระทบใดๆ</p>
+
+                            <!-- Security Notice (Thai) -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:24px;border-left:4px solid #ff0000">
+                                        <p
+                                            style="margin:0 0 6px 0;font-size:12px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:0.5px">
+                                            ประกาศด้านความปลอดภัย
+                                        </p>
+                                        <p style="margin:0;font-size:15px;color:#444444;font-weight:500">
+                                            อย่าแชร์รหัสนี้กับผู้อื่น ทีมงาน STNET Radio
+                                            จะไม่มีวันขอรหัสยืนยันของคุณ
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td
+                            style="background-color:#f9f9fb;padding:30px 40px;text-align:center;border-top:1px solid #eeeeee">
+                            <p style="margin:0 0 16px 0;font-size:13px;color:#888888;font-weight:500">
+                                &copy; 2026 <span
+                                    style="font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:700">STNET Radio</span>.
+                                All rights reserved.
+                            </p>
+                            <p style="margin:0 0 16px 0;font-size:13px">
+                                <a href="https://stnetradio.com"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Website</a>
+                                <span style="color:#dddddd;margin:0 10px">|</span>
+                                <a href="https://stnetradio.com/Privacy-Policy"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Privacy Policy</a>
+                                <span style="color:#dddddd;margin:0 10px">|</span>
+                                <a href="https://stnetradio.com/Terms-of-Service"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Terms of Use</a>
+                            </p>
+                            <p style="margin:0 0 12px 0;font-size:12px;color:#aaaaaa;line-height:1.6">
+                                You&#x27;re receiving this email because you have an account in
+                                {{ friendly_name | escape }}.
+                                If you are not sure why you&#x27;re receiving this, please contact us{% if support_url != blank %}
+                                through our <a href="{{ support_url | escape }}"
+                                    style="color:#666666;text-decoration:underline">Support Center</a>{% endif %}.
+                            </p>
+                            <p style="margin:0;font-size:12px;color:#aaaaaa;line-height:1.6">
+                                This email was sent automatically.
+                                <br><br>
+                                อีเมลนี้ถูกส่งโดยอัตโนมัติ
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- End Main Container -->
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

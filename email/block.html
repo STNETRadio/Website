@@ -1,0 +1,243 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+        @font-face {
+            font-family: 'Chillax';
+            src: url('https://stnetradio.com/font/Chillax-Variable.woff2') format('woff2'),
+                url('https://stnetradio.com/font/Chillax-Variable.woff') format('woff'),
+                url('https://stnetradio.com/font/Chillax-Variable.ttf') format('truetype');
+        }
+
+        #outlook a { padding: 0; }
+        body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    </style>
+</head>
+<div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">
+    Your account has been blocked due to suspicious activity.
+</div>
+
+<body
+    style="margin:0;padding:0;background-color:#f5f5f7;font-family:'Source Sans 3','IBM Plex Sans Thai',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+        style="table-layout:fixed;background-color:#f5f5f7">
+        <tr>
+            <td align="center" style="padding:40px 20px">
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                    style="max-width:600px;background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.04)">
+
+                    <!-- Header -->
+                    <tr>
+                        <td
+                            style="background:linear-gradient(135deg,#f70000 0%,#cc0000 100%);background-color:#f70000;padding:45px 40px;text-align:center">
+                            <h1
+                                style="margin:0;font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:700;font-size:32px;color:#ffffff;letter-spacing:-0.5px">
+                                STNET Radio
+                            </h1>
+                            <p
+                                style="margin:10px 0 0 0;font-size:13px;color:#ffffff;text-transform:uppercase;letter-spacing:2px;font-weight:600">
+                                Account Blocked
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Body -->
+                    <tr>
+                        <td style="padding:40px;font-size:16px;line-height:1.6;color:#444444">
+
+                            <h2
+                                style="margin:0 0 20px 0;font-size:20px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                Hi {{ user.name | escape }},</h2>
+
+                            <p style="margin:0 0 24px 0">Your
+                                <strong
+                                    style="color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">STNET Radio</strong>
+                                Staff Portal account has been blocked due to suspicious login activity. If this was
+                                you, you can unblock your account using the link below.</p>
+
+                            <!-- Login info box -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:24px;border-left:4px solid #ff0000">
+                                        <p
+                                            style="margin:0 0 6px 0;font-size:12px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:0.5px">
+                                            Login Attempt Details
+                                        </p>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="margin-top:8px">
+                                            <tr>
+                                                <td
+                                                    style="font-size:14px;color:#888888;padding:4px 0;width:80px;font-weight:600">
+                                                    IP Address</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.source_ip | escape }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:14px;color:#888888;padding:4px 0;font-weight:600">
+                                                    City</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.city | escape }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:14px;color:#888888;padding:4px 0;font-weight:600">
+                                                    Country</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.country | escape }}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Unblock Button Box -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td align="center"
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:32px 24px;border:1px solid #eeeeee">
+                                        <p
+                                            style="margin:0 0 8px 0;font-size:16px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                            Was this you?
+                                        </p>
+                                        <p style="margin:0 0 20px 0;font-size:14px;color:#888888">
+                                            Click below to unblock your account and restore access.
+                                        </p>
+                                        <a href="{{ url | escape }}"
+                                            style="display:inline-block;background-color:#ff0000;color:#ffffff;font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:16px"
+                                            target="_blank">Unblock My Account</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin:0 0 24px 0">If this was <strong style="color:#111111">not</strong> you,
+                                please ignore this email. We recommend changing your password immediately to secure
+                                your account.</p>
+
+                            <hr style="border:0;border-top:1px solid #eeeeee;margin:40px 0">
+
+                            <!-- Thai Section -->
+                            <h2
+                                style="margin:0 0 20px 0;font-size:20px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                สวัสดี {{ user.name | escape }},</h2>
+
+                            <p style="margin:0 0 24px 0">บัญชี
+                                <strong
+                                    style="color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">STNET Radio</strong>
+                                Staff Portal ของคุณถูกบล็อกเนื่องจากพบกิจกรรมการเข้าสู่ระบบที่น่าสงสัย
+                                หากเป็นคุณที่พยายามเข้าสู่ระบบ สามารถปลดบล็อกบัญชีได้ผ่านลิงก์ด้านล่าง</p>
+
+                            <!-- Login info box (Thai) -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:24px;border-left:4px solid #ff0000">
+                                        <p
+                                            style="margin:0 0 6px 0;font-size:12px;color:#888888;text-transform:uppercase;font-weight:600;letter-spacing:0.5px">
+                                            รายละเอียดการพยายามเข้าสู่ระบบ
+                                        </p>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="margin-top:8px">
+                                            <tr>
+                                                <td
+                                                    style="font-size:14px;color:#888888;padding:4px 0;width:100px;font-weight:600">
+                                                    IP Address</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.source_ip | escape }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:14px;color:#888888;padding:4px 0;font-weight:600">
+                                                    เมือง</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.city | escape }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:14px;color:#888888;padding:4px 0;font-weight:600">
+                                                    ประเทศ</td>
+                                                <td style="font-size:14px;color:#444444;padding:4px 0">
+                                                    {{ user.country | escape }}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Unblock Button Box (Thai) -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="margin-bottom:30px">
+                                <tr>
+                                    <td align="center"
+                                        style="background-color:#f9f9fb;border-radius:12px;padding:32px 24px;border:1px solid #eeeeee">
+                                        <p
+                                            style="margin:0 0 8px 0;font-size:16px;font-weight:600;color:#111111;font-family:'Chillax','IBM Plex Sans Thai',sans-serif">
+                                            คุณเป็นคนที่พยายามเข้าสู่ระบบใช่ไหม?
+                                        </p>
+                                        <p style="margin:0 0 20px 0;font-size:14px;color:#888888">
+                                            กดปุ่มด้านล่างเพื่อปลดบล็อกบัญชีและกู้คืนการเข้าถึง
+                                        </p>
+                                        <a href="{{ url | escape }}"
+                                            style="display:inline-block;background-color:#ff0000;color:#ffffff;font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:16px"
+                                            target="_blank">ปลดบล็อกบัญชีของฉัน</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin:0 0 24px 0">หากคุณ<strong style="color:#111111">ไม่ได้</strong>เป็นคนพยายามเข้าสู่ระบบ
+                                โปรดเพิกเฉยต่ออีเมลนี้ และแนะนำให้เปลี่ยนรหัสผ่านทันทีเพื่อรักษาความปลอดภัยของบัญชี</p>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td
+                            style="background-color:#f9f9fb;padding:30px 40px;text-align:center;border-top:1px solid #eeeeee">
+                            <p style="margin:0 0 16px 0;font-size:13px;color:#888888;font-weight:500">
+                                &copy; 2026 <span
+                                    style="font-family:'Chillax','IBM Plex Sans Thai',sans-serif;font-weight:700">STNET Radio</span>.
+                                All rights reserved.
+                            </p>
+                            <p style="margin:0 0 16px 0;font-size:13px">
+                                <a href="https://stnetradio.com"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Website</a>
+                                <span style="color:#dddddd;margin:0 10px">|</span>
+                                <a href="https://stnetradio.com/Privacy-Policy"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Privacy Policy</a>
+                                <span style="color:#dddddd;margin:0 10px">|</span>
+                                <a href="https://stnetradio.com/Terms-of-Service"
+                                    style="color:#666666;text-decoration:none;font-weight:600">Terms of Use</a>
+                            </p>
+                            <p style="margin:0 0 12px 0;font-size:12px;color:#aaaaaa;line-height:1.6">
+                                You&#x27;re receiving this email because you have an account in
+                                {{ friendly_name | escape }}.
+                                If you are not sure why you&#x27;re receiving this, please contact us{% if support_url != blank %}
+                                through our <a href="{{ support_url | escape }}"
+                                    style="color:#666666;text-decoration:underline">Support Center</a>{% endif %}.
+                            </p>
+                            <p style="margin:0;font-size:12px;color:#aaaaaa;line-height:1.6">
+                                This email was sent automatically.
+                                <br><br>
+                                อีเมลนี้ถูกส่งโดยอัตโนมัติ
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- End Main Container -->
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

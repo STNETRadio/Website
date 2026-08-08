@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STNET Worldwide</title>
+  
+  <!-- Linking to your existing global stylesheets -->
+  <link rel="stylesheet" href="../CSS/brand.css">
+  <link rel="stylesheet" href="../CSS/index.css">
+  <link rel="stylesheet" href="../CSS/footer.css">
+
+  <style>
+    /* Minimalist, professional overrides for the World page */
+    :root {
+      --world-bg: #ffffff;
+      --world-text: #1f2937;
+      --world-muted: #4b5563;
+      --world-border: #e5e7eb;
+    }
+
+    .world-wrapper {
+      background-color: var(--world-bg);
+      color: var(--world-text);
+      font-family: inherit;
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    .world-header {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      border-bottom: 1px solid var(--world-border);
+    }
+
+    .world-header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+    }
+
+    .world-header p {
+      font-size: 1.125rem;
+      color: var(--world-muted);
+      max-width: 800px;
+      margin: 0 auto;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .subsidiary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .subsidiary-card {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      border: 1px solid var(--world-border);
+      border-radius: 8px;
+      transition: border-color 0.2s ease;
+    }
+
+    .subsidiary-card:hover {
+      border-color: #9ca3af;
+    }
+
+    .subsidiary-card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .subsidiary-card p {
+      color: var(--world-muted);
+      margin-bottom: 2rem;
+      flex-grow: 1;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-overflow: clip; 
+    }
+
+    .subsidiary-link {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--world-text);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: border-color 0.2s ease;
+    }
+
+    .subsidiary-link:hover {
+      border-color: var(--world-text);
+    }
+  </style>
+</head>
+<body class="world-wrapper">
+
+  <!-- Include your existing navigation here -->
+
+  <header class="world-header">
+    <h1>STNET Worldwide</h1>
+    <p>The parent company connecting media, education, and entertainment. We build platforms and create content that empowers and engages audiences globally.</p>
+  </header>
+
+  <main class="subsidiary-grid">
+    
+    <article class="subsidiary-card">
+      <h2>STNET Radio</h2>
+      <p>Our flagship broadcasting network. We deliver top-tier music, news, and talk shows to our global audience, maintaining high-quality audio streaming and engaging community interactions.</p>
+      <!-- Updated Link -->
+      <a href="https://stnetradio.com" class="subsidiary-link">Visit STNET Radio &rarr;</a>
+    </article>
+
+    <article class="subsidiary-card">
+      <h2>LITALK Education</h2>
+      <p>Empowering the next generation through innovative learning platforms. We provide structured educational content, digital resources, and interactive environments for language learners.</p>
+      <!-- Updated Link -->
+      <a href="https://litalkeducation.com" class="subsidiary-link">Explore LITALK &rarr;</a>
+    </article>
+
+    <article class="subsidiary-card">
+      <h2>STNET Radio Entertainment</h2>
+      <p>The home of creativity and digital media. We produce engaging live events, original podcasts, and premium entertainment experiences tailored to modern digital audiences.</p>
+      <!-- Updated Link -->
+      <a href="/ent" class="subsidiary-link">Discover Entertainment &rarr;</a>
+    </article>
+
+  </main>
+
+  <!-- Linking to your existing global scripts -->
+  <script src="../JavaScript/mobile-menu.js"></script>
+  <script src="../JavaScript/scroll-animate.js"></script>
+  <script src="../JavaScript/viewport-fix.js"></script>
+
+</body>
+</html>

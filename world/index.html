@@ -1,147 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STNET Worldwide</title>
-  
-  <!-- Linking to your existing global stylesheets -->
-  <link rel="stylesheet" href="../CSS/brand.css">
-  <link rel="stylesheet" href="../CSS/index.css">
-  <link rel="stylesheet" href="../CSS/footer.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>STNET Worldwide | Media, Education & Entertainment</title>
+  <meta name="description" content="Discover STNET Worldwide and the projects across its media, education and entertainment network." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <link rel="canonical" href="https://stnetradio.com/world/" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
-  <style>
-    /* Minimalist, professional overrides for the World page */
-    :root {
-      --world-bg: #ffffff;
-      --world-text: #1f2937;
-      --world-muted: #4b5563;
-      --world-border: #e5e7eb;
-    }
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stnetradio.com/world/" />
+  <meta property="og:title" content="STNET Worldwide" />
+  <meta property="og:description" content="Media, education and entertainment projects connected through one creative network." />
+  <meta property="og:image" content="https://stnetradio.com/img/og/home.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    .world-wrapper {
-      background-color: var(--world-bg);
-      color: var(--world-text);
-      font-family: inherit;
-      line-height: 1.6;
-      padding-bottom: 4rem;
-    }
-
-    .world-header {
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      border-bottom: 1px solid var(--world-border);
-    }
-
-    .world-header h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      letter-spacing: -0.025em;
-    }
-
-    .world-header p {
-      font-size: 1.125rem;
-      color: var(--world-muted);
-      max-width: 800px;
-      margin: 0 auto;
-      white-space: normal;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .subsidiary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 4rem auto 0;
-      padding: 0 2rem;
-    }
-
-    .subsidiary-card {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-      border: 1px solid var(--world-border);
-      border-radius: 8px;
-      transition: border-color 0.2s ease;
-    }
-
-    .subsidiary-card:hover {
-      border-color: #9ca3af;
-    }
-
-    .subsidiary-card h2 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .subsidiary-card p {
-      color: var(--world-muted);
-      margin-bottom: 2rem;
-      flex-grow: 1;
-      white-space: normal;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      text-overflow: clip; 
-    }
-
-    .subsidiary-link {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--world-text);
-      border-bottom: 2px solid transparent;
-      padding-bottom: 2px;
-      align-self: flex-start;
-      transition: border-color 0.2s ease;
-    }
-
-    .subsidiary-link:hover {
-      border-color: var(--world-text);
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="/CSS/brand.css" />
+  <link rel="stylesheet" href="/CSS/world.css" />
+  <link rel="stylesheet" href="/CSS/footer.css" />
 </head>
-<body class="world-wrapper">
-
-  <!-- Include your existing navigation here -->
-
-  <header class="world-header">
-    <h1>STNET Worldwide</h1>
-    <p>The parent company connecting media, education, and entertainment. We build platforms and create content that empowers and engages audiences globally.</p>
+<body class="nav-glass">
+  <header id="site-header">
+    <a href="/" class="brand" aria-label="STNET Radio home">STNET Radio</a>
+    <button id="hamburger-btn" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <nav id="site-nav" aria-label="Main Menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/plus/">SNR+</a></li>
+        <li><a href="/podcast/">Podcasts</a></li>
+        <li><a href="/world/" aria-current="page">World</a></li>
+        <li><a href="https://support.stnetradio.com/" target="_blank" rel="noopener noreferrer">Support</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="subsidiary-grid">
-    
-    <article class="subsidiary-card">
-      <h2>STNET Radio</h2>
-      <p>Our flagship broadcasting network. We deliver top-tier music, news, and talk shows to our global audience, maintaining high-quality audio streaming and engaging community interactions.</p>
-      <!-- Updated Link -->
-      <a href="https://stnetradio.com" class="subsidiary-link">Visit STNET Radio &rarr;</a>
-    </article>
+  <main>
+    <section class="world-hero" aria-labelledby="world-title">
+      <div class="world-orbit world-orbit-one" aria-hidden="true"></div>
+      <div class="world-orbit world-orbit-two" aria-hidden="true"></div>
+      <div class="world-shell world-hero-grid">
+        <div class="world-hero-copy">
+          <span class="world-eyebrow"><i class="fa-solid fa-earth-asia" aria-hidden="true"></i> STNET Worldwide</span>
+          <h1 id="world-title">Ideas that move<br><span>across worlds.</span></h1>
+          <p>STNET Worldwide brings together projects in media, education and entertainment — creating connected experiences for listeners, learners and digital audiences.</p>
+          <div class="world-actions">
+            <a class="world-button world-button-primary" href="#network">Explore the network</a>
+            <a class="world-button world-button-secondary" href="/">Visit STNET Radio</a>
+          </div>
+        </div>
 
-    <article class="subsidiary-card">
-      <h2>LITALK Education</h2>
-      <p>Empowering the next generation through innovative learning platforms. We provide structured educational content, digital resources, and interactive environments for language learners.</p>
-      <!-- Updated Link -->
-      <a href="https://litalkeducation.com" class="subsidiary-link">Explore LITALK &rarr;</a>
-    </article>
+        <div class="world-visual" aria-label="STNET Worldwide network">
+          <div class="world-core">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>STNET</span>
+            <strong>Worldwide</strong>
+          </div>
+          <div class="world-node world-node-media" aria-hidden="true"><i class="fa-solid fa-headphones"></i></div>
+          <div class="world-node world-node-education" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="world-node world-node-entertainment" aria-hidden="true"><i class="fa-solid fa-clapperboard"></i></div>
+        </div>
+      </div>
+    </section>
 
-    <article class="subsidiary-card">
-      <h2>STNET Radio Entertainment</h2>
-      <p>The home of creativity and digital media. We produce engaging live events, original podcasts, and premium entertainment experiences tailored to modern digital audiences.</p>
-      <!-- Updated Link -->
-      <a href="/ent" class="subsidiary-link">Discover Entertainment &rarr;</a>
-    </article>
+    <section class="world-section world-intro" aria-labelledby="world-about-title">
+      <div class="world-shell world-intro-grid">
+        <div>
+          <span class="world-eyebrow">One connected network</span>
+          <h2 id="world-about-title">Different fields.<br>Shared direction.</h2>
+        </div>
+        <div class="world-intro-copy">
+          <p>Our network connects audio, storytelling, education and digital experiences. Each project has its own purpose and audience while sharing a focus on thoughtful content, accessible technology and distinctive creative work.</p>
+          <p>STNET Worldwide provides a simple view of the projects and brands connected to the wider STNET ecosystem.</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="world-section world-network" id="network" aria-labelledby="network-title">
+      <div class="world-shell">
+        <div class="world-section-heading">
+          <div>
+            <span class="world-eyebrow">Our network</span>
+            <h2 id="network-title">Explore the projects.</h2>
+          </div>
+          <span class="world-count">03 connected experiences</span>
+        </div>
+
+        <div class="world-card-grid">
+          <article class="world-card">
+            <div class="world-card-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></div>
+            <div class="world-card-meta">Media • Podcasts</div>
+            <h3>STNET Radio</h3>
+            <p>The audio home of the network — original podcasts, storytelling, conversations and a growing web listening experience.</p>
+            <a href="/" class="world-card-link">Visit STNET Radio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <article class="world-card">
+            <div class="world-card-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+            <div class="world-card-meta">Education • Learning</div>
+            <h3>LITALK Education</h3>
+            <p>A digital education project focused on language learning, educational experiences and tools designed to support learners.</p>
+            <a href="https://litalkeducation.com" target="_blank" rel="noopener noreferrer" class="world-card-link">Explore LITALK <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+
+          <article class="world-card">
+            <div class="world-card-icon"><i class="fa-solid fa-clapperboard" aria-hidden="true"></i></div>
+            <div class="world-card-meta">Entertainment • Creative</div>
+            <h3>STNET Radio Entertainment</h3>
+            <p>A creative space for entertainment projects, original productions and experiences extending beyond the core podcast network.</p>
+            <a href="/ent/" class="world-card-link">Discover Entertainment <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="world-section world-principles" aria-labelledby="principles-title">
+      <div class="world-shell">
+        <span class="world-eyebrow">How we work</span>
+        <h2 id="principles-title">Built around people,<br>stories and ideas.</h2>
+        <div class="world-principle-grid">
+          <div class="world-principle"><i class="fa-solid fa-wave-square" aria-hidden="true"></i><h3>Distinct voices</h3><p>Each project keeps its own identity while contributing to a broader creative network.</p></div>
+          <div class="world-principle"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><h3>Useful ideas</h3><p>We focus on experiences that inform, teach, entertain or help audiences discover something new.</p></div>
+          <div class="world-principle"><i class="fa-solid fa-arrows-to-circle" aria-hidden="true"></i><h3>Connected experiences</h3><p>Media, education and entertainment can work together without becoming the same thing.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="world-section world-closing">
+      <div class="world-shell world-closing-panel">
+        <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+        <span class="world-eyebrow">STNET Worldwide</span>
+        <h2>One network.<br>More ways to connect.</h2>
+        <a class="world-button world-button-primary" href="/">Start with STNET Radio</a>
+      </div>
+    </section>
   </main>
 
-  <!-- Linking to your existing global scripts -->
-  <script src="../JavaScript/mobile-menu.js"></script>
-  <script src="../JavaScript/scroll-animate.js"></script>
-  <script src="../JavaScript/viewport-fix.js"></script>
+  <footer>
+    <div class="social-links" aria-label="STNET Radio social media">
+      <a href="https://facebook.com/stnetradio" aria-label="STNET Radio on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://x.com/stnetradio" aria-label="STNET Radio on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/stnetradio" aria-label="STNET Radio on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+    </div>
+    <p class="copyright">&copy; 2026 <span class="font-brand">STNET Radio</span>. All rights reserved.</p>
+    <p><a href="/Privacy-Policy/" class="st-link">Privacy Policy</a> | <a href="/Terms-of-Service/" class="st-link">Terms of Service</a></p>
+  </footer>
 
+  <script src="/JavaScript/viewport-fix.js"></script>
+  <script src="/JavaScript/mobile-menu.js"></script>
+  <script src="/JavaScript/pwa.js"></script>
 </body>
 </html>

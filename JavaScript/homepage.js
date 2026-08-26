@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  const proxies = [
+  const feedSources = [
+    url => url,
     url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
     url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
   ];
@@ -34,11 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchFeed(url) {
     let lastError;
-    for (const makeUrl of proxies) {
+    for (const makeUrl of feedSources) {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 9000);
       try {
-        const response = await fetch(makeUrl(url), { signal: controller.signal });
+        const response = await fetch(makeUrl(url), {
+          signal: controller.signal,
+          headers: { Accept: 'application/rss+xml, application/xml, text/xml, */*' }
+        });
         clearTimeout(timeout);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const text = await response.text();

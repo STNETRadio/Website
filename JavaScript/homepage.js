@@ -33,25 +33,36 @@ document.addEventListener('DOMContentLoaded', () => {
     return node ? node.textContent.trim() : '';
   }
 
+  function safeEpisodeLink(value) {
+    if (!value) return '/podcast/';
+    try {
+      const url = new URL(value, window.location.origin);
+      if (url.protocol === 'http:' || url.protocol === 'https:') return url.href;
+    } catch (_) {
+      return '/podcast/';
+    }
+    return '/podcast/';
+  }
+
   async function fetchFeed(url) {
     let lastError;
     for (const makeUrl of feedSources) {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 9000);
+      const timeout = setTimeout(() => controller.abort(), 7000);
       try {
         const response = await fetch(makeUrl(url), {
           signal: controller.signal,
           headers: { Accept: 'application/rss+xml, application/xml, text/xml, */*' }
         });
-        clearTimeout(timeout);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, 'text/xml');
         if (xml.querySelector('parsererror') || !xml.querySelector('channel')) throw new Error('Invalid RSS response');
         return xml;
       } catch (error) {
-        clearTimeout(timeout);
         lastError = error;
+      } finally {
+        clearTimeout(timeout);
       }
     }
     throw lastError || new Error('Feed unavailable');
@@ -64,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = cleanText(getText(item, 'title')) || 'Latest episode';
     const description = cleanText(getText(item, 'description'));
     const dateValue = getText(item, 'pubDate');
-    const link = getText(item, 'link') || '/podcast/';
+    const link = safeEpisodeLink(getText(item, 'link'));
     const date = dateValue ? new Date(dateValue) : null;
 
     return {
@@ -90,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     image.src = episode.image;
     image.alt = `${episode.show} artwork`;
     image.loading = 'lazy';
+    image.width = 54;
+    image.height = 54;
 
     const meta = document.createElement('div');
     const show = document.createElement('div');
@@ -114,12 +127,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const link = document.createElement('a');
     link.href = episode.link;
     link.textContent = 'Listen to episode →';
-    if (/^https?:\/\//.test(episode.link)) {
+    if (link.origin !== window.location.origin) {
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
     }
     article.appendChild(link);
     return article;
+  }
+
+  function showFallback() {
+    const fallback = document.createElement('div');
+    fallback.className = 'episode-error';
+    fallback.append('Latest episodes are temporarily unavailable. ');
+    const link = document.createElement('a');
+    link.href = '/podcast/';
+    link.textContent = 'Open the podcast library →';
+    fallback.appendChild(link);
+    container.replaceChildren(fallback);
+    container.setAttribute('aria-busy', 'false');
   }
 
   async function renderLatestEpisodes() {
@@ -132,20 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(result => result.value)
       .sort((a, b) => b.timestamp - a.timestamp);
 
-    container.replaceChildren();
-
     if (!episodes.length) {
-      const fallback = document.createElement('div');
-      fallback.className = 'episode-error';
-      fallback.innerHTML = 'Latest episodes are temporarily unavailable. <a href="/podcast/">Open the podcast library →</a>';
-      container.appendChild(fallback);
+      showFallback();
       return;
     }
 
-    episodes.forEach(episode => container.appendChild(createEpisodeCard(episode)));
+    container.replaceChildren(...episodes.map(createEpisodeCard));
+    container.setAttribute('aria-busy', 'false');
   }
 
-  renderLatestEpisodes().catch(() => {
-    container.innerHTML = '<div class="episode-error">Latest episodes are temporarily unavailable. <a href="/podcast/">Open the podcast library →</a></div>';
-  });
+  renderLatestEpisodes().catch(showFallback);
 });

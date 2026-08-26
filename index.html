@@ -36,6 +36,12 @@
   <link rel="stylesheet" href="/CSS/brand.css" />
   <link rel="stylesheet" href="/CSS/index.css" />
   <link rel="stylesheet" href="/CSS/footer.css" />
+  <style>
+    .button-secondary { background: var(--home-elevated); }
+    @supports (background: color-mix(in srgb, white 50%, transparent)) {
+      .button-secondary { background: color-mix(in srgb, var(--bg) 80%, transparent); }
+    }
+  </style>
 </head>
 <body class="nav-glass">
   <header id="site-header">
@@ -135,7 +141,7 @@
         </div>
         <div class="platform-grid">
           <a class="platform-card" href="https://podcasts.apple.com/th/podcast/id1486563415" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">◉</span><div><small>Listen on</small><strong>Apple Podcasts</strong></div><span>↗</span></a>
-          <a class="platform-card" href="https://open.spotify.com/search/STNET%20Radio/podcasts" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">●</span><div><small>Find us on</small><strong>Spotify</strong></div><span>↗</span></a>
+          <a class="platform-card" href="https://open.spotify.com/search/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%87%20STNET%20Radio/podcasts" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">●</span><div><small>Find our shows on</small><strong>Spotify</strong></div><span>↗</span></a>
           <a class="platform-card" href="/podcast/"><span class="platform-symbol">▶</span><div><small>Listen here</small><strong>STNET Radio Web</strong></div><span>→</span></a>
         </div>
       </div>

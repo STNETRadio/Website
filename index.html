@@ -36,17 +36,11 @@
   <link rel="stylesheet" href="/CSS/brand.css" />
   <link rel="stylesheet" href="/CSS/index.css" />
   <link rel="stylesheet" href="/CSS/footer.css" />
-  <style>
-    .button-secondary { background: var(--home-elevated); }
-    @supports (background: color-mix(in srgb, white 50%, transparent)) {
-      .button-secondary { background: color-mix(in srgb, var(--bg) 80%, transparent); }
-    }
-  </style>
 </head>
 <body class="nav-glass">
   <header id="site-header">
     <a href="/" class="brand" aria-label="STNET Radio home">STNET Radio</a>
-    <button id="hamburger-btn" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+    <button id="hamburger-btn" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
     <nav id="site-nav" aria-label="Main Menu">
       <ul>
         <li><a href="/" aria-current="page">Home</a></li>
@@ -77,8 +71,8 @@
             <img src="/img/podcast/TMSA.png" alt="เล่าเรื่องเก่ง podcast artwork" />
             <div><strong>เล่าเรื่องเก่ง</strong><span>Stories • History</span></div>
           </div>
-          <div class="hero-stack-card stack-one"><img src="/img/podcast/LITALK.png" alt="" /></div>
-          <div class="hero-stack-card stack-two"><img src="/img/podcast/TIDKAB.png" alt="" /></div>
+          <div class="hero-stack-card stack-one" aria-hidden="true"><img src="/img/podcast/LITALK.png" alt="" /></div>
+          <div class="hero-stack-card stack-two" aria-hidden="true"><img src="/img/podcast/TIDKAB.png" alt="" /></div>
         </div>
       </div>
     </section>
@@ -126,7 +120,7 @@
           <div><span class="eyebrow">Fresh from the feed</span><h2 id="latest-title">Latest episodes</h2></div>
           <a href="/podcast/" class="text-link">Open podcast player <span aria-hidden="true">→</span></a>
         </div>
-        <div id="latestEpisodes" class="episode-grid" aria-live="polite">
+        <div id="latestEpisodes" class="episode-grid" aria-live="polite" aria-busy="true">
           <div class="episode-loading">Loading the latest episodes…</div>
         </div>
       </div>
@@ -140,9 +134,9 @@
           <p>Listen through the STNET Radio web player or continue on your preferred podcast platform.</p>
         </div>
         <div class="platform-grid">
-          <a class="platform-card" href="https://podcasts.apple.com/th/podcast/id1486563415" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">◉</span><div><small>Listen on</small><strong>Apple Podcasts</strong></div><span>↗</span></a>
-          <a class="platform-card" href="https://open.spotify.com/search/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%87%20STNET%20Radio/podcasts" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">●</span><div><small>Find our shows on</small><strong>Spotify</strong></div><span>↗</span></a>
-          <a class="platform-card" href="/podcast/"><span class="platform-symbol">▶</span><div><small>Listen here</small><strong>STNET Radio Web</strong></div><span>→</span></a>
+          <a class="platform-card" href="https://podcasts.apple.com/th/podcast/id1486563415" target="_blank" rel="noopener noreferrer"><span class="platform-symbol" aria-hidden="true">◉</span><div><small>Listen on</small><strong>Apple Podcasts</strong></div><span aria-hidden="true">↗</span></a>
+          <a class="platform-card" href="https://open.spotify.com/search/%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%87%20STNET%20Radio/podcasts" target="_blank" rel="noopener noreferrer"><span class="platform-symbol" aria-hidden="true">●</span><div><small>Find our shows on</small><strong>Spotify</strong></div><span aria-hidden="true">↗</span></a>
+          <a class="platform-card" href="/podcast/"><span class="platform-symbol" aria-hidden="true">▶</span><div><small>Listen here</small><strong>STNET Radio Web</strong></div><span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>

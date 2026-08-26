@@ -90,6 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  function appendArrowIcon(link) {
+    const icon = document.createElement('i');
+    icon.className = 'fa-solid fa-arrow-right';
+    icon.setAttribute('aria-hidden', 'true');
+    link.append(' ', icon);
+  }
+
   function createEpisodeCard(episode) {
     const article = document.createElement('article');
     article.className = 'episode-card';
@@ -126,7 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const link = document.createElement('a');
     link.href = episode.link;
-    link.textContent = 'Listen to episode →';
+    link.append('Listen to episode');
+    appendArrowIcon(link);
     if (link.origin !== window.location.origin) {
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
@@ -141,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fallback.append('Latest episodes are temporarily unavailable. ');
     const link = document.createElement('a');
     link.href = '/podcast/';
-    link.textContent = 'Open the podcast library →';
+    link.append('Open the podcast library');
+    appendArrowIcon(link);
     fallback.appendChild(link);
     container.replaceChildren(fallback);
     container.setAttribute('aria-busy', 'false');

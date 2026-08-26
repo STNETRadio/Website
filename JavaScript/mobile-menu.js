@@ -5,11 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!hamburger || !header) return;
 
-  const setOpenState = (open) => {
-    header.classList.toggle('mobile-nav-open', open);
-    document.body.classList.toggle('no-scroll', open);
-    hamburger.setAttribute('aria-expanded', String(open));
-    hamburger.setAttribute('aria-label', open ? 'Close navigation' : 'Toggle navigation');
+  const mobileQuery = window.matchMedia('(max-width: 700px)');
+
+  const setOpenState = (open, { restoreFocus = false } = {}) => {
+    const shouldOpen = Boolean(open && mobileQuery.matches);
+    header.classList.toggle('mobile-nav-open', shouldOpen);
+    document.body.classList.toggle('no-scroll', shouldOpen);
+    hamburger.setAttribute('aria-expanded', String(shouldOpen));
+    hamburger.setAttribute('aria-label', shouldOpen ? 'Close navigation' : 'Toggle navigation');
+
+    if (shouldOpen && nav) {
+      const firstLink = nav.querySelector('a');
+      if (firstLink) requestAnimationFrame(() => firstLink.focus());
+    } else if (restoreFocus && document.contains(hamburger)) {
+      hamburger.focus();
+    }
   };
 
   hamburger.addEventListener('click', () => {
@@ -26,14 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && header.classList.contains('mobile-nav-open')) {
-      setOpenState(false);
-      hamburger.focus();
+      setOpenState(false, { restoreFocus: true });
     }
   });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 700 && header.classList.contains('mobile-nav-open')) {
+  const handleViewportChange = (event) => {
+    if (!event.matches && header.classList.contains('mobile-nav-open')) {
       setOpenState(false);
     }
-  });
+  };
+
+  if (typeof mobileQuery.addEventListener === 'function') {
+    mobileQuery.addEventListener('change', handleViewportChange);
+  } else if (typeof mobileQuery.addListener === 'function') {
+    mobileQuery.addListener(handleViewportChange);
+  }
 });

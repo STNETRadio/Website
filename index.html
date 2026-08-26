@@ -4,38 +4,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>STNET Radio</title>
-  <meta name="theme-color" content="#000000" />
+  <title>STNET Radio | A Home for Podcasts</title>
+  <meta name="description" content="Listen, learn, and discover stories that matter with STNET Radio. Explore podcasts, original storytelling, and STNET Radio+." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <meta name="format-detection" content="telephone=no, email=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="apple-touch-startup-image" href="/img/STNET-App.png">
-  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-  <!-- Open Graph / Twitter Card Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stnetradio.com/th/">
-  <meta property="og:title" content="STNET Radio">
-  <meta property="og:description"
-    content="Listen, learn, and discover meaningful stories. Friendly, personal, and creative for your curiosity.">
-  <meta property="og:image" content="https://stnetradio.com/img/og/th-home.png">
+  <link rel="canonical" href="https://stnetradio.com/" />
+  <link rel="apple-touch-startup-image" href="/img/STNET-App.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://stnetradio.com/th/">
-  <meta property="twitter:title" content="STNET Radio">
-  <meta property="twitter:description"
-    content="Listen, learn, and discover meaningful stories. Friendly, personal, and creative for your curiosity.">
-  <meta property="twitter:image" content="https://stnetradio.com/img/og/th-home.png">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stnetradio.com/" />
+  <meta property="og:title" content="STNET Radio | A Home for Podcasts" />
+  <meta property="og:description" content="Listen, learn, and discover stories that matter. Friendly, personal, and built for curiosity." />
+  <meta property="og:image" content="https://stnetradio.com/img/og/home.png" />
 
-  <link rel="icon" href="https://stnetradio.com/img/fav.ico" type="image/x-icon" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="STNET Radio | A Home for Podcasts" />
+  <meta name="twitter:description" content="Listen, learn, and discover stories that matter. Friendly, personal, and built for curiosity." />
+  <meta name="twitter:image" content="https://stnetradio.com/img/og/home.png" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* CRITICAL: Inline to prevent flash of wrong background */
     :root {
       --bg: #ffffff;
     }
@@ -46,166 +43,113 @@
       }
     }
 
-    html {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      height: 100% !important;
-    }
-
+    html,
     body {
       background-color: var(--bg) !important;
       margin: 0 !important;
       padding: 0 !important;
       min-height: 100dvh !important;
+    }
+
+    html {
+      height: 100% !important;
+    }
+
+    body {
       overflow-x: hidden !important;
     }
   </style>
-
 
   <link rel="stylesheet" href="/CSS/brand.css" />
-  <style>
-    /* CRITICAL: Inline to prevent flash of wrong background */
-    :root {
-      --bg: #ffffff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #000000;
-      }
-    }
-
-    html {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      height: 100% !important;
-    }
-
-    body {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      overflow-x: hidden !important;
-    }
-  </style>
-
-
   <link rel="stylesheet" href="/CSS/index.css" />
-  <style>
-    /* CRITICAL: Inline to prevent flash of wrong background */
-    :root {
-      --bg: #ffffff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #000000;
-      }
-    }
-
-    html {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      height: 100% !important;
-    }
-
-    body {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      overflow-x: hidden !important;
-    }
-  </style>
-
-
   <link rel="stylesheet" href="/CSS/footer.css" />
-  <style>
-    /* CRITICAL: Inline to prevent flash of wrong background */
-    :root {
-      --bg: #ffffff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #000000;
-      }
-    }
-
-    html {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      height: 100% !important;
-    }
-
-    body {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-      overflow-x: hidden !important;
-    }
-  </style>
-
-
-  <link rel="stylesheet" href="/CSS/th/index.css" />
 </head>
 
 <body class="nav-glass">
   <header id="site-header">
-    <a href="/" class="brand">STNET Radio</a>
-    <button id="hamburger-btn" aria-label="Toggle navigation">
+    <a href="/" class="brand" aria-label="STNET Radio home">STNET Radio</a>
+    <button id="hamburger-btn" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
       <span></span>
       <span></span>
     </button>
     <nav id="site-nav" aria-label="Main Menu">
       <ul>
         <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="/plus">SNR+</a></li>
+        <li><a href="/plus/">SNR+</a></li>
         <li><a href="/podcast/">Podcasts</a></li>
-        <li><a href="https://support.stnetradio.com/" target="_blank" rel="noopener">Support</a></li>
+        <li><a href="https://support.stnetradio.com/" target="_blank" rel="noopener noreferrer">Support</a></li>
       </ul>
     </nav>
   </header>
 
-
-
-  <div class="queen-tribute">
-    <figure>
-      <div class="portrait-wrap">
-        <img src="/img/Bajrakitiyabha-Princess-Rajasarini-Siribajra.jpg"
-          alt="Her Royal Highness Princess Bajrakitiyabha Narendiradebyavati" class="portrait" loading="eager"
-          decoding="async" fetchpriority="high">
+  <main>
+    <section class="hero" aria-labelledby="home-title">
+      <div class="hero-content">
+        <h1 id="home-title" class="fade-in-up">STNET Radio</h1>
+        <p class="hero-sub fade-in-up delay-1">A Home for Podcasts</p>
+        <p class="hero-desc fade-in-up delay-2">
+          Listen, learn, and discover stories that matter.<br />
+          Friendly, personal, and built for curiosity.
+        </p>
       </div>
-      <figcaption>
-        <span class="royal-sub">In Loving Memory of</span>
-        <span class="royal-title">Her Royal Highness Princess Bajrakitiyabha</span>
-        <span class="royal-title">Narendiradebyavati Kromluangrajasarinisiribajra</span>
-        <span class="royal-title">Mahavajrarajadhita</span>
-        <span class="royal-sub">With Profound Gratitude and Boundless Loyalty</span>
-        <span class="royal-sub">STNET Radio</span>
-        <span class="royal-year">1978 - 2026</span>
-      </figcaption>
-    </figure>
-  </div>
+    </section>
+
+    <div class="main-content">
+      <section class="grid-section" aria-labelledby="curated-listening-title">
+        <div class="text-block slide-in-left">
+          <h2 id="curated-listening-title">Curated Listening</h2>
+          <p>
+            <span class="font-brand">STNET Radio</span> is built around storytelling. Discover original podcasts,
+            thoughtful conversations, personal stories, and history through the <strong><span class="font-brand">STNET Radio</span> RSS</strong> network.
+          </p>
+          <a href="/podcast/" class="btn-solid">Explore All Podcasts</a>
+        </div>
+
+        <div class="card tilt-card slide-in-right">
+          <h3>Popular Now</h3>
+          <div class="podcast-feature">
+            <span class="podcast-title">Personal Stories &amp; History</span>
+            <span class="thai-title">Great storytelling. Engaging conversations.</span>
+          </div>
+          <p>Explore some of STNET Radio's most loved formats, from personal experiences to fascinating stories from the past.</p>
+        </div>
+      </section>
+
+      <section class="grid-section reverse-mobile" aria-labelledby="plus-title">
+        <div class="card red-border tilt-card slide-in-left">
+          <h3>STNET Radio<span class="plus-sign">+</span></h3>
+          <p>Unlock a more complete listening experience.</p>
+          <ul class="plus-features">
+            <li>Ad-free listening</li>
+            <li>Bonus and special episodes</li>
+            <li>Exclusive content</li>
+          </ul>
+          <div class="platforms">
+            <span>Available through supported podcast platforms</span>
+          </div>
+        </div>
+
+        <div class="text-block slide-in-right">
+          <h2 id="plus-title">Premium Experience</h2>
+          <p>For listeners who want more, discover <strong><span class="font-brand">STNET Radio+</span></strong> and its expanded listening experience.</p>
+          <a href="/plus/" class="btn-solid">Discover <span class="font-brand">STNET Radio+</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <footer>
-    <p class="copyright">&copy; 2025 <span class="font-brand">STNET Radio</span>. All rights reserved.</p>
+    <div class="social-links" aria-label="STNET Radio social media">
+      <a href="https://facebook.com/stnetradio" aria-label="STNET Radio on Facebook">FB</a>
+      <a href="https://x.com/stnetradio" aria-label="STNET Radio on X">X</a>
+      <a href="https://instagram.com/stnetradio" aria-label="STNET Radio on Instagram">IG</a>
+    </div>
+    <p class="copyright">&copy; 2026 <span class="font-brand">STNET Radio</span>. All rights reserved.</p>
     <p>
       <a href="/Privacy-Policy/" class="st-link">Privacy Policy</a> |
       <a href="/Terms-of-Service/" class="st-link">Terms of Service</a>
     </p>
   </footer>
-
 
   <script src="/JavaScript/viewport-fix.js"></script>
   <script src="/JavaScript/mobile-menu.js"></script>

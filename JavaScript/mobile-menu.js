@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!hamburger || !header) return;
 
   const mobileQuery = window.matchMedia('(max-width: 700px)');
+  const menuIcon = hamburger.querySelector('i');
 
   const setOpenState = (open, { restoreFocus = false } = {}) => {
     const shouldOpen = Boolean(open && mobileQuery.matches);
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('no-scroll', shouldOpen);
     hamburger.setAttribute('aria-expanded', String(shouldOpen));
     hamburger.setAttribute('aria-label', shouldOpen ? 'Close navigation' : 'Toggle navigation');
+
+    if (menuIcon) {
+      menuIcon.classList.toggle('fa-bars', !shouldOpen);
+      menuIcon.classList.toggle('fa-xmark', shouldOpen);
+    }
 
     if (shouldOpen && nav) {
       const firstLink = nav.querySelector('a');

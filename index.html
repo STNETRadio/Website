@@ -1,77 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>STNET Radio | A Home for Podcasts</title>
-  <meta name="description" content="Listen, learn, and discover stories that matter with STNET Radio. Explore podcasts, original storytelling, and STNET Radio+." />
+  <title>STNET Radio | Stories Worth Hearing</title>
+  <meta name="description" content="Discover STNET Radio originals, featured shows, latest podcast episodes, STNET Radio+, and ways to listen across your favorite platforms." />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <meta name="format-detection" content="telephone=no, email=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-
   <link rel="canonical" href="https://stnetradio.com/" />
   <link rel="apple-touch-startup-image" href="/img/STNET-App.png" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="icon" href="/img/fav.ico" type="image/x-icon" />
-
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://stnetradio.com/" />
-  <meta property="og:title" content="STNET Radio | A Home for Podcasts" />
-  <meta property="og:description" content="Listen, learn, and discover stories that matter. Friendly, personal, and built for curiosity." />
+  <meta property="og:title" content="STNET Radio | Stories Worth Hearing" />
+  <meta property="og:description" content="Original podcasts, thoughtful conversations, history and personal stories — made for curious listeners." />
   <meta property="og:image" content="https://stnetradio.com/img/og/home.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="STNET Radio | A Home for Podcasts" />
-  <meta name="twitter:description" content="Listen, learn, and discover stories that matter. Friendly, personal, and built for curiosity." />
+  <meta name="twitter:title" content="STNET Radio | Stories Worth Hearing" />
+  <meta name="twitter:description" content="Original podcasts, thoughtful conversations, history and personal stories — made for curious listeners." />
   <meta name="twitter:image" content="https://stnetradio.com/img/og/home.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
-    :root {
-      --bg: #ffffff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #000000;
-      }
-    }
-
-    html,
-    body {
-      background-color: var(--bg) !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100dvh !important;
-    }
-
-    html {
-      height: 100% !important;
-    }
-
-    body {
-      overflow-x: hidden !important;
-    }
+    :root { --bg: #ffffff; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #000000; } }
+    html, body { background-color: var(--bg) !important; margin: 0 !important; padding: 0 !important; min-height: 100dvh !important; }
+    html { height: 100% !important; }
+    body { overflow-x: hidden !important; }
   </style>
-
   <link rel="stylesheet" href="/CSS/brand.css" />
   <link rel="stylesheet" href="/CSS/index.css" />
   <link rel="stylesheet" href="/CSS/footer.css" />
 </head>
-
 <body class="nav-glass">
   <header id="site-header">
     <a href="/" class="brand" aria-label="STNET Radio home">STNET Radio</a>
-    <button id="hamburger-btn" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
+    <button id="hamburger-btn" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
     <nav id="site-nav" aria-label="Main Menu">
       <ul>
         <li><a href="/" aria-current="page">Home</a></li>
@@ -83,59 +52,114 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="home-title">
-      <div class="hero-content">
-        <h1 id="home-title" class="fade-in-up">STNET Radio</h1>
-        <p class="hero-sub fade-in-up delay-1">A Home for Podcasts</p>
-        <p class="hero-desc fade-in-up delay-2">
-          Listen, learn, and discover stories that matter.<br />
-          Friendly, personal, and built for curiosity.
-        </p>
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+      <div class="home-shell hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow">Independent audio • Original stories</span>
+          <h1 id="home-title">Stories worth<br><span>hearing.</span></h1>
+          <p class="hero-lede">STNET Radio brings together original podcasts, personal stories, history, culture and thoughtful conversations for curious listeners.</p>
+          <div class="hero-actions">
+            <a href="/podcast/" class="button button-primary">Explore podcasts</a>
+            <a href="#latest" class="button button-secondary">Latest episodes</a>
+          </div>
+        </div>
+        <div class="hero-now" aria-label="Featured STNET Radio shows">
+          <div class="hero-card hero-card-main">
+            <span class="card-kicker">Featured original</span>
+            <img src="/img/podcast/TMSA.png" alt="เล่าเรื่องเก่ง podcast artwork" />
+            <div><strong>เล่าเรื่องเก่ง</strong><span>Stories • History</span></div>
+          </div>
+          <div class="hero-stack-card stack-one"><img src="/img/podcast/LITALK.png" alt="" /></div>
+          <div class="hero-stack-card stack-two"><img src="/img/podcast/TIDKAB.png" alt="" /></div>
+        </div>
       </div>
     </section>
 
-    <div class="main-content">
-      <section class="grid-section" aria-labelledby="curated-listening-title">
-        <div class="text-block slide-in-left">
-          <h2 id="curated-listening-title">Curated Listening</h2>
-          <p>
-            <span class="font-brand">STNET Radio</span> is built around storytelling. Discover original podcasts,
-            thoughtful conversations, personal stories, and history through the <strong><span class="font-brand">STNET Radio</span> RSS</strong> network.
-          </p>
-          <a href="/podcast/" class="btn-solid">Explore All Podcasts</a>
+    <section class="home-section intro-section" id="about" aria-labelledby="about-title">
+      <div class="home-shell split-intro">
+        <div>
+          <span class="eyebrow">What is STNET Radio?</span>
+          <h2 id="about-title">A home for ideas, voices and stories.</h2>
         </div>
+        <div class="intro-copy">
+          <p>STNET Radio is an independent podcast network focused on storytelling that feels personal, useful and memorable. Our shows move between history, culture, education and everyday experiences.</p>
+          <p>We distribute episodes through STNET Radio RSS and major podcast platforms, while continuing to build a better listening experience on the web.</p>
+          <a href="/rss.html" class="text-link">Discover STNET Radio RSS <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
 
-        <div class="card tilt-card slide-in-right">
-          <h3>Popular Now</h3>
-          <div class="podcast-feature">
-            <span class="podcast-title">Personal Stories &amp; History</span>
-            <span class="thai-title">Great storytelling. Engaging conversations.</span>
-          </div>
-          <p>Explore some of STNET Radio's most loved formats, from personal experiences to fascinating stories from the past.</p>
+    <section class="home-section" id="featured" aria-labelledby="featured-title">
+      <div class="home-shell">
+        <div class="section-heading">
+          <div><span class="eyebrow">Originals</span><h2 id="featured-title">Featured shows</h2></div>
+          <a href="/podcast/" class="text-link">View all podcasts <span aria-hidden="true">→</span></a>
         </div>
-      </section>
+        <div class="show-grid">
+          <a class="show-card" href="/podcast/">
+            <div class="show-art"><img src="/img/podcast/TMSA.png" alt="เล่าเรื่องเก่ง cover" loading="lazy" /></div>
+            <div class="show-meta"><span>History • Original</span><h3>เล่าเรื่องเก่ง</h3><p>Stories and history told with curiosity, personality and a love of the details.</p></div>
+          </a>
+          <a class="show-card" href="/podcast/">
+            <div class="show-art"><img src="/img/podcast/LITALK.png" alt="Talking with LITALK cover" loading="lazy" /></div>
+            <div class="show-meta"><span>Education • Conversations</span><h3>Talking with LITALK</h3><p>Conversations from LITALK Education exploring learning, language and ideas.</p></div>
+          </a>
+          <a class="show-card" href="/podcast/">
+            <div class="show-art"><img src="/img/podcast/TIDKAB.png" alt="ติดกับเรื่องราว cover" loading="lazy" /></div>
+            <div class="show-meta"><span>Documentary • Stories</span><h3>ติดกับเรื่องราว</h3><p>A documentary-style show following stories, people and moments worth remembering.</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <section class="grid-section reverse-mobile" aria-labelledby="plus-title">
-        <div class="card red-border tilt-card slide-in-left">
-          <h3>STNET Radio<span class="plus-sign">+</span></h3>
-          <p>Unlock a more complete listening experience.</p>
-          <ul class="plus-features">
-            <li>Ad-free listening</li>
-            <li>Bonus and special episodes</li>
-            <li>Exclusive content</li>
-          </ul>
-          <div class="platforms">
-            <span>Available through supported podcast platforms</span>
-          </div>
+    <section class="home-section latest-section" id="latest" aria-labelledby="latest-title">
+      <div class="home-shell">
+        <div class="section-heading">
+          <div><span class="eyebrow">Fresh from the feed</span><h2 id="latest-title">Latest episodes</h2></div>
+          <a href="/podcast/" class="text-link">Open podcast player <span aria-hidden="true">→</span></a>
         </div>
+        <div id="latestEpisodes" class="episode-grid" aria-live="polite">
+          <div class="episode-loading">Loading the latest episodes…</div>
+        </div>
+      </div>
+    </section>
 
-        <div class="text-block slide-in-right">
-          <h2 id="plus-title">Premium Experience</h2>
-          <p>For listeners who want more, discover <strong><span class="font-brand">STNET Radio+</span></strong> and its expanded listening experience.</p>
-          <a href="/plus/" class="btn-solid">Discover <span class="font-brand">STNET Radio+</span></a>
+    <section class="home-section listen-section" aria-labelledby="listen-title">
+      <div class="home-shell listen-panel">
+        <div>
+          <span class="eyebrow">Listen everywhere</span>
+          <h2 id="listen-title">Take STNET Radio with you.</h2>
+          <p>Listen through the STNET Radio web player or continue on your preferred podcast platform.</p>
         </div>
-      </section>
-    </div>
+        <div class="platform-grid">
+          <a class="platform-card" href="https://podcasts.apple.com/th/podcast/id1486563415" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">◉</span><div><small>Listen on</small><strong>Apple Podcasts</strong></div><span>↗</span></a>
+          <a class="platform-card" href="https://open.spotify.com/search/STNET%20Radio/podcasts" target="_blank" rel="noopener noreferrer"><span class="platform-symbol">●</span><div><small>Find us on</small><strong>Spotify</strong></div><span>↗</span></a>
+          <a class="platform-card" href="/podcast/"><span class="platform-symbol">▶</span><div><small>Listen here</small><strong>STNET Radio Web</strong></div><span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section plus-section" aria-labelledby="plus-title">
+      <div class="home-shell plus-panel">
+        <div class="plus-copy">
+          <span class="plus-badge">STNET Radio+</span>
+          <h2 id="plus-title">More of the stories you love.</h2>
+          <p>Go further with an expanded listening experience including ad-free listening, special episodes and exclusive content where available.</p>
+          <div class="plus-actions"><a href="/plus/" class="button button-light">Discover SNR+</a><a href="/plus/availability.html" class="plus-link">Check availability →</a></div>
+        </div>
+        <div class="plus-mark" aria-hidden="true">+</div>
+      </div>
+    </section>
+
+    <section class="home-section closing-section">
+      <div class="home-shell closing-panel">
+        <span class="eyebrow">Keep exploring</span>
+        <h2>One network.<br>Many stories.</h2>
+        <a href="/podcast/" class="button button-primary">Start listening</a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -145,15 +169,12 @@
       <a href="https://instagram.com/stnetradio" aria-label="STNET Radio on Instagram">IG</a>
     </div>
     <p class="copyright">&copy; 2026 <span class="font-brand">STNET Radio</span>. All rights reserved.</p>
-    <p>
-      <a href="/Privacy-Policy/" class="st-link">Privacy Policy</a> |
-      <a href="/Terms-of-Service/" class="st-link">Terms of Service</a>
-    </p>
+    <p><a href="/Privacy-Policy/" class="st-link">Privacy Policy</a> | <a href="/Terms-of-Service/" class="st-link">Terms of Service</a></p>
   </footer>
 
   <script src="/JavaScript/viewport-fix.js"></script>
   <script src="/JavaScript/mobile-menu.js"></script>
+  <script src="/JavaScript/homepage.js"></script>
   <script src="/JavaScript/pwa.js"></script>
 </body>
-
 </html>

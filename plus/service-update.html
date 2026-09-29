@@ -36,7 +36,259 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/CSS/brand.css">
   <link rel="stylesheet" href="/CSS/plus/footer.css">
-  <link rel="stylesheet" href="/CSS/plus/announcement.css">
+  <!-- Replaces /CSS/plus/announcement.css for this page -->
+  <style>
+    .announcement-main {
+      --a-ink: #111;
+      --a-muted: #5f5f66;
+      --a-line: #dcdce0;
+      --a-panel: #f5f5f7;
+      --a-accent: var(--red, #e3262e);
+      font-family: "IBM Plex Sans Thai", "Inter", system-ui, sans-serif;
+      color: var(--a-ink);
+      padding: clamp(40px, 8vw, 96px) 24px clamp(56px, 9vw, 112px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .announcement-main {
+        --a-ink: #f2f2f4;
+        --a-muted: #a2a2aa;
+        --a-line: #2c2c31;
+        --a-panel: #141416;
+      }
+    }
+
+    :root[data-theme="dark"] .announcement-main {
+      --a-ink: #f2f2f4;
+      --a-muted: #a2a2aa;
+      --a-line: #2c2c31;
+      --a-panel: #141416;
+    }
+
+    .announcement-article {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .announcement-label {
+      display: inline-block;
+      margin: 0 0 24px;
+      padding: 6px 12px;
+      border: 1px solid var(--a-accent);
+      border-radius: 999px;
+      color: var(--a-accent);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .announcement-article h1 {
+      margin: 0 0 20px;
+      font-size: clamp(2.25rem, 7vw, 4.25rem);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+    }
+
+    .announcement-meta {
+      margin: 0;
+      color: var(--a-muted);
+      font-size: 0.9375rem;
+    }
+
+    .announcement-rule {
+      height: 4px;
+      width: 64px;
+      margin: 36px 0;
+      background: var(--a-accent);
+      border-radius: 2px;
+    }
+
+    .announcement-copy {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+    }
+
+    .announcement-copy p {
+      margin: 0 0 20px;
+      max-width: 62ch;
+    }
+
+    .status {
+      margin: 32px 0 8px;
+      padding: 16px 20px;
+      background: var(--a-panel);
+      border-left: 4px solid var(--a-accent);
+      border-radius: 4px;
+      font-weight: 500;
+      max-width: none;
+    }
+
+    /* Timeline: a real sequence, so the connecting line carries meaning */
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 48px;
+      padding-top: 32px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--a-line);
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: -32px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--a-panel);
+      border: 2px solid var(--a-muted);
+    }
+
+    .timeline-item:nth-child(2)::before {
+      background: var(--a-accent);
+      border-color: var(--a-accent);
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--a-muted);
+    }
+
+    .timeline-item .timeline-date {
+      margin-bottom: 6px;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--a-ink);
+    }
+
+    .closing-note {
+      margin: 56px 0 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--a-line);
+    }
+
+    .closing-note strong {
+      display: block;
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .closing-note p {
+      margin: 8px 0 0;
+      font-size: 1.25rem;
+      color: var(--a-accent);
+      font-weight: 600;
+    }
+
+    .signature {
+      font-weight: 600;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 20px;
+      border: 1px solid var(--a-ink);
+      border-radius: 999px;
+      color: var(--a-ink);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--a-ink);
+      color: var(--bg, #fff);
+    }
+
+    .back-link:focus-visible {
+      outline: 3px solid var(--a-accent);
+      outline-offset: 3px;
+    }
+
+    .announcement-copy h2 {
+      margin: 48px 0 16px;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .announcement-copy a:not(.back-link) {
+      color: var(--a-accent);
+      text-underline-offset: 3px;
+    }
+
+    .faq {
+      margin: 0 0 32px;
+      border-top: 1px solid var(--a-line);
+      max-width: 62ch;
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--a-line);
+    }
+
+    .faq summary {
+      padding: 16px 0;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .faq summary:focus-visible {
+      outline: 3px solid var(--a-accent);
+      outline-offset: 2px;
+    }
+
+    .faq details p {
+      margin: 0 0 16px;
+      color: var(--a-muted);
+    }
+
+    @media (max-width: 640px) {
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 0 0 0 32px;
+      }
+
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 7px;
+        right: auto;
+        width: 2px;
+        height: auto;
+      }
+
+      .timeline-item::before {
+        top: 4px;
+        left: -32px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .back-link { transition: none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -69,39 +321,81 @@
       <div class="announcement-rule" aria-hidden="true"></div>
 
       <div class="announcement-copy">
-        <p>Dear STNET Radio+ listeners,</p>
+        <p>Hi everyone,</p>
 
-        <p>
-          STNET Radio is closing the <strong>STNET Radio+ trial service on Apple Podcasts and Spotify</strong>.
-          Listeners may continue to subscribe through September 30, 2026, based on Bangkok time.
+        <p>We have some news that we're sad to share. We're closing the <strong>STNET Radio+ trial on Apple
+          Podcasts and Spotify</strong>. You can still subscribe until September 30, 2026 (Bangkok time), and
+          after that, new sign-ups will close for good.</p>
+
+        <p>We started STNET Radio+ as a trial to see if a paid, extra-content version of the show could work.
+          We learned a lot from it, mostly from you. This page explains what's happening, when, and what it
+          means for you.</p>
+
+        <p class="status" id="sub-status" role="status">
+          You can still subscribe until September 30, 2026 (Bangkok time).
         </p>
+
+        <h2>The dates that matter</h2>
 
         <div class="timeline" aria-label="Important dates">
           <div class="timeline-item">
             <p class="timeline-date">September 1, 2026</p>
-            <p>STNET Radio+ stopped publishing and updating content.</p>
+            <p>We stopped publishing new content and updates to STNET Radio+.</p>
           </div>
           <div class="timeline-item">
             <p class="timeline-date">September 30, 2026</p>
-            <p>Last day to subscribe, based on Bangkok time.</p>
+            <p>This is the last day to subscribe, by Bangkok time.</p>
           </div>
           <div class="timeline-item">
-            <p class="timeline-date">After this date</p>
-            <p>Monthly and annual members retain access until the end of their current paid subscription term.</p>
+            <p class="timeline-date">After that</p>
+            <p>Monthly and annual members keep their access until their current paid term ends.</p>
           </div>
         </div>
 
-        <p>
-          Thank you for being part of the STNET Radio+ trial and for sharing your support and feedback throughout this
-          journey.
-        </p>
+        <h2>What this means for you</h2>
 
-        <div class="closing-note">
-          <strong>This journey is not over.</strong>
-          <p>See you again in 2027.</p>
+        <p><strong>If you're a member already,</strong> you don't need to do anything right now. You'll keep
+          your access until the end of the term you've already paid for, whether that's a month or a year.</p>
+
+        <p><strong>If you're thinking about joining,</strong> you can, until September 30. Just keep in mind
+          that we've stopped adding new content, so you'd be joining for what's already there.</p>
+
+        <p><strong>If you're not a member,</strong> nothing changes for you. Our free shows are still here, and
+          you can find them on the <a href="/podcast/">Podcasts page</a>.</p>
+
+        <h2>Questions you might have</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Why are you closing the trial?</summary>
+            <p>It was always a trial, and it's now reached its end. We'd rather close it clearly and give you
+              plenty of notice than let it fade out slowly.</p>
+          </details>
+          <details>
+            <summary>Will I lose access straight away?</summary>
+            <p>No. Members keep access until the end of their current paid term.</p>
+          </details>
+          <details>
+            <summary>How do I manage or cancel my subscription?</summary>
+            <p>Your subscription is handled by Apple Podcasts or Spotify, depending on where you joined. You
+              can check your renewal settings in your account with them.</p>
+          </details>
+          <details>
+            <summary>I still have a question. Who can I ask?</summary>
+            <p>Please get in touch through our <a href="https://support.stnetradio.com" target="_blank"
+              rel="noopener">Support page</a> and we'll help.</p>
+          </details>
         </div>
 
-        <p class="signature">STNET Radio+ Team</p>
+        <p>Thank you for trying STNET Radio+ with us. Every listen, message and bit of feedback helped us,
+          and we really are grateful.</p>
+
+        <div class="closing-note">
+          <strong>This isn't goodbye.</strong>
+          <p>We'll see you again in 2027.</p>
+        </div>
+
+        <p class="signature">With thanks,<br>The STNET Radio+ Team</p>
       </div>
 
       <a class="back-link" href="/plus/">← Back to STNET Radio+</a>
@@ -119,6 +413,19 @@
 
   <script src="/JavaScript/viewport-fix.js"></script>
   <script src="/JavaScript/mobile-menu.js"></script>
+  <script>
+    // Update the status line based on the current Bangkok date
+    (function () {
+      var el = document.getElementById("sub-status");
+      if (!el) return;
+      var today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Bangkok" }).format(new Date());
+      if (today > "2026-09-30") {
+        el.textContent = "New sign-ups have closed. Current members keep access until their paid term ends.";
+      } else if (today === "2026-09-30") {
+        el.textContent = "Today is the last day to subscribe (Bangkok time).";
+      }
+    })();
+  </script>
 </body>
 
 </html>
